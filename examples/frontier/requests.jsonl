@@ -1,0 +1,11 @@
+{"url":"https://example.test/items?a=1&utm_source=one#top","source":"synthetic:tracking-a"}
+{"url":"https://example.test/items?a=1&utm_source=two#bottom","source":"synthetic:tracking-b"}
+{"url":"https://example.test/items?a=1","source":"synthetic:plain"}
+{"url":"https://example.test/items?a=1","source":"synthetic:exact-copy"}
+{"url":"https://example.test/items?tag=b&tag=a&empty=","source":"synthetic:ordered-tags-ba"}
+{"url":"https://example.test/items?tag=a&tag=b&empty=","source":"synthetic:ordered-tags-ab"}
+{"url":"https://example.test/items?tag=a&tag=a&empty=","source":"synthetic:repeated-values"}
+{"url":"https://example.test/items?a=1&utm_source=one","method":"POST","body":"{\"page\":1}","source":"synthetic:post-one"}
+{"url":"https://example.test/items?a=1&utm_source=two","method":"POST","body":"{\"page\":2}","source":"synthetic:post-two"}
+{"url":"https://example.test/items?a=1&utm_source=one","method":"POST","body":"{ \"page\":1}","source":"synthetic:post-spacing"}
+{"url":"https://bücher.test/%7e?value=%FF&value=+","source":"synthetic:idna-and-octets"}

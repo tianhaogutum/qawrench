@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "origins": {
+    "https://example.test": {
+      "status": "available",
+      "source": "synthetic:colonless-core",
+      "text": "User-agent: AuditBot\nDisallow /private\n"
+    }
+  }
+}

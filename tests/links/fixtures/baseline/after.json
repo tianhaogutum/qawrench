@@ -1,0 +1,16 @@
+[
+  {
+    "source": "page.md",
+    "url": "https://example.invalid/broken",
+    "line": 8,
+    "column": 1,
+    "occurrenceId": "install-guide"
+  },
+  {
+    "source": "page.md",
+    "url": "https://example.invalid/broken",
+    "line": 9,
+    "column": 1,
+    "occurrenceId": "new-guide"
+  }
+]

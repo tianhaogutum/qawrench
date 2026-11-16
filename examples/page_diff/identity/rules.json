@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "required_region": "main",
+  "normalize_whitespace": true,
+  "sibling_identity": [{"selector": "article", "key_attribute": "data-id"}]
+}

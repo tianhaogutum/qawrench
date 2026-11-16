@@ -1,0 +1,56 @@
+{
+  "_fixture": "SYNTHETIC OFFLINE LHR PROJECTION; no page was measured",
+  "lighthouseVersion": "12.8.2",
+  "gatherMode": "navigation",
+  "requestedUrl": "https://synthetic.example.test/",
+  "mainDocumentUrl": "https://synthetic.example.test/",
+  "finalUrl": "https://synthetic.example.test/",
+  "finalDisplayedUrl": "https://synthetic.example.test/",
+  "fetchTime": "2026-01-01T00:00:00.000Z",
+  "userAgent": "SyntheticChrome/136.0.0.0",
+  "environment": {
+    "hostUserAgent": "SyntheticChrome/136.0.0.0",
+    "networkUserAgent": "SyntheticMobile/136.0.0.0",
+    "benchmarkIndex": 1000
+  },
+  "runWarnings": [],
+  "configSettings": {
+    "output": [
+      "json"
+    ],
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.56,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "screenEmulation": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "emulatedUserAgent": "SyntheticMobile/136.0.0.0",
+    "disableStorageReset": false,
+    "locale": "en-US",
+    "onlyAudits": [
+      "largest-contentful-paint"
+    ]
+  },
+  "audits": {
+    "largest-contentful-paint": {
+      "id": "largest-contentful-paint",
+      "title": "Largest Contentful Paint",
+      "description": "Synthetic LCP fixture",
+      "score": 0.5,
+      "scoreDisplayMode": "numeric",
+      "numericValue": 1990,
+      "numericUnit": "millisecond"
+    }
+  }
+}

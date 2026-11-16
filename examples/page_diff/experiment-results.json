@@ -1,0 +1,95 @@
+{
+  "synthetic_only": true,
+  "baseline": "BeautifulSoup get_text(separator='\\n'), splitlines, unified_diff(n=0); count + and - lines, excluding headers",
+  "pairs": [
+    {
+      "pair": "identical",
+      "raw_text_changed_lines": 0,
+      "semantic_findings": 0,
+      "expected_substantive_findings": 0,
+      "retained": 0,
+      "suppressed_differences": 0
+    },
+    {
+      "pair": "reorder-only",
+      "raw_text_changed_lines": 8,
+      "semantic_findings": 0,
+      "expected_substantive_findings": 0,
+      "retained": 0,
+      "suppressed_differences": 1
+    },
+    {
+      "pair": "whitespace-only",
+      "raw_text_changed_lines": 2,
+      "semantic_findings": 0,
+      "expected_substantive_findings": 0,
+      "retained": 0,
+      "suppressed_differences": 1
+    },
+    {
+      "pair": "reorder-and-noise",
+      "raw_text_changed_lines": 16,
+      "semantic_findings": 0,
+      "expected_substantive_findings": 0,
+      "retained": 0,
+      "suppressed_differences": 6
+    },
+    {
+      "pair": "price-with-noise",
+      "raw_text_changed_lines": 16,
+      "semantic_findings": 1,
+      "expected_substantive_findings": 1,
+      "retained": 1,
+      "suppressed_differences": 6
+    },
+    {
+      "pair": "addition-with-noise",
+      "raw_text_changed_lines": 16,
+      "semantic_findings": 1,
+      "expected_substantive_findings": 1,
+      "retained": 1,
+      "suppressed_differences": 7
+    },
+    {
+      "pair": "removal-with-noise",
+      "raw_text_changed_lines": 12,
+      "semantic_findings": 1,
+      "expected_substantive_findings": 1,
+      "retained": 1,
+      "suppressed_differences": 7
+    },
+    {
+      "pair": "text-with-noise",
+      "raw_text_changed_lines": 16,
+      "semantic_findings": 1,
+      "expected_substantive_findings": 1,
+      "retained": 1,
+      "suppressed_differences": 6
+    },
+    {
+      "pair": "attribute-with-noise",
+      "raw_text_changed_lines": 16,
+      "semantic_findings": 1,
+      "expected_substantive_findings": 1,
+      "retained": 1,
+      "suppressed_differences": 6
+    },
+    {
+      "pair": "attribute-only",
+      "raw_text_changed_lines": 0,
+      "semantic_findings": 1,
+      "expected_substantive_findings": 1,
+      "retained": 1,
+      "suppressed_differences": 0
+    }
+  ],
+  "totals": {
+    "raw_text_changed_lines": 102,
+    "semantic_findings": 6,
+    "expected_substantive_findings": 6,
+    "retained": 6,
+    "missed": 0,
+    "unexpected": 0
+  },
+  "limitations": "Changed lines and semantic findings have different units. This is neither a changedetection.io benchmark nor evidence of real-site improvement or runtime speedup."
+}

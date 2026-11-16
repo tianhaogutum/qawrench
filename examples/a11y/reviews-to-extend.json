@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "a11y-reviewed-exceptions",
+  "identityPolicy": "engine-page-rule-full-target/sha256-v1",
+  "exceptions": [
+    {
+      "engine": "axe",
+      "page": "https://fixture.test/",
+      "rule": "image-alt",
+      "target": ["#old-logo"],
+      "owner": "fixture-team",
+      "reason": "Synthetic expired review; the old logo is now fixed",
+      "expires": "2026-11-01",
+      "maxOccurrences": 1
+    },
+    {
+      "engine": "axe",
+      "page": "https://fixture.test/",
+      "rule": "image-alt",
+      "target": ["#retired-promo"],
+      "owner": "fixture-team",
+      "reason": "Synthetic stale review for an absent target",
+      "expires": "2026-12-01",
+      "maxOccurrences": 1
+    }
+  ]
+}

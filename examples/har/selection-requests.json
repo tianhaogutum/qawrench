@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://stage.example/select?x=a+b&x=a%20b#frag",
+      "postData": {
+        "mimeType": "multipart/form-data; boundary=\"select:42\"",
+        "encoding": "base64",
+        "text": "LS1zZWxlY3Q6NDINCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iZmlsZSI7IGZpbGVuYW1lPSIvbmV2ZXIvcmVhZC5iaW4iDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQoA/w0KgA0KLS1zZWxlY3Q6NDItLQ0K",
+        "params": [
+          {
+            "name": "file",
+            "fileName": "/never/read.bin",
+            "_extension": true
+          }
+        ],
+        "_payload": {
+          "retain": true
+        }
+      },
+      "id": "select-0"
+    },
+    {
+      "method": "POST",
+      "url": "https://stage.example/select?x=a+b&x=a%20b#frag",
+      "postData": {
+        "mimeType": "application/octet-stream",
+        "encoding": "base64",
+        "text": "w6kA"
+      },
+      "id": "select-1"
+    },
+    {
+      "method": "GET",
+      "url": "https://stage.example/select?x=a+b&x=a%20b#frag",
+      "postData": {
+        "mimeType": "multipart/form-data; boundary=\"select:42\"",
+        "encoding": "base64",
+        "text": "LS1zZWxlY3Q6NDINCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iZmlsZSI7IGZpbGVuYW1lPSIvbmV2ZXIvcmVhZC5iaW4iDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQoA/w0KgA0KLS1zZWxlY3Q6NDItLQ0K",
+        "params": [
+          {
+            "name": "file",
+            "fileName": "/never/read.bin",
+            "_extension": true
+          }
+        ],
+        "_payload": {
+          "retain": true
+        }
+      },
+      "id": "select-2"
+    }
+  ]
+}

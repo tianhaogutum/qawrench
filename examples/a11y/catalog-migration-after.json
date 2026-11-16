@@ -1,0 +1,95 @@
+{
+  "testEngine": {
+    "name": "axe-core",
+    "version": "4.11.0"
+  },
+  "testRunner": {
+    "name": "axe"
+  },
+  "testEnvironment": {
+    "userAgent": "Synthetic offline fixture, no browser was run",
+    "windowWidth": 1024,
+    "windowHeight": 768,
+    "orientationType": "landscape-primary",
+    "orientationAngle": 0
+  },
+  "timestamp": "2026-11-11T00:00:00.000Z",
+  "toolOptions": {
+    "reporter": "v1",
+    "resultTypes": [
+      "violations",
+      "incomplete",
+      "passes",
+      "inapplicable"
+    ]
+  },
+  "violations": [
+    {
+      "id": "replacement-name",
+      "impact": "critical",
+      "tags": [
+        "wcag2a",
+        "wcag111"
+      ],
+      "description": "Ensure images have alternative text",
+      "help": "Images must have alternative text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/image-alt?application=axeAPI",
+      "nodes": [
+        {
+          "target": [
+            "#shared"
+          ],
+          "html": "<img>",
+          "impact": "critical",
+          "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute",
+          "any": [
+            {
+              "id": "has-alt",
+              "impact": "critical",
+              "message": "Element does not have an alt attribute",
+              "data": null,
+              "relatedNodes": []
+            }
+          ],
+          "all": [],
+          "none": []
+        },
+        {
+          "target": [
+            "#added"
+          ],
+          "html": "<img>",
+          "impact": "critical",
+          "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute",
+          "any": [
+            {
+              "id": "has-alt",
+              "impact": "critical",
+              "message": "Element does not have an alt attribute",
+              "data": null,
+              "relatedNodes": []
+            }
+          ],
+          "all": [],
+          "none": []
+        }
+      ]
+    }
+  ],
+  "passes": [],
+  "inapplicable": [
+    {
+      "id": "still-rule",
+      "impact": null,
+      "tags": [
+        "wcag2a",
+        "wcag111"
+      ],
+      "description": "Ensure images have alternative text",
+      "help": "Images must have alternative text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/image-alt?application=axeAPI",
+      "nodes": []
+    }
+  ],
+  "incomplete": []
+}

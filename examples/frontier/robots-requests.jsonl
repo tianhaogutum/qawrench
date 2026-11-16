@@ -1,0 +1,4 @@
+{"url":"https://example.test/private/x","source":"synthetic:seed"}
+{"url":"https://EXAMPLE.test:443/private/public","source":"synthetic:seed"}
+{"url":"http://example.test/private","source":"synthetic:seed"}
+{"url":"https://down.test/x","source":"synthetic:seed"}

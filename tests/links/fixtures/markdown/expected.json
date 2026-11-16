@@ -1,0 +1,13 @@
+{
+  "https://example.invalid/a(b)": [
+    {"startLine":2,"startColumn":9,"endLine":2,"endColumn":39},
+    {"startLine":2,"startColumn":47,"endLine":2,"endColumn":75},
+    {"startLine":3,"startColumn":1,"endLine":3,"endColumn":15},
+    {"startLine":3,"startColumn":20,"endLine":3,"endColumn":30},
+    {"startLine":3,"startColumn":35,"endLine":3,"endColumn":43},
+    {"startLine":7,"startColumn":9,"endLine":7,"endColumn":39}
+  ],
+  "https://example.invalid/?a=1&b=2": [
+    {"startLine":6,"startColumn":11,"endLine":6,"endColumn":47}
+  ]
+}

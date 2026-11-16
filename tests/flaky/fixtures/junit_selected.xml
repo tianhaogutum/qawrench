@@ -1,0 +1,11 @@
+<testsuite tests="9" failures="2" errors="2" skipped="3">
+  <testcase name="passed" />
+  <testcase name="failed"><failure type="failed" /></testcase>
+  <testcase name="timeout"><error type="timedOut" /></testcase>
+  <testcase name="interrupted"><error type="interrupted" /></testcase>
+  <testcase name="skipped"><skipped type="skipped" /></testcase>
+  <testcase name="unobserved"><skipped type="unavailable" /></testcase>
+  <testcase name="flaky"><!-- final pass, prior failure is a property --></testcase>
+  <testcase name="expected failure"><skipped type="expected_failure" /></testcase>
+  <testcase name="unexpected pass"><failure type="unexpected_pass" /></testcase>
+</testsuite>

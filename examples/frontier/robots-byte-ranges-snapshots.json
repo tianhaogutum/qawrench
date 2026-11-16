@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "origins": {
+    "https://EXAMPLE.test:443/": {
+      "status": "available",
+      "source": "synthetic:byte-ranges",
+      "text": "\ufeffDisallow /private # caf\u00e9 \ud83d\udc08\r\n# pr\u00e9face \u6f22\rUser-agent: AuditBot\nAllow: /private/public\r\nDisallow /private # r\u00e9p\u00e9t\u00e9\nDisallow /private # r\u00e9p\u00e9t\u00e9\rUser-agent: BadBot/1 # \u00fc\r\nAllow: /orphan # \u00fc\rUser-agent: OtherBot\nDisallow: bad%xx # \u6f22\r\nUser-agent: AuditBot\nAllow: /private/public\rAllow nope # fin \u00e9"
+    },
+    "https://unused.test": {
+      "status": "available",
+      "source": "unused",
+      "text": "Allow unused"
+    }
+  }
+}

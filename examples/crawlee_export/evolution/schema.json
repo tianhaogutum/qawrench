@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "evolution": "nullable-union",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int64"
+    },
+    {
+      "name": "note",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "score",
+      "type": "int64",
+      "nullable": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "basic.md": [
+    {"startLine": 1, "startColumn": 27, "endLine": 1, "endColumn": 45},
+    {"startLine": 1, "startColumn": 68, "endLine": 1, "endColumn": 86}
+  ],
+  "containers.md": [
+    {"startLine": 3, "startColumn": 28, "endLine": 3, "endColumn": 31},
+    {"startLine": 3, "startColumn": 47, "endLine": 3, "endColumn": 57},
+    {"startLine": 4, "startColumn": 34, "endLine": 4, "endColumn": 52},
+    {"startLine": 4, "startColumn": 69, "endLine": 4, "endColumn": 74},
+    {"startLine": 5, "startColumn": 26, "endLine": 5, "endColumn": 29},
+    {"startLine": 5, "startColumn": 51, "endLine": 5, "endColumn": 69},
+    {"startLine": 7, "startColumn": 23, "endLine": 7, "endColumn": 26},
+    {"startLine": 7, "startColumn": 43, "endLine": 7, "endColumn": 61}
+  ]
+}

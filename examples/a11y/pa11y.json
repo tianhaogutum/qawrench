@@ -1,0 +1,35 @@
+{
+  "total": 2,
+  "passes": 1,
+  "errors": 2,
+  "results": {
+    "https://fixture.test/": [
+      {
+        "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+        "type": "error",
+        "typeCode": 1,
+        "message": "Img element missing an alt attribute.",
+        "context": "<img id=\"logo\" src=\"logo.png\">",
+        "selector": "html > body > img#logo",
+        "runner": "htmlcs",
+        "runnerExtras": {}
+      },
+      {
+        "code": "color-contrast",
+        "type": "warning",
+        "typeCode": 2,
+        "message": "Elements must meet minimum color contrast ratio requirements (https://dequeuniversity.com/rules/axe/4.10/color-contrast)",
+        "context": "<p class=\"dim\">Synthetic</p>",
+        "selector": "html > body > p.dim",
+        "runner": "axe",
+        "runnerExtras": {
+          "impact": "moderate",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio requirements",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast"
+        }
+      }
+    ],
+    "https://fixture.test/about": []
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "required_region": "main",
+  "ignore_selectors": [
+    {"selector": ".clock", "owner": "catalog-team", "expires": "2099-01-01"},
+    {"selector": ".optional-ad", "min_matches": 0, "owner": "ads-team"}
+  ],
+  "volatile_attributes": [
+    {"selector": ".price", "attributes": ["data-render"], "owner": "catalog-team"}
+  ]
+}

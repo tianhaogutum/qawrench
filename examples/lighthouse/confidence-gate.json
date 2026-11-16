@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "min_samples": 5,
+  "noise_multiplier": 2.0,
+  "metrics": {
+    "largest-contentful-paint": {
+      "direction": "lower",
+      "unit": "millisecond",
+      "absolute_tolerance": 100.0,
+      "relative_tolerance": 0
+    }
+  }
+}

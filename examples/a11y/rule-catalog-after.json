@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "kind": "a11y-rule-catalog",
+  "format": "axe",
+  "inputVersion": "4.11.0",
+  "ruleSet": "fixture-rules-v2",
+  "export": {
+    "api": "axe.getRules",
+    "tags": null
+  },
+  "rules": [
+    {
+      "ruleId": "replacement-name",
+      "description": "Synthetic description",
+      "help": "Synthetic help",
+      "helpUrl": "https://fixture.test/help",
+      "tags": [],
+      "actIds": []
+    },
+    {
+      "ruleId": "still-rule",
+      "description": "Synthetic description",
+      "help": "Synthetic help",
+      "helpUrl": "https://fixture.test/help",
+      "tags": [],
+      "actIds": []
+    },
+    {
+      "ruleId": "skipped-rule",
+      "description": "Synthetic description",
+      "help": "Synthetic help",
+      "helpUrl": "https://fixture.test/help",
+      "tags": [],
+      "actIds": []
+    }
+  ]
+}

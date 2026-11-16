@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bridge migration SARIF notes (constrained output contract, not official SARIF schema)",
+  "type": "object", "additionalProperties": false,
+  "required": ["$schema", "version", "runs"],
+  "properties": {
+    "$schema": {"const": "https://json.schemastore.org/sarif-2.1.0.json"},
+    "version": {"const": "2.1.0"},
+    "runs": {"type": "array", "minItems": 1, "maxItems": 1, "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tool", "results", "invocations", "properties"],
+      "properties": {
+        "tool": {"type": "object", "required": ["driver"], "properties": {
+          "driver": {"type": "object", "required": ["name", "version", "rules"], "properties": {
+            "name": {"const": "a11y-baseline-bridge"}, "version": {"type": "string"},
+            "rules": {"type": "array", "minItems": 3, "maxItems": 3, "items": {
+              "type": "object", "required": ["id", "shortDescription"], "additionalProperties": false,
+              "properties": {"id": {"enum": ["a11y-migration/added", "a11y-migration/removed", "a11y-migration/renamed"]}, "shortDescription": {"$ref": "#/definitions/message"}}
+            }}
+          }}
+        }},
+        "invocations": {"type": "array", "minItems": 1, "maxItems": 1, "items": {
+          "type": "object", "required": ["executionSuccessful"], "properties": {"executionSuccessful": {"const": true}}
+        }},
+        "properties": {"type": "object", "additionalProperties": false,
+          "required": ["kind", "counts", "pages", "sources", "migration", "identityPolicy", "interpretation"],
+          "properties": {
+            "kind": {"const": "a11y-migration-diagnostics"}, "counts": {"type": "object"},
+            "pages": {"type": "array"}, "sources": {"type": "object"}, "migration": {"type": "object"},
+            "identityPolicy": {"type": "string"}, "interpretation": {"$ref": "#/definitions/warning"}, "ruleCatalogs": {"type": "object"}
+          }
+        },
+        "results": {"type": "array", "items": {
+          "type": "object", "additionalProperties": false,
+          "required": ["ruleId", "ruleIndex", "level", "message", "partialFingerprints", "locations", "properties"],
+          "properties": {
+            "ruleId": {"enum": ["a11y-migration/added", "a11y-migration/removed", "a11y-migration/renamed"]},
+            "ruleIndex": {"type": "integer", "minimum": 0, "maximum": 2},
+            "level": {"const": "note"},
+            "message": {"type": "object", "required": ["text"], "properties": {"text": {"$ref": "#/definitions/warning"}}},
+            "partialFingerprints": {"type": "object", "additionalProperties": false,
+              "required": ["a11yMigrationObservation/v1"],
+              "anyOf": [{"required": ["a11yMigrationBaselineIdentity/v1"]}, {"required": ["a11yMigrationCurrentIdentity/v1"]}],
+              "properties": {
+                "a11yMigrationObservation/v1": {"$ref": "#/definitions/fingerprint"},
+                "a11yMigrationBaselineIdentity/v1": {"$ref": "#/definitions/fingerprint"},
+                "a11yMigrationCurrentIdentity/v1": {"$ref": "#/definitions/fingerprint"}
+              }
+            },
+            "locations": {"type": "array", "minItems": 1, "maxItems": 1, "items": {
+              "type": "object", "required": ["physicalLocation"], "additionalProperties": false,
+              "properties": {"physicalLocation": {"type": "object", "required": ["artifactLocation"], "additionalProperties": false,
+                "properties": {"artifactLocation": {"type": "object", "required": ["uri"], "additionalProperties": false,
+                  "properties": {"uri": {"type": "string", "format": "uri"}}
+                }}
+              }}
+            }},
+            "properties": {"type": "object", "required": ["observation", "occurrence"],
+              "properties": {"observation": {"enum": ["added", "removed", "renamed"]}, "occurrence": {"type": "integer", "minimum": 1}},
+              "oneOf": [
+                {"allOf": [{"$ref": "#/definitions/finding"}, {"properties": {"observation": {"enum": ["added", "removed"]}}}]},
+                {"required": ["baseline", "current"], "properties": {"observation": {"const": "renamed"}, "baseline": {"$ref": "#/definitions/finding"}, "current": {"$ref": "#/definitions/finding"}}}
+              ]
+            }
+          }
+        }}
+      }
+    }}
+  },
+  "definitions": {
+    "message": {"type": "object", "required": ["text"], "properties": {"text": {"type": "string", "minLength": 1}}},
+    "warning": {"type": "string", "pattern": "Disappearances do not establish fixes or target retesting\\."},
+    "fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "finding": {"type": "object", "required": ["engine", "rule", "page", "target", "fingerprint", "native", "severity", "impact", "message", "helpUrl"],
+      "properties": {
+        "engine": {"enum": ["axe", "pa11y-ci/htmlcs", "pa11y-ci/axe"]}, "rule": {"type": "string", "minLength": 1},
+        "page": {"type": "string", "pattern": "^https?://[^/]+/", "description": "Retained native HTTP(S) identity text, which may contain Unicode or quotes. This is not the URI-encoded artifact location; native validation is performed by the bridge."}, "fingerprint": {"$ref": "#/definitions/fingerprint"}, "native": {"type": "object"},
+        "target": {"oneOf": [{"type": "string"}, {"type": "array", "minItems": 1, "items": {"oneOf": [{"type": "string"}, {"type": "array", "minItems": 2, "items": {"type": "string"}}]}}]}
+      }
+    }
+  }
+}

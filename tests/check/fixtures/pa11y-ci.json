@@ -1,0 +1,12 @@
+{
+  "total": 1,
+  "passes": 0,
+  "errors": 1,
+  "results": {
+    "https://site.example.test/": [
+      {"code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37", "type": "error", "typeCode": 1,
+       "message": "Img element missing an alt attribute.", "context": "<img src=\"a.png\">",
+       "selector": "html > body > img", "runner": "htmlcs", "runnerExtras": {}}
+    ]
+  }
+}

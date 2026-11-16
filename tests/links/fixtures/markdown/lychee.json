@@ -1,0 +1,41 @@
+{
+  "total": 3,
+  "successful": 0,
+  "unknown": 0,
+  "unsupported": 0,
+  "timeouts": 0,
+  "redirects": 0,
+  "excludes": 0,
+  "errors": 3,
+  "cached": 0,
+  "success_map": {},
+  "error_map": {
+    "links.md": [
+      {
+        "url": "https://example.invalid/a(b)",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      },
+      {
+        "url": "https://example.invalid/?a=1&b=2",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      },
+      {
+        "url": "https://unmatched.invalid/",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      }
+    ]
+  },
+  "suggestion_map": {},
+  "excluded_map": {},
+  "duration_secs": 0,
+  "detailed_stats": false
+}

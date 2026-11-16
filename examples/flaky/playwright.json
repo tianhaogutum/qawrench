@@ -1,0 +1,342 @@
+{
+  "config": {
+    "version": "1.56.1",
+    "rootDir": "/synthetic/repo",
+    "projects": [
+      {
+        "id": "chromium",
+        "name": "chromium",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {},
+        "outputDir": "/synthetic/results",
+        "testDir": "/synthetic/repo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "id": "firefox",
+        "name": "firefox",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {},
+        "outputDir": "/synthetic/results",
+        "testDir": "/synthetic/repo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ]
+  },
+  "suites": [
+    {
+      "title": "tests/cart.spec.ts",
+      "file": "tests/cart.spec.ts",
+      "line": 1,
+      "column": 1,
+      "specs": [],
+      "suites": [
+        {
+          "title": "cart",
+          "file": "tests/cart.spec.ts",
+          "line": 1,
+          "column": 1,
+          "specs": [],
+          "suites": [
+            {
+              "title": "purchase",
+              "file": "tests/cart.spec.ts",
+              "line": 1,
+              "column": 1,
+              "specs": [
+                {
+                  "title": "checkout",
+                  "ok": true,
+                  "tags": [],
+                  "id": "synthetic-2",
+                  "file": "tests/cart.spec.ts",
+                  "line": 2,
+                  "column": 1,
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectName": "chromium",
+                      "projectId": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 12,
+                          "retry": 0,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        },
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 8,
+                          "retry": 1,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "flaky"
+                    },
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectName": "firefox",
+                      "projectId": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 9,
+                          "retry": 0,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ]
+                },
+                {
+                  "title": "known issue",
+                  "ok": true,
+                  "tags": [],
+                  "id": "synthetic-3",
+                  "file": "tests/cart.spec.ts",
+                  "line": 3,
+                  "column": 1,
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "failed",
+                      "projectName": "chromium",
+                      "projectId": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 4,
+                          "retry": 0,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ]
+                },
+                {
+                  "title": "payment",
+                  "ok": false,
+                  "tags": [],
+                  "id": "synthetic-4",
+                  "file": "tests/cart.spec.ts",
+                  "line": 4,
+                  "column": 1,
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectName": "chromium",
+                      "projectId": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 15,
+                          "retry": 0,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        },
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "timedOut",
+                          "duration": 20,
+                          "retry": 1,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ]
+                },
+                {
+                  "title": "later",
+                  "ok": true,
+                  "tags": [],
+                  "id": "synthetic-5",
+                  "file": "tests/cart.spec.ts",
+                  "line": 5,
+                  "column": 1,
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectName": "chromium",
+                      "projectId": "chromium",
+                      "results": [],
+                      "status": "skipped"
+                    }
+                  ]
+                },
+                {
+                  "title": "opt out",
+                  "ok": true,
+                  "tags": [],
+                  "id": "synthetic-6",
+                  "file": "tests/cart.spec.ts",
+                  "line": 6,
+                  "column": 1,
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "skipped",
+                      "projectName": "chromium",
+                      "projectId": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 0,
+                          "retry": 0,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ]
+                },
+                {
+                  "title": "cancelled",
+                  "ok": true,
+                  "tags": [],
+                  "id": "synthetic-7",
+                  "file": "tests/cart.spec.ts",
+                  "line": 7,
+                  "column": 1,
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectName": "chromium",
+                      "projectId": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "interrupted",
+                          "duration": 5,
+                          "retry": 0,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ]
+                },
+                {
+                  "title": "unexpected recovery",
+                  "ok": false,
+                  "tags": [],
+                  "id": "synthetic-8",
+                  "file": "tests/cart.spec.ts",
+                  "line": 8,
+                  "column": 1,
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "failed",
+                      "projectName": "chromium",
+                      "projectId": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2,
+                          "retry": 0,
+                          "startTime": "2026-01-01T00:00:00.000Z",
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "Synthetic interrupted run; no browser was executed"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-01-01T00:00:00.000Z",
+    "duration": 90,
+    "expected": 2,
+    "unexpected": 2,
+    "flaky": 1,
+    "skipped": 3
+  },
+  "_fixture": "SYNTHETIC OFFLINE DATA; not generated by a browser"
+}

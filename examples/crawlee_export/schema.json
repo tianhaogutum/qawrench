@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "fields": [
+    {
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "float64"
+    },
+    {
+      "name": "count",
+      "type": "int64"
+    },
+    {
+      "name": "active",
+      "type": "bool"
+    },
+    {
+      "name": "note",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "tags",
+      "type": "json-string"
+    }
+  ]
+}

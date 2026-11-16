@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "requests": [
+    {
+      "id": "items-get",
+      "method": "GET",
+      "url": "http://fixture.test/items?tag=red&tag=blue&empty=&q=a%20b"
+    },
+    {
+      "id": "items-post",
+      "method": "POST",
+      "url": "http://fixture.test/items",
+      "postData": {
+        "mimeType": "application/json",
+        "text": "{\"id\":2,\"name\":\"é\"}"
+      }
+    },
+    {
+      "id": "asset-get",
+      "method": "GET",
+      "url": "http://fixture.test/asset?v=1"
+    },
+    {
+      "id": "suffix-host-get",
+      "method": "GET",
+      "url": "https://stage.example.evil.test/items?tag=red&tag=blue"
+    }
+  ]
+}

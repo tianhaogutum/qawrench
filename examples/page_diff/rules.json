@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "required_region": "#catalog",
+  "required_selectors": ["h1"],
+  "ignore_selectors": [".timestamp", ".ad"],
+  "normalize_whitespace": true,
+  "volatile_attributes": [{"selector": ".product", "attributes": ["data-render-id"]}],
+  "unordered_collections": [{"selector": ".products", "items": ".product", "key_attribute": "data-sku"}]
+}

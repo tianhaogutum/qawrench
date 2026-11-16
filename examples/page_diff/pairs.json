@@ -1,0 +1,106 @@
+{
+  "synthetic": true,
+  "description": "Hand-authored offline HTML; labels describe only the configured region and rules.",
+  "pairs": [
+    {
+      "name": "identical",
+      "before": "before.html",
+      "after": "before.html",
+      "expected_changes": []
+    },
+    {
+      "name": "reorder-only",
+      "before": "before.html",
+      "after": "reorder-only.html",
+      "expected_changes": []
+    },
+    {
+      "name": "whitespace-only",
+      "before": "before.html",
+      "after": "whitespace-only.html",
+      "expected_changes": []
+    },
+    {
+      "name": "reorder-and-noise",
+      "before": "before.html",
+      "after": "after.html",
+      "expected_changes": []
+    },
+    {
+      "name": "price-with-noise",
+      "before": "before.html",
+      "after": "price-changed.html",
+      "expected_changes": [
+        {
+          "kind": "changed",
+          "path_contains": "item[data-sku=\"A\"]",
+          "old": "$10",
+          "new": "$12"
+        }
+      ]
+    },
+    {
+      "name": "addition-with-noise",
+      "before": "before.html",
+      "after": "added.html",
+      "expected_changes": [
+        {
+          "kind": "added",
+          "path_contains": "item[data-sku=\"C\"]",
+          "new_text": "Cocoa"
+        }
+      ]
+    },
+    {
+      "name": "removal-with-noise",
+      "before": "before.html",
+      "after": "removed.html",
+      "expected_changes": [
+        {
+          "kind": "removed",
+          "path_contains": "item[data-sku=\"B\"]",
+          "old_text": "Coffee"
+        }
+      ]
+    },
+    {
+      "name": "text-with-noise",
+      "before": "before.html",
+      "after": "text-changed.html",
+      "expected_changes": [
+        {
+          "kind": "changed",
+          "path_contains": "item[data-sku=\"B\"]",
+          "old": "Coffee",
+          "new": "Decaf coffee"
+        }
+      ]
+    },
+    {
+      "name": "attribute-with-noise",
+      "before": "before.html",
+      "after": "attribute-changed.html",
+      "expected_changes": [
+        {
+          "kind": "added",
+          "path_contains": "data-currency",
+          "old": null,
+          "new": "USD"
+        }
+      ]
+    },
+    {
+      "name": "attribute-only",
+      "before": "before.html",
+      "after": "attribute-only.html",
+      "expected_changes": [
+        {
+          "kind": "added",
+          "path_contains": "data-currency",
+          "old": null,
+          "new": "USD"
+        }
+      ]
+    }
+  ]
+}

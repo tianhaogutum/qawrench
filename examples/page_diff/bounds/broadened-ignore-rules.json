@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "required_region": "main",
+  "ignore_selectors": [
+    {"selector": ".clock, .product", "max_matches": 1, "owner": "catalog-team"}
+  ],
+  "volatile_attributes": [
+    {"selector": ".render", "attributes": ["data-render", "data-price"], "max_matches": 1, "owner": "catalog-team"}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "required_region": "main",
+  "sibling_identity": [{"selector": "article.card", "key_attribute": "data-id"}],
+  "ignore_selectors": [".noise", ".clock"],
+  "volatile_attributes": [{"selector": "article.card", "attributes": ["data-render"]}],
+  "normalize_whitespace": true
+}

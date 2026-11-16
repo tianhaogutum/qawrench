@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "requests": [
+    {
+      "id": "method-only",
+      "method": "PUT",
+      "url": "http://fixture.test/items",
+      "postData": {"mimeType": "application/json", "text": "{\"id\":2,\"name\":\"é\"}"}
+    },
+    {
+      "id": "body-only",
+      "method": "POST",
+      "url": "http://fixture.test/items",
+      "postData": {"mimeType": "application/json", "text": "{\"id\":3}"}
+    },
+    {
+      "id": "method-and-body",
+      "method": "PUT",
+      "url": "http://fixture.test/items"
+    },
+    {
+      "id": "unrelated-url",
+      "method": "GET",
+      "url": "http://fixture.test/absent"
+    }
+  ]
+}

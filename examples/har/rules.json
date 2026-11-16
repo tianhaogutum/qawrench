@@ -1,0 +1,8 @@
+{
+  "origins": {
+    "https://stage.example": "http://fixture.test"
+  },
+  "dropQueryKeys": [
+    "cacheBust"
+  ]
+}

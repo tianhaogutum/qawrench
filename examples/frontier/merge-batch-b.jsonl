@@ -1,0 +1,2 @@
+{"url":"https://example.test/submit","method":"POST","body":"a=1","source":"synthetic:b"}
+{"url":"https://example.test/submit","method":"POST","body":"a=2","source":"synthetic:b"}

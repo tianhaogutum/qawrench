@@ -1,0 +1,49 @@
+{
+  "_fixture": "SYNTHETIC demo Lighthouse report (projection); no page was measured",
+  "lighthouseVersion": "12.8.2",
+  "gatherMode": "navigation",
+  "requestedUrl": "https://shop.example.test/",
+  "mainDocumentUrl": "https://shop.example.test/",
+  "finalUrl": "https://shop.example.test/",
+  "finalDisplayedUrl": "https://shop.example.test/",
+  "fetchTime": "2026-11-16T09:01:00.000Z",
+  "userAgent": "SyntheticChrome/136.0.0.0",
+  "environment": {
+    "hostUserAgent": "SyntheticChrome/136.0.0.0",
+    "networkUserAgent": "SyntheticMobile/136.0.0.0",
+    "benchmarkIndex": 1000
+  },
+  "runWarnings": [],
+  "configSettings": {
+    "output": ["json"],
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.56,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "screenEmulation": {"mobile": true, "width": 412, "height": 823, "deviceScaleFactor": 1.75, "disabled": false},
+    "emulatedUserAgent": "SyntheticMobile/136.0.0.0",
+    "disableStorageReset": false,
+    "locale": "en-US",
+    "onlyAudits": ["largest-contentful-paint", "total-blocking-time", "cumulative-layout-shift"]
+  },
+  "audits": {
+    "largest-contentful-paint": {
+      "id": "largest-contentful-paint", "title": "Largest Contentful Paint", "score": 0.8,
+      "scoreDisplayMode": "numeric", "numericValue": 2400, "numericUnit": "millisecond"
+    },
+    "total-blocking-time": {
+      "id": "total-blocking-time", "title": "Total Blocking Time", "score": 0.9,
+      "scoreDisplayMode": "numeric", "numericValue": 150, "numericUnit": "millisecond"
+    },
+    "cumulative-layout-shift": {
+      "id": "cumulative-layout-shift", "title": "Cumulative Layout Shift", "score": 1,
+      "scoreDisplayMode": "numeric", "numericValue": 0.02, "numericUnit": "unitless"
+    }
+  }
+}

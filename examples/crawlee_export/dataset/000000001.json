@@ -1,0 +1,14 @@
+{
+  "title": "A, B\nC \"quoted\" — café 東京",
+  "price": 12.5,
+  "count": 9223372036854775807,
+  "active": true,
+  "note": null,
+  "tags": [
+    "x",
+    {
+      "z": 2,
+      "a": "é\n"
+    }
+  ]
+}

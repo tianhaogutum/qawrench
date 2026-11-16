@@ -1,0 +1,24 @@
+{
+  "total": 4,
+  "successful": 2,
+  "unknown": 0,
+  "unsupported": 0,
+  "timeouts": 1,
+  "redirects": 0,
+  "excludes": 0,
+  "errors": 1,
+  "cached": 0,
+  "success_map": {},
+  "error_map": {
+    "docs/install.md": [
+      {"url": "https://downloads.example.test/shop-cli.tar.gz", "status": {"text": "Timeout"}}
+    ],
+    "docs/testing.md": [
+      {"url": "https://docs.example.test/retries", "status": {"text": "Network error", "code": 404}}
+    ]
+  },
+  "suggestion_map": {},
+  "excluded_map": {},
+  "duration_secs": 3,
+  "detailed_stats": false
+}

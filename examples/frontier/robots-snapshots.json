@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "origins": {
+    "https://example.test": {
+      "status": "available",
+      "source": "synthetic:robots-snapshot",
+      "text": "User-agent: *\nDisallow: /\n\nUser-agent: AuditBot\nDisallow: /private\nAllow: /private/public\n"
+    },
+    "https://down.test": {
+      "status": "unavailable",
+      "source": "synthetic:missing-export",
+      "reason": "snapshot not captured"
+    }
+  }
+}

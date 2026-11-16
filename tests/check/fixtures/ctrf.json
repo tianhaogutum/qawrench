@@ -1,0 +1,18 @@
+{
+  "reportFormat": "CTRF",
+  "specVersion": "0.0.0",
+  "results": {
+    "tool": {"name": "playwright"},
+    "summary": {"tests": 3, "passed": 2, "failed": 1, "skipped": 0, "pending": 0, "other": 0,
+                "start": 1731747600000, "stop": 1731747660000},
+    "tests": [
+      {"name": "applies a coupon", "filePath": "checkout.spec.ts", "suite": "checkout", "status": "passed",
+       "rawStatus": "passed", "duration": 50, "retries": 1, "flaky": true,
+       "retryAttempts": [{"status": "failed", "duration": 40}]},
+      {"name": "signs in", "filePath": "account.spec.ts", "suite": "account", "status": "passed",
+       "rawStatus": "passed", "duration": 30, "retries": 0, "flaky": false},
+      {"name": "shows suggestions", "filePath": "search.spec.ts", "suite": "search", "status": "failed",
+       "rawStatus": "failed", "duration": 70, "retries": 0, "flaky": false}
+    ]
+  }
+}

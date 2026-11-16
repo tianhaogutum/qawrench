@@ -1,0 +1,27 @@
+{
+  "total": 1,
+  "successful": 0,
+  "unknown": 0,
+  "unsupported": 0,
+  "timeouts": 0,
+  "redirects": 0,
+  "excludes": 0,
+  "errors": 1,
+  "cached": 0,
+  "duration_secs": 0,
+  "detailed_stats": false,
+  "success_map": {},
+  "excluded_map": {},
+  "suggestion_map": {},
+  "error_map": {
+    "page.md": [
+      {
+        "url": "https://example.invalid/broken",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      }
+    ]
+  }
+}

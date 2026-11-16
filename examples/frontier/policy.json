@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "remove_query_keys": ["utm_source"],
+  "fragment": "drop",
+  "w3lib_sort_query": false,
+  "idna": "preserve",
+  "allow_ambiguous_merges": true
+}

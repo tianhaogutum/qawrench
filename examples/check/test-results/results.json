@@ -1,0 +1,132 @@
+{
+  "config": {
+    "version": "1.56.1",
+    "rootDir": "/synthetic/shop",
+    "projects": [
+      {"id": "chromium", "name": "chromium", "repeatEach": 1, "retries": 2, "metadata": {},
+       "outputDir": "/synthetic/shop/test-results", "testDir": "/synthetic/shop/tests",
+       "testIgnore": [], "testMatch": ["**/*.spec.ts"], "timeout": 30000}
+    ]
+  },
+  "suites": [
+    {
+      "title": "account.spec.ts", "file": "account.spec.ts", "line": 0, "column": 0, "specs": [],
+      "suites": [
+        {
+          "title": "account", "file": "account.spec.ts", "line": 3, "column": 6, "specs": [
+            {
+              "title": "signs in", "ok": true, "tags": [], "id": "synthetic-account-1",
+              "file": "account.spec.ts", "line": 4, "column": 7,
+              "tests": [
+                {
+                  "timeout": 30000, "annotations": [], "expectedStatus": "passed",
+                  "projectName": "chromium", "projectId": "chromium",
+                  "results": [
+                    {"workerIndex": 0, "parallelIndex": 0, "status": "failed", "duration": 4120, "retry": 0,
+                     "startTime": "2026-11-16T09:00:01.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []},
+                    {"workerIndex": 1, "parallelIndex": 0, "status": "passed", "duration": 2380, "retry": 1,
+                     "startTime": "2026-11-16T09:00:09.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []}
+                  ],
+                  "status": "flaky"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "checkout.spec.ts", "file": "checkout.spec.ts", "line": 0, "column": 0, "specs": [],
+      "suites": [
+        {
+          "title": "checkout", "file": "checkout.spec.ts", "line": 5, "column": 6, "specs": [
+            {
+              "title": "applies a coupon", "ok": true, "tags": [], "id": "synthetic-checkout-1",
+              "file": "checkout.spec.ts", "line": 6, "column": 7,
+              "tests": [
+                {
+                  "timeout": 30000, "annotations": [], "expectedStatus": "passed",
+                  "projectName": "chromium", "projectId": "chromium",
+                  "results": [
+                    {"workerIndex": 0, "parallelIndex": 1, "status": "failed", "duration": 30010, "retry": 0,
+                     "startTime": "2026-11-16T09:00:01.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []},
+                    {"workerIndex": 2, "parallelIndex": 1, "status": "passed", "duration": 5240, "retry": 1,
+                     "startTime": "2026-11-16T09:00:32.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []}
+                  ],
+                  "status": "flaky"
+                }
+              ]
+            },
+            {
+              "title": "pays with a saved card", "ok": true, "tags": [], "id": "synthetic-checkout-2",
+              "file": "checkout.spec.ts", "line": 18, "column": 7,
+              "tests": [
+                {
+                  "timeout": 30000, "annotations": [], "expectedStatus": "passed",
+                  "projectName": "chromium", "projectId": "chromium",
+                  "results": [
+                    {"workerIndex": 0, "parallelIndex": 1, "status": "passed", "duration": 3170, "retry": 0,
+                     "startTime": "2026-11-16T09:00:38.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []}
+                  ],
+                  "status": "expected"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "search.spec.ts", "file": "search.spec.ts", "line": 0, "column": 0, "specs": [],
+      "suites": [
+        {
+          "title": "search", "file": "search.spec.ts", "line": 3, "column": 6, "specs": [
+            {
+              "title": "filters by price", "ok": true, "tags": [], "id": "synthetic-search-1",
+              "file": "search.spec.ts", "line": 4, "column": 7,
+              "tests": [
+                {
+                  "timeout": 30000, "annotations": [], "expectedStatus": "passed",
+                  "projectName": "chromium", "projectId": "chromium",
+                  "results": [
+                    {"workerIndex": 3, "parallelIndex": 2, "status": "passed", "duration": 2890, "retry": 0,
+                     "startTime": "2026-11-16T09:00:01.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []}
+                  ],
+                  "status": "expected"
+                }
+              ]
+            },
+            {
+              "title": "shows suggestions", "ok": false, "tags": [], "id": "synthetic-search-2",
+              "file": "search.spec.ts", "line": 15, "column": 7,
+              "tests": [
+                {
+                  "timeout": 30000, "annotations": [], "expectedStatus": "passed",
+                  "projectName": "chromium", "projectId": "chromium",
+                  "results": [
+                    {"workerIndex": 3, "parallelIndex": 2, "status": "failed", "duration": 6200, "retry": 0,
+                     "startTime": "2026-11-16T09:00:05.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []},
+                    {"workerIndex": 4, "parallelIndex": 2, "status": "timedOut", "duration": 30000, "retry": 1,
+                     "startTime": "2026-11-16T09:00:12.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []},
+                    {"workerIndex": 5, "parallelIndex": 2, "status": "failed", "duration": 6050, "retry": 2,
+                     "startTime": "2026-11-16T09:00:43.000Z", "errors": [], "stdout": [], "stderr": [], "attachments": []}
+                  ],
+                  "status": "unexpected"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T09:00:00.000Z",
+    "duration": 50300,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 2
+  }
+}

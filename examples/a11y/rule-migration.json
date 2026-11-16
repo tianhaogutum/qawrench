@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "kind": "a11y-rule-migration",
+  "baseline": {
+    "format": "axe",
+    "inputVersion": "4.10.3",
+    "ruleSet": "fixture-rules-v1"
+  },
+  "current": {
+    "format": "axe",
+    "inputVersion": "4.11.0",
+    "ruleSet": "fixture-rules-v2"
+  },
+  "renames": [
+    {
+      "engine": "axe",
+      "from": "legacy-name",
+      "to": "replacement-name",
+      "reason": "Synthetic custom-rule rename, not an upstream alias"
+    }
+  ]
+}

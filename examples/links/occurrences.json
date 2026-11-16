@@ -1,0 +1,4 @@
+[
+  {"source": "docs/page.md", "url": "https://example.invalid/broken", "line": 3, "column": 16},
+  {"source": "docs/page.md", "url": "https://example.invalid/broken", "line": 4, "column": 22}
+]

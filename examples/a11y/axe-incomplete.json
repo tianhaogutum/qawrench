@@ -1,0 +1,53 @@
+{
+  "testEngine": {
+    "name": "axe-core",
+    "version": "4.10.3"
+  },
+  "testRunner": {
+    "name": "axe"
+  },
+  "testEnvironment": {
+    "userAgent": "Synthetic offline fixture, no browser was run",
+    "windowWidth": 1024,
+    "windowHeight": 768,
+    "orientationType": "landscape-primary",
+    "orientationAngle": 0
+  },
+  "timestamp": "2026-11-11T00:00:00.000Z",
+  "toolOptions": {
+    "reporter": "v1",
+    "resultTypes": [
+      "violations",
+      "incomplete",
+      "passes",
+      "inapplicable"
+    ]
+  },
+  "violations": [],
+  "passes": [],
+  "inapplicable": [],
+  "incomplete": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Review contrast",
+      "description": "Synthetic review result",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast",
+      "tags": [
+        "wcag2aa"
+      ],
+      "nodes": [
+        {
+          "target": [
+            "p"
+          ],
+          "html": "<p>Synthetic</p>",
+          "impact": "serious",
+          "any": [],
+          "all": [],
+          "none": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2338 @@
+{
+  "entity_groups": 100,
+  "fixture_e2e": {
+    "counts": {
+      "accepted": 1800,
+      "changed_keys": 500,
+      "conservative_unique": 2200,
+      "duplicates": 500,
+      "exact_unique": 2200,
+      "invalid": 0,
+      "policy_created_collision_groups": 200,
+      "proposed_unique": 1800,
+      "raw_records": 2300,
+      "raw_url_unique": 1900,
+      "unsupported": 0,
+      "valid_requests": 2300
+    },
+    "passed": true,
+    "stderr": "warning: policy creates 200 request collision groups and 0 URL collision groups with different methods/bodies (kept separate); explicitly permitted, semantic equivalence is unverified\nwarning: 100 URL groups have distinct methods/bodies; fingerprints preserve them\nwarning: 100 duplicate groups have different provenance metadata; review originals"
+  },
+  "limitations": "Labels encode invented application semantics. More dedup can include false merges. No real-site gains are established; absolute timings are machine-dependent.",
+  "platform": "Linux-7.0.0-1017-gcp-x86_64-with-glibc2.43",
+  "policies": {
+    "proposed": {
+      "allow_ambiguous_merges": true,
+      "fragment": "drop",
+      "idna": "preserve",
+      "remove_query_keys": [
+        "utm_source"
+      ],
+      "version": 1,
+      "w3lib_sort_query": false
+    },
+    "proposed_with_w3lib_sort": {
+      "allow_ambiguous_merges": true,
+      "fragment": "drop",
+      "idna": "ascii",
+      "remove_query_keys": [
+        "utm_source"
+      ],
+      "version": 1,
+      "w3lib_sort_query": true
+    },
+    "tracking_only": {
+      "allow_ambiguous_merges": true,
+      "fragment": "preserve",
+      "idna": "preserve",
+      "remove_query_keys": [
+        "utm_source"
+      ],
+      "version": 1,
+      "w3lib_sort_query": false
+    }
+  },
+  "proposed_time_change_percent_vs_conservative": 582.1262474664804,
+  "python": "3.12.13",
+  "records": 2300,
+  "repeats": 5,
+  "results": {
+    "conservative": {
+      "false_merge_groups": 0,
+      "false_merge_pairs": 0,
+      "label_witnesses": [],
+      "median_milliseconds": 0.246199,
+      "milliseconds_samples": [
+        0.876975,
+        0.26617,
+        0.217786,
+        0.246199,
+        0.195753
+      ],
+      "unique": 2200
+    },
+    "proposed": {
+      "false_merge_groups": 100,
+      "false_merge_pairs": 100,
+      "label_witnesses": [
+        {
+          "SYNTHETIC:97:spa-one": 1,
+          "SYNTHETIC:97:spa-two": 1
+        },
+        {
+          "SYNTHETIC:18:spa-one": 1,
+          "SYNTHETIC:18:spa-two": 1
+        },
+        {
+          "SYNTHETIC:89:spa-one": 1,
+          "SYNTHETIC:89:spa-two": 1
+        },
+        {
+          "SYNTHETIC:62:spa-one": 1,
+          "SYNTHETIC:62:spa-two": 1
+        },
+        {
+          "SYNTHETIC:13:spa-one": 1,
+          "SYNTHETIC:13:spa-two": 1
+        },
+        {
+          "SYNTHETIC:0:spa-one": 1,
+          "SYNTHETIC:0:spa-two": 1
+        },
+        {
+          "SYNTHETIC:28:spa-one": 1,
+          "SYNTHETIC:28:spa-two": 1
+        },
+        {
+          "SYNTHETIC:81:spa-one": 1,
+          "SYNTHETIC:81:spa-two": 1
+        },
+        {
+          "SYNTHETIC:60:spa-one": 1,
+          "SYNTHETIC:60:spa-two": 1
+        },
+        {
+          "SYNTHETIC:50:spa-one": 1,
+          "SYNTHETIC:50:spa-two": 1
+        },
+        {
+          "SYNTHETIC:69:spa-one": 1,
+          "SYNTHETIC:69:spa-two": 1
+        },
+        {
+          "SYNTHETIC:98:spa-one": 1,
+          "SYNTHETIC:98:spa-two": 1
+        },
+        {
+          "SYNTHETIC:29:spa-one": 1,
+          "SYNTHETIC:29:spa-two": 1
+        },
+        {
+          "SYNTHETIC:14:spa-one": 1,
+          "SYNTHETIC:14:spa-two": 1
+        },
+        {
+          "SYNTHETIC:99:spa-one": 1,
+          "SYNTHETIC:99:spa-two": 1
+        },
+        {
+          "SYNTHETIC:74:spa-one": 1,
+          "SYNTHETIC:74:spa-two": 1
+        },
+        {
+          "SYNTHETIC:59:spa-one": 1,
+          "SYNTHETIC:59:spa-two": 1
+        },
+        {
+          "SYNTHETIC:46:spa-one": 1,
+          "SYNTHETIC:46:spa-two": 1
+        },
+        {
+          "SYNTHETIC:84:spa-one": 1,
+          "SYNTHETIC:84:spa-two": 1
+        },
+        {
+          "SYNTHETIC:56:spa-one": 1,
+          "SYNTHETIC:56:spa-two": 1
+        },
+        {
+          "SYNTHETIC:70:spa-one": 1,
+          "SYNTHETIC:70:spa-two": 1
+        },
+        {
+          "SYNTHETIC:61:spa-one": 1,
+          "SYNTHETIC:61:spa-two": 1
+        },
+        {
+          "SYNTHETIC:58:spa-one": 1,
+          "SYNTHETIC:58:spa-two": 1
+        },
+        {
+          "SYNTHETIC:6:spa-one": 1,
+          "SYNTHETIC:6:spa-two": 1
+        },
+        {
+          "SYNTHETIC:96:spa-one": 1,
+          "SYNTHETIC:96:spa-two": 1
+        },
+        {
+          "SYNTHETIC:8:spa-one": 1,
+          "SYNTHETIC:8:spa-two": 1
+        },
+        {
+          "SYNTHETIC:91:spa-one": 1,
+          "SYNTHETIC:91:spa-two": 1
+        },
+        {
+          "SYNTHETIC:73:spa-one": 1,
+          "SYNTHETIC:73:spa-two": 1
+        },
+        {
+          "SYNTHETIC:24:spa-one": 1,
+          "SYNTHETIC:24:spa-two": 1
+        },
+        {
+          "SYNTHETIC:71:spa-one": 1,
+          "SYNTHETIC:71:spa-two": 1
+        },
+        {
+          "SYNTHETIC:40:spa-one": 1,
+          "SYNTHETIC:40:spa-two": 1
+        },
+        {
+          "SYNTHETIC:57:spa-one": 1,
+          "SYNTHETIC:57:spa-two": 1
+        },
+        {
+          "SYNTHETIC:79:spa-one": 1,
+          "SYNTHETIC:79:spa-two": 1
+        },
+        {
+          "SYNTHETIC:82:spa-one": 1,
+          "SYNTHETIC:82:spa-two": 1
+        },
+        {
+          "SYNTHETIC:9:spa-one": 1,
+          "SYNTHETIC:9:spa-two": 1
+        },
+        {
+          "SYNTHETIC:37:spa-one": 1,
+          "SYNTHETIC:37:spa-two": 1
+        },
+        {
+          "SYNTHETIC:16:spa-one": 1,
+          "SYNTHETIC:16:spa-two": 1
+        },
+        {
+          "SYNTHETIC:1:spa-one": 1,
+          "SYNTHETIC:1:spa-two": 1
+        },
+        {
+          "SYNTHETIC:30:spa-one": 1,
+          "SYNTHETIC:30:spa-two": 1
+        },
+        {
+          "SYNTHETIC:20:spa-one": 1,
+          "SYNTHETIC:20:spa-two": 1
+        },
+        {
+          "SYNTHETIC:67:spa-one": 1,
+          "SYNTHETIC:67:spa-two": 1
+        },
+        {
+          "SYNTHETIC:7:spa-one": 1,
+          "SYNTHETIC:7:spa-two": 1
+        },
+        {
+          "SYNTHETIC:10:spa-one": 1,
+          "SYNTHETIC:10:spa-two": 1
+        },
+        {
+          "SYNTHETIC:48:spa-one": 1,
+          "SYNTHETIC:48:spa-two": 1
+        },
+        {
+          "SYNTHETIC:94:spa-one": 1,
+          "SYNTHETIC:94:spa-two": 1
+        },
+        {
+          "SYNTHETIC:38:spa-one": 1,
+          "SYNTHETIC:38:spa-two": 1
+        },
+        {
+          "SYNTHETIC:72:spa-one": 1,
+          "SYNTHETIC:72:spa-two": 1
+        },
+        {
+          "SYNTHETIC:12:spa-one": 1,
+          "SYNTHETIC:12:spa-two": 1
+        },
+        {
+          "SYNTHETIC:43:spa-one": 1,
+          "SYNTHETIC:43:spa-two": 1
+        },
+        {
+          "SYNTHETIC:90:spa-one": 1,
+          "SYNTHETIC:90:spa-two": 1
+        },
+        {
+          "SYNTHETIC:66:spa-one": 1,
+          "SYNTHETIC:66:spa-two": 1
+        },
+        {
+          "SYNTHETIC:75:spa-one": 1,
+          "SYNTHETIC:75:spa-two": 1
+        },
+        {
+          "SYNTHETIC:41:spa-one": 1,
+          "SYNTHETIC:41:spa-two": 1
+        },
+        {
+          "SYNTHETIC:42:spa-one": 1,
+          "SYNTHETIC:42:spa-two": 1
+        },
+        {
+          "SYNTHETIC:5:spa-one": 1,
+          "SYNTHETIC:5:spa-two": 1
+        },
+        {
+          "SYNTHETIC:52:spa-one": 1,
+          "SYNTHETIC:52:spa-two": 1
+        },
+        {
+          "SYNTHETIC:35:spa-one": 1,
+          "SYNTHETIC:35:spa-two": 1
+        },
+        {
+          "SYNTHETIC:33:spa-one": 1,
+          "SYNTHETIC:33:spa-two": 1
+        },
+        {
+          "SYNTHETIC:47:spa-one": 1,
+          "SYNTHETIC:47:spa-two": 1
+        },
+        {
+          "SYNTHETIC:15:spa-one": 1,
+          "SYNTHETIC:15:spa-two": 1
+        },
+        {
+          "SYNTHETIC:54:spa-one": 1,
+          "SYNTHETIC:54:spa-two": 1
+        },
+        {
+          "SYNTHETIC:88:spa-one": 1,
+          "SYNTHETIC:88:spa-two": 1
+        },
+        {
+          "SYNTHETIC:21:spa-one": 1,
+          "SYNTHETIC:21:spa-two": 1
+        },
+        {
+          "SYNTHETIC:19:spa-one": 1,
+          "SYNTHETIC:19:spa-two": 1
+        },
+        {
+          "SYNTHETIC:78:spa-one": 1,
+          "SYNTHETIC:78:spa-two": 1
+        },
+        {
+          "SYNTHETIC:39:spa-one": 1,
+          "SYNTHETIC:39:spa-two": 1
+        },
+        {
+          "SYNTHETIC:25:spa-one": 1,
+          "SYNTHETIC:25:spa-two": 1
+        },
+        {
+          "SYNTHETIC:22:spa-one": 1,
+          "SYNTHETIC:22:spa-two": 1
+        },
+        {
+          "SYNTHETIC:53:spa-one": 1,
+          "SYNTHETIC:53:spa-two": 1
+        },
+        {
+          "SYNTHETIC:27:spa-one": 1,
+          "SYNTHETIC:27:spa-two": 1
+        },
+        {
+          "SYNTHETIC:26:spa-one": 1,
+          "SYNTHETIC:26:spa-two": 1
+        },
+        {
+          "SYNTHETIC:31:spa-one": 1,
+          "SYNTHETIC:31:spa-two": 1
+        },
+        {
+          "SYNTHETIC:93:spa-one": 1,
+          "SYNTHETIC:93:spa-two": 1
+        },
+        {
+          "SYNTHETIC:80:spa-one": 1,
+          "SYNTHETIC:80:spa-two": 1
+        },
+        {
+          "SYNTHETIC:83:spa-one": 1,
+          "SYNTHETIC:83:spa-two": 1
+        },
+        {
+          "SYNTHETIC:51:spa-one": 1,
+          "SYNTHETIC:51:spa-two": 1
+        },
+        {
+          "SYNTHETIC:95:spa-one": 1,
+          "SYNTHETIC:95:spa-two": 1
+        },
+        {
+          "SYNTHETIC:49:spa-one": 1,
+          "SYNTHETIC:49:spa-two": 1
+        },
+        {
+          "SYNTHETIC:65:spa-one": 1,
+          "SYNTHETIC:65:spa-two": 1
+        },
+        {
+          "SYNTHETIC:86:spa-one": 1,
+          "SYNTHETIC:86:spa-two": 1
+        },
+        {
+          "SYNTHETIC:68:spa-one": 1,
+          "SYNTHETIC:68:spa-two": 1
+        },
+        {
+          "SYNTHETIC:85:spa-one": 1,
+          "SYNTHETIC:85:spa-two": 1
+        },
+        {
+          "SYNTHETIC:63:spa-one": 1,
+          "SYNTHETIC:63:spa-two": 1
+        },
+        {
+          "SYNTHETIC:32:spa-one": 1,
+          "SYNTHETIC:32:spa-two": 1
+        },
+        {
+          "SYNTHETIC:64:spa-one": 1,
+          "SYNTHETIC:64:spa-two": 1
+        },
+        {
+          "SYNTHETIC:44:spa-one": 1,
+          "SYNTHETIC:44:spa-two": 1
+        },
+        {
+          "SYNTHETIC:4:spa-one": 1,
+          "SYNTHETIC:4:spa-two": 1
+        },
+        {
+          "SYNTHETIC:17:spa-one": 1,
+          "SYNTHETIC:17:spa-two": 1
+        },
+        {
+          "SYNTHETIC:34:spa-one": 1,
+          "SYNTHETIC:34:spa-two": 1
+        },
+        {
+          "SYNTHETIC:92:spa-one": 1,
+          "SYNTHETIC:92:spa-two": 1
+        },
+        {
+          "SYNTHETIC:55:spa-one": 1,
+          "SYNTHETIC:55:spa-two": 1
+        },
+        {
+          "SYNTHETIC:77:spa-one": 1,
+          "SYNTHETIC:77:spa-two": 1
+        },
+        {
+          "SYNTHETIC:11:spa-one": 1,
+          "SYNTHETIC:11:spa-two": 1
+        },
+        {
+          "SYNTHETIC:45:spa-one": 1,
+          "SYNTHETIC:45:spa-two": 1
+        },
+        {
+          "SYNTHETIC:3:spa-one": 1,
+          "SYNTHETIC:3:spa-two": 1
+        },
+        {
+          "SYNTHETIC:36:spa-one": 1,
+          "SYNTHETIC:36:spa-two": 1
+        },
+        {
+          "SYNTHETIC:23:spa-one": 1,
+          "SYNTHETIC:23:spa-two": 1
+        },
+        {
+          "SYNTHETIC:2:spa-one": 1,
+          "SYNTHETIC:2:spa-two": 1
+        },
+        {
+          "SYNTHETIC:76:spa-one": 1,
+          "SYNTHETIC:76:spa-two": 1
+        },
+        {
+          "SYNTHETIC:87:spa-one": 1,
+          "SYNTHETIC:87:spa-two": 1
+        }
+      ],
+      "median_milliseconds": 1.679388,
+      "milliseconds_samples": [
+        1.699368,
+        1.679388,
+        1.684936,
+        1.660159,
+        1.637746
+      ],
+      "unique": 1800
+    },
+    "proposed_with_w3lib_sort": {
+      "false_merge_groups": 300,
+      "false_merge_pairs": 300,
+      "label_witnesses": [
+        {
+          "SYNTHETIC:97:spa-one": 1,
+          "SYNTHETIC:97:spa-two": 1
+        },
+        {
+          "SYNTHETIC:54:ordered-ab": 1,
+          "SYNTHETIC:54:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:18:spa-one": 1,
+          "SYNTHETIC:18:spa-two": 1
+        },
+        {
+          "SYNTHETIC:71:assigned-empty-flag": 1,
+          "SYNTHETIC:71:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:99:assigned-empty-flag": 1,
+          "SYNTHETIC:99:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:89:spa-one": 1,
+          "SYNTHETIC:89:spa-two": 1
+        },
+        {
+          "SYNTHETIC:62:spa-one": 1,
+          "SYNTHETIC:62:spa-two": 1
+        },
+        {
+          "SYNTHETIC:70:ordered-ab": 1,
+          "SYNTHETIC:70:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:86:ordered-ab": 1,
+          "SYNTHETIC:86:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:13:spa-one": 1,
+          "SYNTHETIC:13:spa-two": 1
+        },
+        {
+          "SYNTHETIC:0:spa-one": 1,
+          "SYNTHETIC:0:spa-two": 1
+        },
+        {
+          "SYNTHETIC:28:spa-one": 1,
+          "SYNTHETIC:28:spa-two": 1
+        },
+        {
+          "SYNTHETIC:81:spa-one": 1,
+          "SYNTHETIC:81:spa-two": 1
+        },
+        {
+          "SYNTHETIC:60:spa-one": 1,
+          "SYNTHETIC:60:spa-two": 1
+        },
+        {
+          "SYNTHETIC:40:ordered-ab": 1,
+          "SYNTHETIC:40:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:50:spa-one": 1,
+          "SYNTHETIC:50:spa-two": 1
+        },
+        {
+          "SYNTHETIC:69:spa-one": 1,
+          "SYNTHETIC:69:spa-two": 1
+        },
+        {
+          "SYNTHETIC:98:spa-one": 1,
+          "SYNTHETIC:98:spa-two": 1
+        },
+        {
+          "SYNTHETIC:41:assigned-empty-flag": 1,
+          "SYNTHETIC:41:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:29:spa-one": 1,
+          "SYNTHETIC:29:spa-two": 1
+        },
+        {
+          "SYNTHETIC:14:spa-one": 1,
+          "SYNTHETIC:14:spa-two": 1
+        },
+        {
+          "SYNTHETIC:56:ordered-ab": 1,
+          "SYNTHETIC:56:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:55:assigned-empty-flag": 1,
+          "SYNTHETIC:55:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:9:assigned-empty-flag": 1,
+          "SYNTHETIC:9:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:39:assigned-empty-flag": 1,
+          "SYNTHETIC:39:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:16:ordered-ab": 1,
+          "SYNTHETIC:16:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:71:ordered-ab": 1,
+          "SYNTHETIC:71:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:19:ordered-ab": 1,
+          "SYNTHETIC:19:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:20:ordered-ab": 1,
+          "SYNTHETIC:20:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:77:ordered-ab": 1,
+          "SYNTHETIC:77:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:31:ordered-ab": 1,
+          "SYNTHETIC:31:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:99:spa-one": 1,
+          "SYNTHETIC:99:spa-two": 1
+        },
+        {
+          "SYNTHETIC:55:ordered-ab": 1,
+          "SYNTHETIC:55:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:27:assigned-empty-flag": 1,
+          "SYNTHETIC:27:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:15:assigned-empty-flag": 1,
+          "SYNTHETIC:15:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:74:spa-one": 1,
+          "SYNTHETIC:74:spa-two": 1
+        },
+        {
+          "SYNTHETIC:59:spa-one": 1,
+          "SYNTHETIC:59:spa-two": 1
+        },
+        {
+          "SYNTHETIC:83:ordered-ab": 1,
+          "SYNTHETIC:83:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:92:assigned-empty-flag": 1,
+          "SYNTHETIC:92:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:54:assigned-empty-flag": 1,
+          "SYNTHETIC:54:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:41:ordered-ab": 1,
+          "SYNTHETIC:41:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:68:ordered-ab": 1,
+          "SYNTHETIC:68:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:12:assigned-empty-flag": 1,
+          "SYNTHETIC:12:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:42:assigned-empty-flag": 1,
+          "SYNTHETIC:42:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:73:ordered-ab": 1,
+          "SYNTHETIC:73:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:99:ordered-ab": 1,
+          "SYNTHETIC:99:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:46:spa-one": 1,
+          "SYNTHETIC:46:spa-two": 1
+        },
+        {
+          "SYNTHETIC:60:ordered-ab": 1,
+          "SYNTHETIC:60:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:84:spa-one": 1,
+          "SYNTHETIC:84:spa-two": 1
+        },
+        {
+          "SYNTHETIC:56:spa-one": 1,
+          "SYNTHETIC:56:spa-two": 1
+        },
+        {
+          "SYNTHETIC:36:assigned-empty-flag": 1,
+          "SYNTHETIC:36:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:14:ordered-ab": 1,
+          "SYNTHETIC:14:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:70:spa-one": 1,
+          "SYNTHETIC:70:spa-two": 1
+        },
+        {
+          "SYNTHETIC:61:spa-one": 1,
+          "SYNTHETIC:61:spa-two": 1
+        },
+        {
+          "SYNTHETIC:46:assigned-empty-flag": 1,
+          "SYNTHETIC:46:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:58:spa-one": 1,
+          "SYNTHETIC:58:spa-two": 1
+        },
+        {
+          "SYNTHETIC:73:assigned-empty-flag": 1,
+          "SYNTHETIC:73:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:64:ordered-ab": 1,
+          "SYNTHETIC:64:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:6:spa-one": 1,
+          "SYNTHETIC:6:spa-two": 1
+        },
+        {
+          "SYNTHETIC:93:assigned-empty-flag": 1,
+          "SYNTHETIC:93:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:96:spa-one": 1,
+          "SYNTHETIC:96:spa-two": 1
+        },
+        {
+          "SYNTHETIC:58:assigned-empty-flag": 1,
+          "SYNTHETIC:58:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:30:assigned-empty-flag": 1,
+          "SYNTHETIC:30:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:62:assigned-empty-flag": 1,
+          "SYNTHETIC:62:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:56:assigned-empty-flag": 1,
+          "SYNTHETIC:56:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:8:spa-one": 1,
+          "SYNTHETIC:8:spa-two": 1
+        },
+        {
+          "SYNTHETIC:85:ordered-ab": 1,
+          "SYNTHETIC:85:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:1:assigned-empty-flag": 1,
+          "SYNTHETIC:1:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:3:ordered-ab": 1,
+          "SYNTHETIC:3:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:91:spa-one": 1,
+          "SYNTHETIC:91:spa-two": 1
+        },
+        {
+          "SYNTHETIC:73:spa-one": 1,
+          "SYNTHETIC:73:spa-two": 1
+        },
+        {
+          "SYNTHETIC:24:spa-one": 1,
+          "SYNTHETIC:24:spa-two": 1
+        },
+        {
+          "SYNTHETIC:71:spa-one": 1,
+          "SYNTHETIC:71:spa-two": 1
+        },
+        {
+          "SYNTHETIC:40:spa-one": 1,
+          "SYNTHETIC:40:spa-two": 1
+        },
+        {
+          "SYNTHETIC:33:ordered-ab": 1,
+          "SYNTHETIC:33:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:86:assigned-empty-flag": 1,
+          "SYNTHETIC:86:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:76:assigned-empty-flag": 1,
+          "SYNTHETIC:76:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:49:assigned-empty-flag": 1,
+          "SYNTHETIC:49:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:57:spa-one": 1,
+          "SYNTHETIC:57:spa-two": 1
+        },
+        {
+          "SYNTHETIC:66:ordered-ab": 1,
+          "SYNTHETIC:66:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:79:spa-one": 1,
+          "SYNTHETIC:79:spa-two": 1
+        },
+        {
+          "SYNTHETIC:38:ordered-ab": 1,
+          "SYNTHETIC:38:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:5:ordered-ab": 1,
+          "SYNTHETIC:5:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:45:assigned-empty-flag": 1,
+          "SYNTHETIC:45:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:67:ordered-ab": 1,
+          "SYNTHETIC:67:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:69:ordered-ab": 1,
+          "SYNTHETIC:69:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:82:spa-one": 1,
+          "SYNTHETIC:82:spa-two": 1
+        },
+        {
+          "SYNTHETIC:52:ordered-ab": 1,
+          "SYNTHETIC:52:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:64:assigned-empty-flag": 1,
+          "SYNTHETIC:64:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:9:spa-one": 1,
+          "SYNTHETIC:9:spa-two": 1
+        },
+        {
+          "SYNTHETIC:3:assigned-empty-flag": 1,
+          "SYNTHETIC:3:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:93:ordered-ab": 1,
+          "SYNTHETIC:93:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:79:assigned-empty-flag": 1,
+          "SYNTHETIC:79:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:32:ordered-ab": 1,
+          "SYNTHETIC:32:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:84:assigned-empty-flag": 1,
+          "SYNTHETIC:84:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:37:spa-one": 1,
+          "SYNTHETIC:37:spa-two": 1
+        },
+        {
+          "SYNTHETIC:16:spa-one": 1,
+          "SYNTHETIC:16:spa-two": 1
+        },
+        {
+          "SYNTHETIC:5:assigned-empty-flag": 1,
+          "SYNTHETIC:5:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:88:assigned-empty-flag": 1,
+          "SYNTHETIC:88:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:1:spa-one": 1,
+          "SYNTHETIC:1:spa-two": 1
+        },
+        {
+          "SYNTHETIC:22:ordered-ab": 1,
+          "SYNTHETIC:22:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:29:assigned-empty-flag": 1,
+          "SYNTHETIC:29:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:72:assigned-empty-flag": 1,
+          "SYNTHETIC:72:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:78:assigned-empty-flag": 1,
+          "SYNTHETIC:78:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:30:spa-one": 1,
+          "SYNTHETIC:30:spa-two": 1
+        },
+        {
+          "SYNTHETIC:13:assigned-empty-flag": 1,
+          "SYNTHETIC:13:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:82:ordered-ab": 1,
+          "SYNTHETIC:82:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:90:ordered-ab": 1,
+          "SYNTHETIC:90:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:89:assigned-empty-flag": 1,
+          "SYNTHETIC:89:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:24:ordered-ab": 1,
+          "SYNTHETIC:24:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:7:assigned-empty-flag": 1,
+          "SYNTHETIC:7:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:88:ordered-ab": 1,
+          "SYNTHETIC:88:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:83:assigned-empty-flag": 1,
+          "SYNTHETIC:83:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:1:ordered-ab": 1,
+          "SYNTHETIC:1:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:28:assigned-empty-flag": 1,
+          "SYNTHETIC:28:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:57:assigned-empty-flag": 1,
+          "SYNTHETIC:57:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:20:spa-one": 1,
+          "SYNTHETIC:20:spa-two": 1
+        },
+        {
+          "SYNTHETIC:96:assigned-empty-flag": 1,
+          "SYNTHETIC:96:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:20:assigned-empty-flag": 1,
+          "SYNTHETIC:20:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:61:assigned-empty-flag": 1,
+          "SYNTHETIC:61:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:17:assigned-empty-flag": 1,
+          "SYNTHETIC:17:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:10:assigned-empty-flag": 1,
+          "SYNTHETIC:10:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:51:assigned-empty-flag": 1,
+          "SYNTHETIC:51:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:7:ordered-ab": 1,
+          "SYNTHETIC:7:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:67:spa-one": 1,
+          "SYNTHETIC:67:spa-two": 1
+        },
+        {
+          "SYNTHETIC:92:ordered-ab": 1,
+          "SYNTHETIC:92:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:7:spa-one": 1,
+          "SYNTHETIC:7:spa-two": 1
+        },
+        {
+          "SYNTHETIC:45:ordered-ab": 1,
+          "SYNTHETIC:45:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:46:ordered-ab": 1,
+          "SYNTHETIC:46:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:47:ordered-ab": 1,
+          "SYNTHETIC:47:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:51:ordered-ab": 1,
+          "SYNTHETIC:51:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:10:spa-one": 1,
+          "SYNTHETIC:10:spa-two": 1
+        },
+        {
+          "SYNTHETIC:48:spa-one": 1,
+          "SYNTHETIC:48:spa-two": 1
+        },
+        {
+          "SYNTHETIC:29:ordered-ab": 1,
+          "SYNTHETIC:29:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:94:spa-one": 1,
+          "SYNTHETIC:94:spa-two": 1
+        },
+        {
+          "SYNTHETIC:38:spa-one": 1,
+          "SYNTHETIC:38:spa-two": 1
+        },
+        {
+          "SYNTHETIC:72:spa-one": 1,
+          "SYNTHETIC:72:spa-two": 1
+        },
+        {
+          "SYNTHETIC:36:ordered-ab": 1,
+          "SYNTHETIC:36:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:98:ordered-ab": 1,
+          "SYNTHETIC:98:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:32:assigned-empty-flag": 1,
+          "SYNTHETIC:32:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:12:spa-one": 1,
+          "SYNTHETIC:12:spa-two": 1
+        },
+        {
+          "SYNTHETIC:43:spa-one": 1,
+          "SYNTHETIC:43:spa-two": 1
+        },
+        {
+          "SYNTHETIC:95:ordered-ab": 1,
+          "SYNTHETIC:95:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:2:ordered-ab": 1,
+          "SYNTHETIC:2:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:11:assigned-empty-flag": 1,
+          "SYNTHETIC:11:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:33:assigned-empty-flag": 1,
+          "SYNTHETIC:33:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:34:assigned-empty-flag": 1,
+          "SYNTHETIC:34:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:62:ordered-ab": 1,
+          "SYNTHETIC:62:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:90:spa-one": 1,
+          "SYNTHETIC:90:spa-two": 1
+        },
+        {
+          "SYNTHETIC:66:spa-one": 1,
+          "SYNTHETIC:66:spa-two": 1
+        },
+        {
+          "SYNTHETIC:76:ordered-ab": 1,
+          "SYNTHETIC:76:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:43:assigned-empty-flag": 1,
+          "SYNTHETIC:43:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:75:spa-one": 1,
+          "SYNTHETIC:75:spa-two": 1
+        },
+        {
+          "SYNTHETIC:66:assigned-empty-flag": 1,
+          "SYNTHETIC:66:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:19:assigned-empty-flag": 1,
+          "SYNTHETIC:19:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:24:assigned-empty-flag": 1,
+          "SYNTHETIC:24:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:81:ordered-ab": 1,
+          "SYNTHETIC:81:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:43:ordered-ab": 1,
+          "SYNTHETIC:43:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:98:assigned-empty-flag": 1,
+          "SYNTHETIC:98:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:42:ordered-ab": 1,
+          "SYNTHETIC:42:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:41:spa-one": 1,
+          "SYNTHETIC:41:spa-two": 1
+        },
+        {
+          "SYNTHETIC:23:ordered-ab": 1,
+          "SYNTHETIC:23:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:42:spa-one": 1,
+          "SYNTHETIC:42:spa-two": 1
+        },
+        {
+          "SYNTHETIC:13:ordered-ab": 1,
+          "SYNTHETIC:13:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:74:assigned-empty-flag": 1,
+          "SYNTHETIC:74:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:35:assigned-empty-flag": 1,
+          "SYNTHETIC:35:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:37:ordered-ab": 1,
+          "SYNTHETIC:37:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:80:assigned-empty-flag": 1,
+          "SYNTHETIC:80:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:84:ordered-ab": 1,
+          "SYNTHETIC:84:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:5:spa-one": 1,
+          "SYNTHETIC:5:spa-two": 1
+        },
+        {
+          "SYNTHETIC:52:spa-one": 1,
+          "SYNTHETIC:52:spa-two": 1
+        },
+        {
+          "SYNTHETIC:35:spa-one": 1,
+          "SYNTHETIC:35:spa-two": 1
+        },
+        {
+          "SYNTHETIC:63:ordered-ab": 1,
+          "SYNTHETIC:63:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:94:ordered-ab": 1,
+          "SYNTHETIC:94:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:33:spa-one": 1,
+          "SYNTHETIC:33:spa-two": 1
+        },
+        {
+          "SYNTHETIC:47:spa-one": 1,
+          "SYNTHETIC:47:spa-two": 1
+        },
+        {
+          "SYNTHETIC:15:spa-one": 1,
+          "SYNTHETIC:15:spa-two": 1
+        },
+        {
+          "SYNTHETIC:87:assigned-empty-flag": 1,
+          "SYNTHETIC:87:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:54:spa-one": 1,
+          "SYNTHETIC:54:spa-two": 1
+        },
+        {
+          "SYNTHETIC:88:spa-one": 1,
+          "SYNTHETIC:88:spa-two": 1
+        },
+        {
+          "SYNTHETIC:21:ordered-ab": 1,
+          "SYNTHETIC:21:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:21:spa-one": 1,
+          "SYNTHETIC:21:spa-two": 1
+        },
+        {
+          "SYNTHETIC:6:ordered-ab": 1,
+          "SYNTHETIC:6:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:19:spa-one": 1,
+          "SYNTHETIC:19:spa-two": 1
+        },
+        {
+          "SYNTHETIC:44:assigned-empty-flag": 1,
+          "SYNTHETIC:44:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:78:spa-one": 1,
+          "SYNTHETIC:78:spa-two": 1
+        },
+        {
+          "SYNTHETIC:97:ordered-ab": 1,
+          "SYNTHETIC:97:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:9:ordered-ab": 1,
+          "SYNTHETIC:9:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:39:spa-one": 1,
+          "SYNTHETIC:39:spa-two": 1
+        },
+        {
+          "SYNTHETIC:12:ordered-ab": 1,
+          "SYNTHETIC:12:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:25:spa-one": 1,
+          "SYNTHETIC:25:spa-two": 1
+        },
+        {
+          "SYNTHETIC:75:ordered-ab": 1,
+          "SYNTHETIC:75:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:22:assigned-empty-flag": 1,
+          "SYNTHETIC:22:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:28:ordered-ab": 1,
+          "SYNTHETIC:28:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:59:assigned-empty-flag": 1,
+          "SYNTHETIC:59:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:38:assigned-empty-flag": 1,
+          "SYNTHETIC:38:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:94:assigned-empty-flag": 1,
+          "SYNTHETIC:94:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:22:spa-one": 1,
+          "SYNTHETIC:22:spa-two": 1
+        },
+        {
+          "SYNTHETIC:44:ordered-ab": 1,
+          "SYNTHETIC:44:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:50:assigned-empty-flag": 1,
+          "SYNTHETIC:50:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:53:spa-one": 1,
+          "SYNTHETIC:53:spa-two": 1
+        },
+        {
+          "SYNTHETIC:27:spa-one": 1,
+          "SYNTHETIC:27:spa-two": 1
+        },
+        {
+          "SYNTHETIC:26:spa-one": 1,
+          "SYNTHETIC:26:spa-two": 1
+        },
+        {
+          "SYNTHETIC:15:ordered-ab": 1,
+          "SYNTHETIC:15:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:79:ordered-ab": 1,
+          "SYNTHETIC:79:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:30:ordered-ab": 1,
+          "SYNTHETIC:30:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:4:ordered-ab": 1,
+          "SYNTHETIC:4:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:58:ordered-ab": 1,
+          "SYNTHETIC:58:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:31:spa-one": 1,
+          "SYNTHETIC:31:spa-two": 1
+        },
+        {
+          "SYNTHETIC:82:assigned-empty-flag": 1,
+          "SYNTHETIC:82:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:69:assigned-empty-flag": 1,
+          "SYNTHETIC:69:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:95:assigned-empty-flag": 1,
+          "SYNTHETIC:95:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:85:assigned-empty-flag": 1,
+          "SYNTHETIC:85:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:49:ordered-ab": 1,
+          "SYNTHETIC:49:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:93:spa-one": 1,
+          "SYNTHETIC:93:spa-two": 1
+        },
+        {
+          "SYNTHETIC:80:spa-one": 1,
+          "SYNTHETIC:80:spa-two": 1
+        },
+        {
+          "SYNTHETIC:50:ordered-ab": 1,
+          "SYNTHETIC:50:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:96:ordered-ab": 1,
+          "SYNTHETIC:96:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:65:ordered-ab": 1,
+          "SYNTHETIC:65:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:90:assigned-empty-flag": 1,
+          "SYNTHETIC:90:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:52:assigned-empty-flag": 1,
+          "SYNTHETIC:52:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:26:assigned-empty-flag": 1,
+          "SYNTHETIC:26:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:31:assigned-empty-flag": 1,
+          "SYNTHETIC:31:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:72:ordered-ab": 1,
+          "SYNTHETIC:72:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:23:assigned-empty-flag": 1,
+          "SYNTHETIC:23:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:83:spa-one": 1,
+          "SYNTHETIC:83:spa-two": 1
+        },
+        {
+          "SYNTHETIC:65:assigned-empty-flag": 1,
+          "SYNTHETIC:65:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:53:assigned-empty-flag": 1,
+          "SYNTHETIC:53:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:80:ordered-ab": 1,
+          "SYNTHETIC:80:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:51:spa-one": 1,
+          "SYNTHETIC:51:spa-two": 1
+        },
+        {
+          "SYNTHETIC:74:ordered-ab": 1,
+          "SYNTHETIC:74:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:6:assigned-empty-flag": 1,
+          "SYNTHETIC:6:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:26:ordered-ab": 1,
+          "SYNTHETIC:26:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:14:assigned-empty-flag": 1,
+          "SYNTHETIC:14:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:57:ordered-ab": 1,
+          "SYNTHETIC:57:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:25:ordered-ab": 1,
+          "SYNTHETIC:25:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:95:spa-one": 1,
+          "SYNTHETIC:95:spa-two": 1
+        },
+        {
+          "SYNTHETIC:49:spa-one": 1,
+          "SYNTHETIC:49:spa-two": 1
+        },
+        {
+          "SYNTHETIC:65:spa-one": 1,
+          "SYNTHETIC:65:spa-two": 1
+        },
+        {
+          "SYNTHETIC:25:assigned-empty-flag": 1,
+          "SYNTHETIC:25:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:59:ordered-ab": 1,
+          "SYNTHETIC:59:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:75:assigned-empty-flag": 1,
+          "SYNTHETIC:75:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:37:assigned-empty-flag": 1,
+          "SYNTHETIC:37:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:87:ordered-ab": 1,
+          "SYNTHETIC:87:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:18:ordered-ab": 1,
+          "SYNTHETIC:18:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:10:ordered-ab": 1,
+          "SYNTHETIC:10:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:86:spa-one": 1,
+          "SYNTHETIC:86:spa-two": 1
+        },
+        {
+          "SYNTHETIC:17:ordered-ab": 1,
+          "SYNTHETIC:17:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:68:spa-one": 1,
+          "SYNTHETIC:68:spa-two": 1
+        },
+        {
+          "SYNTHETIC:47:assigned-empty-flag": 1,
+          "SYNTHETIC:47:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:85:spa-one": 1,
+          "SYNTHETIC:85:spa-two": 1
+        },
+        {
+          "SYNTHETIC:91:assigned-empty-flag": 1,
+          "SYNTHETIC:91:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:63:spa-one": 1,
+          "SYNTHETIC:63:spa-two": 1
+        },
+        {
+          "SYNTHETIC:32:spa-one": 1,
+          "SYNTHETIC:32:spa-two": 1
+        },
+        {
+          "SYNTHETIC:64:spa-one": 1,
+          "SYNTHETIC:64:spa-two": 1
+        },
+        {
+          "SYNTHETIC:44:spa-one": 1,
+          "SYNTHETIC:44:spa-two": 1
+        },
+        {
+          "SYNTHETIC:53:ordered-ab": 1,
+          "SYNTHETIC:53:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:4:spa-one": 1,
+          "SYNTHETIC:4:spa-two": 1
+        },
+        {
+          "SYNTHETIC:77:assigned-empty-flag": 1,
+          "SYNTHETIC:77:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:0:assigned-empty-flag": 1,
+          "SYNTHETIC:0:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:78:ordered-ab": 1,
+          "SYNTHETIC:78:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:97:assigned-empty-flag": 1,
+          "SYNTHETIC:97:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:60:assigned-empty-flag": 1,
+          "SYNTHETIC:60:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:39:ordered-ab": 1,
+          "SYNTHETIC:39:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:4:assigned-empty-flag": 1,
+          "SYNTHETIC:4:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:35:ordered-ab": 1,
+          "SYNTHETIC:35:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:17:spa-one": 1,
+          "SYNTHETIC:17:spa-two": 1
+        },
+        {
+          "SYNTHETIC:8:ordered-ab": 1,
+          "SYNTHETIC:8:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:91:ordered-ab": 1,
+          "SYNTHETIC:91:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:2:assigned-empty-flag": 1,
+          "SYNTHETIC:2:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:34:ordered-ab": 1,
+          "SYNTHETIC:34:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:21:assigned-empty-flag": 1,
+          "SYNTHETIC:21:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:34:spa-one": 1,
+          "SYNTHETIC:34:spa-two": 1
+        },
+        {
+          "SYNTHETIC:11:ordered-ab": 1,
+          "SYNTHETIC:11:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:92:spa-one": 1,
+          "SYNTHETIC:92:spa-two": 1
+        },
+        {
+          "SYNTHETIC:16:assigned-empty-flag": 1,
+          "SYNTHETIC:16:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:40:assigned-empty-flag": 1,
+          "SYNTHETIC:40:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:55:spa-one": 1,
+          "SYNTHETIC:55:spa-two": 1
+        },
+        {
+          "SYNTHETIC:77:spa-one": 1,
+          "SYNTHETIC:77:spa-two": 1
+        },
+        {
+          "SYNTHETIC:11:spa-one": 1,
+          "SYNTHETIC:11:spa-two": 1
+        },
+        {
+          "SYNTHETIC:8:assigned-empty-flag": 1,
+          "SYNTHETIC:8:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:27:ordered-ab": 1,
+          "SYNTHETIC:27:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:0:ordered-ab": 1,
+          "SYNTHETIC:0:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:45:spa-one": 1,
+          "SYNTHETIC:45:spa-two": 1
+        },
+        {
+          "SYNTHETIC:68:assigned-empty-flag": 1,
+          "SYNTHETIC:68:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:18:assigned-empty-flag": 1,
+          "SYNTHETIC:18:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:70:assigned-empty-flag": 1,
+          "SYNTHETIC:70:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:3:spa-one": 1,
+          "SYNTHETIC:3:spa-two": 1
+        },
+        {
+          "SYNTHETIC:36:spa-one": 1,
+          "SYNTHETIC:36:spa-two": 1
+        },
+        {
+          "SYNTHETIC:23:spa-one": 1,
+          "SYNTHETIC:23:spa-two": 1
+        },
+        {
+          "SYNTHETIC:2:spa-one": 1,
+          "SYNTHETIC:2:spa-two": 1
+        },
+        {
+          "SYNTHETIC:61:ordered-ab": 1,
+          "SYNTHETIC:61:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:76:spa-one": 1,
+          "SYNTHETIC:76:spa-two": 1
+        },
+        {
+          "SYNTHETIC:89:ordered-ab": 1,
+          "SYNTHETIC:89:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:87:spa-one": 1,
+          "SYNTHETIC:87:spa-two": 1
+        },
+        {
+          "SYNTHETIC:81:assigned-empty-flag": 1,
+          "SYNTHETIC:81:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:48:assigned-empty-flag": 1,
+          "SYNTHETIC:48:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:67:assigned-empty-flag": 1,
+          "SYNTHETIC:67:bare-flag": 1
+        },
+        {
+          "SYNTHETIC:48:ordered-ab": 1,
+          "SYNTHETIC:48:ordered-ba": 1
+        },
+        {
+          "SYNTHETIC:63:assigned-empty-flag": 1,
+          "SYNTHETIC:63:bare-flag": 1
+        }
+      ],
+      "median_milliseconds": 27.008981,
+      "milliseconds_samples": [
+        26.642161,
+        27.120549,
+        27.008981,
+        26.845376,
+        27.350464
+      ],
+      "unique": 1400
+    },
+    "raw_url_set": {
+      "false_merge_groups": 100,
+      "false_merge_pairs": 600,
+      "label_witnesses": [
+        {
+          "SYNTHETIC:60:submit:GET:": 1,
+          "SYNTHETIC:60:submit:POST:x=1": 1,
+          "SYNTHETIC:60:submit:POST:x=1 ": 1,
+          "SYNTHETIC:60:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:22:submit:GET:": 1,
+          "SYNTHETIC:22:submit:POST:x=1": 1,
+          "SYNTHETIC:22:submit:POST:x=1 ": 1,
+          "SYNTHETIC:22:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:75:submit:GET:": 1,
+          "SYNTHETIC:75:submit:POST:x=1": 1,
+          "SYNTHETIC:75:submit:POST:x=1 ": 1,
+          "SYNTHETIC:75:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:79:submit:GET:": 1,
+          "SYNTHETIC:79:submit:POST:x=1": 1,
+          "SYNTHETIC:79:submit:POST:x=1 ": 1,
+          "SYNTHETIC:79:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:53:submit:GET:": 1,
+          "SYNTHETIC:53:submit:POST:x=1": 1,
+          "SYNTHETIC:53:submit:POST:x=1 ": 1,
+          "SYNTHETIC:53:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:2:submit:GET:": 1,
+          "SYNTHETIC:2:submit:POST:x=1": 1,
+          "SYNTHETIC:2:submit:POST:x=1 ": 1,
+          "SYNTHETIC:2:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:47:submit:GET:": 1,
+          "SYNTHETIC:47:submit:POST:x=1": 1,
+          "SYNTHETIC:47:submit:POST:x=1 ": 1,
+          "SYNTHETIC:47:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:28:submit:GET:": 1,
+          "SYNTHETIC:28:submit:POST:x=1": 1,
+          "SYNTHETIC:28:submit:POST:x=1 ": 1,
+          "SYNTHETIC:28:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:89:submit:GET:": 1,
+          "SYNTHETIC:89:submit:POST:x=1": 1,
+          "SYNTHETIC:89:submit:POST:x=1 ": 1,
+          "SYNTHETIC:89:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:82:submit:GET:": 1,
+          "SYNTHETIC:82:submit:POST:x=1": 1,
+          "SYNTHETIC:82:submit:POST:x=1 ": 1,
+          "SYNTHETIC:82:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:35:submit:GET:": 1,
+          "SYNTHETIC:35:submit:POST:x=1": 1,
+          "SYNTHETIC:35:submit:POST:x=1 ": 1,
+          "SYNTHETIC:35:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:33:submit:GET:": 1,
+          "SYNTHETIC:33:submit:POST:x=1": 1,
+          "SYNTHETIC:33:submit:POST:x=1 ": 1,
+          "SYNTHETIC:33:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:12:submit:GET:": 1,
+          "SYNTHETIC:12:submit:POST:x=1": 1,
+          "SYNTHETIC:12:submit:POST:x=1 ": 1,
+          "SYNTHETIC:12:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:70:submit:GET:": 1,
+          "SYNTHETIC:70:submit:POST:x=1": 1,
+          "SYNTHETIC:70:submit:POST:x=1 ": 1,
+          "SYNTHETIC:70:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:92:submit:GET:": 1,
+          "SYNTHETIC:92:submit:POST:x=1": 1,
+          "SYNTHETIC:92:submit:POST:x=1 ": 1,
+          "SYNTHETIC:92:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:66:submit:GET:": 1,
+          "SYNTHETIC:66:submit:POST:x=1": 1,
+          "SYNTHETIC:66:submit:POST:x=1 ": 1,
+          "SYNTHETIC:66:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:32:submit:GET:": 1,
+          "SYNTHETIC:32:submit:POST:x=1": 1,
+          "SYNTHETIC:32:submit:POST:x=1 ": 1,
+          "SYNTHETIC:32:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:3:submit:GET:": 1,
+          "SYNTHETIC:3:submit:POST:x=1": 1,
+          "SYNTHETIC:3:submit:POST:x=1 ": 1,
+          "SYNTHETIC:3:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:87:submit:GET:": 1,
+          "SYNTHETIC:87:submit:POST:x=1": 1,
+          "SYNTHETIC:87:submit:POST:x=1 ": 1,
+          "SYNTHETIC:87:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:65:submit:GET:": 1,
+          "SYNTHETIC:65:submit:POST:x=1": 1,
+          "SYNTHETIC:65:submit:POST:x=1 ": 1,
+          "SYNTHETIC:65:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:20:submit:GET:": 1,
+          "SYNTHETIC:20:submit:POST:x=1": 1,
+          "SYNTHETIC:20:submit:POST:x=1 ": 1,
+          "SYNTHETIC:20:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:9:submit:GET:": 1,
+          "SYNTHETIC:9:submit:POST:x=1": 1,
+          "SYNTHETIC:9:submit:POST:x=1 ": 1,
+          "SYNTHETIC:9:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:13:submit:GET:": 1,
+          "SYNTHETIC:13:submit:POST:x=1": 1,
+          "SYNTHETIC:13:submit:POST:x=1 ": 1,
+          "SYNTHETIC:13:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:96:submit:GET:": 1,
+          "SYNTHETIC:96:submit:POST:x=1": 1,
+          "SYNTHETIC:96:submit:POST:x=1 ": 1,
+          "SYNTHETIC:96:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:69:submit:GET:": 1,
+          "SYNTHETIC:69:submit:POST:x=1": 1,
+          "SYNTHETIC:69:submit:POST:x=1 ": 1,
+          "SYNTHETIC:69:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:40:submit:GET:": 1,
+          "SYNTHETIC:40:submit:POST:x=1": 1,
+          "SYNTHETIC:40:submit:POST:x=1 ": 1,
+          "SYNTHETIC:40:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:44:submit:GET:": 1,
+          "SYNTHETIC:44:submit:POST:x=1": 1,
+          "SYNTHETIC:44:submit:POST:x=1 ": 1,
+          "SYNTHETIC:44:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:25:submit:GET:": 1,
+          "SYNTHETIC:25:submit:POST:x=1": 1,
+          "SYNTHETIC:25:submit:POST:x=1 ": 1,
+          "SYNTHETIC:25:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:73:submit:GET:": 1,
+          "SYNTHETIC:73:submit:POST:x=1": 1,
+          "SYNTHETIC:73:submit:POST:x=1 ": 1,
+          "SYNTHETIC:73:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:74:submit:GET:": 1,
+          "SYNTHETIC:74:submit:POST:x=1": 1,
+          "SYNTHETIC:74:submit:POST:x=1 ": 1,
+          "SYNTHETIC:74:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:55:submit:GET:": 1,
+          "SYNTHETIC:55:submit:POST:x=1": 1,
+          "SYNTHETIC:55:submit:POST:x=1 ": 1,
+          "SYNTHETIC:55:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:1:submit:GET:": 1,
+          "SYNTHETIC:1:submit:POST:x=1": 1,
+          "SYNTHETIC:1:submit:POST:x=1 ": 1,
+          "SYNTHETIC:1:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:83:submit:GET:": 1,
+          "SYNTHETIC:83:submit:POST:x=1": 1,
+          "SYNTHETIC:83:submit:POST:x=1 ": 1,
+          "SYNTHETIC:83:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:6:submit:GET:": 1,
+          "SYNTHETIC:6:submit:POST:x=1": 1,
+          "SYNTHETIC:6:submit:POST:x=1 ": 1,
+          "SYNTHETIC:6:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:59:submit:GET:": 1,
+          "SYNTHETIC:59:submit:POST:x=1": 1,
+          "SYNTHETIC:59:submit:POST:x=1 ": 1,
+          "SYNTHETIC:59:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:51:submit:GET:": 1,
+          "SYNTHETIC:51:submit:POST:x=1": 1,
+          "SYNTHETIC:51:submit:POST:x=1 ": 1,
+          "SYNTHETIC:51:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:67:submit:GET:": 1,
+          "SYNTHETIC:67:submit:POST:x=1": 1,
+          "SYNTHETIC:67:submit:POST:x=1 ": 1,
+          "SYNTHETIC:67:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:90:submit:GET:": 1,
+          "SYNTHETIC:90:submit:POST:x=1": 1,
+          "SYNTHETIC:90:submit:POST:x=1 ": 1,
+          "SYNTHETIC:90:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:72:submit:GET:": 1,
+          "SYNTHETIC:72:submit:POST:x=1": 1,
+          "SYNTHETIC:72:submit:POST:x=1 ": 1,
+          "SYNTHETIC:72:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:19:submit:GET:": 1,
+          "SYNTHETIC:19:submit:POST:x=1": 1,
+          "SYNTHETIC:19:submit:POST:x=1 ": 1,
+          "SYNTHETIC:19:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:39:submit:GET:": 1,
+          "SYNTHETIC:39:submit:POST:x=1": 1,
+          "SYNTHETIC:39:submit:POST:x=1 ": 1,
+          "SYNTHETIC:39:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:64:submit:GET:": 1,
+          "SYNTHETIC:64:submit:POST:x=1": 1,
+          "SYNTHETIC:64:submit:POST:x=1 ": 1,
+          "SYNTHETIC:64:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:29:submit:GET:": 1,
+          "SYNTHETIC:29:submit:POST:x=1": 1,
+          "SYNTHETIC:29:submit:POST:x=1 ": 1,
+          "SYNTHETIC:29:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:5:submit:GET:": 1,
+          "SYNTHETIC:5:submit:POST:x=1": 1,
+          "SYNTHETIC:5:submit:POST:x=1 ": 1,
+          "SYNTHETIC:5:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:63:submit:GET:": 1,
+          "SYNTHETIC:63:submit:POST:x=1": 1,
+          "SYNTHETIC:63:submit:POST:x=1 ": 1,
+          "SYNTHETIC:63:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:99:submit:GET:": 1,
+          "SYNTHETIC:99:submit:POST:x=1": 1,
+          "SYNTHETIC:99:submit:POST:x=1 ": 1,
+          "SYNTHETIC:99:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:94:submit:GET:": 1,
+          "SYNTHETIC:94:submit:POST:x=1": 1,
+          "SYNTHETIC:94:submit:POST:x=1 ": 1,
+          "SYNTHETIC:94:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:18:submit:GET:": 1,
+          "SYNTHETIC:18:submit:POST:x=1": 1,
+          "SYNTHETIC:18:submit:POST:x=1 ": 1,
+          "SYNTHETIC:18:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:42:submit:GET:": 1,
+          "SYNTHETIC:42:submit:POST:x=1": 1,
+          "SYNTHETIC:42:submit:POST:x=1 ": 1,
+          "SYNTHETIC:42:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:54:submit:GET:": 1,
+          "SYNTHETIC:54:submit:POST:x=1": 1,
+          "SYNTHETIC:54:submit:POST:x=1 ": 1,
+          "SYNTHETIC:54:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:8:submit:GET:": 1,
+          "SYNTHETIC:8:submit:POST:x=1": 1,
+          "SYNTHETIC:8:submit:POST:x=1 ": 1,
+          "SYNTHETIC:8:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:46:submit:GET:": 1,
+          "SYNTHETIC:46:submit:POST:x=1": 1,
+          "SYNTHETIC:46:submit:POST:x=1 ": 1,
+          "SYNTHETIC:46:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:61:submit:GET:": 1,
+          "SYNTHETIC:61:submit:POST:x=1": 1,
+          "SYNTHETIC:61:submit:POST:x=1 ": 1,
+          "SYNTHETIC:61:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:15:submit:GET:": 1,
+          "SYNTHETIC:15:submit:POST:x=1": 1,
+          "SYNTHETIC:15:submit:POST:x=1 ": 1,
+          "SYNTHETIC:15:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:49:submit:GET:": 1,
+          "SYNTHETIC:49:submit:POST:x=1": 1,
+          "SYNTHETIC:49:submit:POST:x=1 ": 1,
+          "SYNTHETIC:49:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:36:submit:GET:": 1,
+          "SYNTHETIC:36:submit:POST:x=1": 1,
+          "SYNTHETIC:36:submit:POST:x=1 ": 1,
+          "SYNTHETIC:36:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:7:submit:GET:": 1,
+          "SYNTHETIC:7:submit:POST:x=1": 1,
+          "SYNTHETIC:7:submit:POST:x=1 ": 1,
+          "SYNTHETIC:7:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:95:submit:GET:": 1,
+          "SYNTHETIC:95:submit:POST:x=1": 1,
+          "SYNTHETIC:95:submit:POST:x=1 ": 1,
+          "SYNTHETIC:95:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:45:submit:GET:": 1,
+          "SYNTHETIC:45:submit:POST:x=1": 1,
+          "SYNTHETIC:45:submit:POST:x=1 ": 1,
+          "SYNTHETIC:45:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:34:submit:GET:": 1,
+          "SYNTHETIC:34:submit:POST:x=1": 1,
+          "SYNTHETIC:34:submit:POST:x=1 ": 1,
+          "SYNTHETIC:34:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:10:submit:GET:": 1,
+          "SYNTHETIC:10:submit:POST:x=1": 1,
+          "SYNTHETIC:10:submit:POST:x=1 ": 1,
+          "SYNTHETIC:10:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:98:submit:GET:": 1,
+          "SYNTHETIC:98:submit:POST:x=1": 1,
+          "SYNTHETIC:98:submit:POST:x=1 ": 1,
+          "SYNTHETIC:98:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:31:submit:GET:": 1,
+          "SYNTHETIC:31:submit:POST:x=1": 1,
+          "SYNTHETIC:31:submit:POST:x=1 ": 1,
+          "SYNTHETIC:31:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:52:submit:GET:": 1,
+          "SYNTHETIC:52:submit:POST:x=1": 1,
+          "SYNTHETIC:52:submit:POST:x=1 ": 1,
+          "SYNTHETIC:52:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:80:submit:GET:": 1,
+          "SYNTHETIC:80:submit:POST:x=1": 1,
+          "SYNTHETIC:80:submit:POST:x=1 ": 1,
+          "SYNTHETIC:80:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:88:submit:GET:": 1,
+          "SYNTHETIC:88:submit:POST:x=1": 1,
+          "SYNTHETIC:88:submit:POST:x=1 ": 1,
+          "SYNTHETIC:88:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:26:submit:GET:": 1,
+          "SYNTHETIC:26:submit:POST:x=1": 1,
+          "SYNTHETIC:26:submit:POST:x=1 ": 1,
+          "SYNTHETIC:26:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:0:submit:GET:": 1,
+          "SYNTHETIC:0:submit:POST:x=1": 1,
+          "SYNTHETIC:0:submit:POST:x=1 ": 1,
+          "SYNTHETIC:0:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:37:submit:GET:": 1,
+          "SYNTHETIC:37:submit:POST:x=1": 1,
+          "SYNTHETIC:37:submit:POST:x=1 ": 1,
+          "SYNTHETIC:37:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:56:submit:GET:": 1,
+          "SYNTHETIC:56:submit:POST:x=1": 1,
+          "SYNTHETIC:56:submit:POST:x=1 ": 1,
+          "SYNTHETIC:56:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:41:submit:GET:": 1,
+          "SYNTHETIC:41:submit:POST:x=1": 1,
+          "SYNTHETIC:41:submit:POST:x=1 ": 1,
+          "SYNTHETIC:41:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:77:submit:GET:": 1,
+          "SYNTHETIC:77:submit:POST:x=1": 1,
+          "SYNTHETIC:77:submit:POST:x=1 ": 1,
+          "SYNTHETIC:77:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:86:submit:GET:": 1,
+          "SYNTHETIC:86:submit:POST:x=1": 1,
+          "SYNTHETIC:86:submit:POST:x=1 ": 1,
+          "SYNTHETIC:86:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:78:submit:GET:": 1,
+          "SYNTHETIC:78:submit:POST:x=1": 1,
+          "SYNTHETIC:78:submit:POST:x=1 ": 1,
+          "SYNTHETIC:78:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:97:submit:GET:": 1,
+          "SYNTHETIC:97:submit:POST:x=1": 1,
+          "SYNTHETIC:97:submit:POST:x=1 ": 1,
+          "SYNTHETIC:97:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:38:submit:GET:": 1,
+          "SYNTHETIC:38:submit:POST:x=1": 1,
+          "SYNTHETIC:38:submit:POST:x=1 ": 1,
+          "SYNTHETIC:38:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:48:submit:GET:": 1,
+          "SYNTHETIC:48:submit:POST:x=1": 1,
+          "SYNTHETIC:48:submit:POST:x=1 ": 1,
+          "SYNTHETIC:48:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:17:submit:GET:": 1,
+          "SYNTHETIC:17:submit:POST:x=1": 1,
+          "SYNTHETIC:17:submit:POST:x=1 ": 1,
+          "SYNTHETIC:17:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:91:submit:GET:": 1,
+          "SYNTHETIC:91:submit:POST:x=1": 1,
+          "SYNTHETIC:91:submit:POST:x=1 ": 1,
+          "SYNTHETIC:91:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:68:submit:GET:": 1,
+          "SYNTHETIC:68:submit:POST:x=1": 1,
+          "SYNTHETIC:68:submit:POST:x=1 ": 1,
+          "SYNTHETIC:68:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:62:submit:GET:": 1,
+          "SYNTHETIC:62:submit:POST:x=1": 1,
+          "SYNTHETIC:62:submit:POST:x=1 ": 1,
+          "SYNTHETIC:62:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:16:submit:GET:": 1,
+          "SYNTHETIC:16:submit:POST:x=1": 1,
+          "SYNTHETIC:16:submit:POST:x=1 ": 1,
+          "SYNTHETIC:16:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:23:submit:GET:": 1,
+          "SYNTHETIC:23:submit:POST:x=1": 1,
+          "SYNTHETIC:23:submit:POST:x=1 ": 1,
+          "SYNTHETIC:23:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:81:submit:GET:": 1,
+          "SYNTHETIC:81:submit:POST:x=1": 1,
+          "SYNTHETIC:81:submit:POST:x=1 ": 1,
+          "SYNTHETIC:81:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:58:submit:GET:": 1,
+          "SYNTHETIC:58:submit:POST:x=1": 1,
+          "SYNTHETIC:58:submit:POST:x=1 ": 1,
+          "SYNTHETIC:58:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:24:submit:GET:": 1,
+          "SYNTHETIC:24:submit:POST:x=1": 1,
+          "SYNTHETIC:24:submit:POST:x=1 ": 1,
+          "SYNTHETIC:24:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:93:submit:GET:": 1,
+          "SYNTHETIC:93:submit:POST:x=1": 1,
+          "SYNTHETIC:93:submit:POST:x=1 ": 1,
+          "SYNTHETIC:93:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:57:submit:GET:": 1,
+          "SYNTHETIC:57:submit:POST:x=1": 1,
+          "SYNTHETIC:57:submit:POST:x=1 ": 1,
+          "SYNTHETIC:57:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:27:submit:GET:": 1,
+          "SYNTHETIC:27:submit:POST:x=1": 1,
+          "SYNTHETIC:27:submit:POST:x=1 ": 1,
+          "SYNTHETIC:27:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:43:submit:GET:": 1,
+          "SYNTHETIC:43:submit:POST:x=1": 1,
+          "SYNTHETIC:43:submit:POST:x=1 ": 1,
+          "SYNTHETIC:43:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:14:submit:GET:": 1,
+          "SYNTHETIC:14:submit:POST:x=1": 1,
+          "SYNTHETIC:14:submit:POST:x=1 ": 1,
+          "SYNTHETIC:14:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:4:submit:GET:": 1,
+          "SYNTHETIC:4:submit:POST:x=1": 1,
+          "SYNTHETIC:4:submit:POST:x=1 ": 1,
+          "SYNTHETIC:4:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:21:submit:GET:": 1,
+          "SYNTHETIC:21:submit:POST:x=1": 1,
+          "SYNTHETIC:21:submit:POST:x=1 ": 1,
+          "SYNTHETIC:21:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:11:submit:GET:": 1,
+          "SYNTHETIC:11:submit:POST:x=1": 1,
+          "SYNTHETIC:11:submit:POST:x=1 ": 1,
+          "SYNTHETIC:11:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:84:submit:GET:": 1,
+          "SYNTHETIC:84:submit:POST:x=1": 1,
+          "SYNTHETIC:84:submit:POST:x=1 ": 1,
+          "SYNTHETIC:84:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:50:submit:GET:": 1,
+          "SYNTHETIC:50:submit:POST:x=1": 1,
+          "SYNTHETIC:50:submit:POST:x=1 ": 1,
+          "SYNTHETIC:50:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:30:submit:GET:": 1,
+          "SYNTHETIC:30:submit:POST:x=1": 1,
+          "SYNTHETIC:30:submit:POST:x=1 ": 1,
+          "SYNTHETIC:30:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:71:submit:GET:": 1,
+          "SYNTHETIC:71:submit:POST:x=1": 1,
+          "SYNTHETIC:71:submit:POST:x=1 ": 1,
+          "SYNTHETIC:71:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:85:submit:GET:": 1,
+          "SYNTHETIC:85:submit:POST:x=1": 1,
+          "SYNTHETIC:85:submit:POST:x=1 ": 1,
+          "SYNTHETIC:85:submit:POST:x=2": 1
+        },
+        {
+          "SYNTHETIC:76:submit:GET:": 1,
+          "SYNTHETIC:76:submit:POST:x=1": 1,
+          "SYNTHETIC:76:submit:POST:x=1 ": 1,
+          "SYNTHETIC:76:submit:POST:x=2": 1
+        }
+      ],
+      "median_milliseconds": 0.104767,
+      "milliseconds_samples": [
+        0.116375,
+        0.116575,
+        0.104767,
+        0.096134,
+        0.097937
+      ],
+      "unique": 1900
+    },
+    "tracking_only": {
+      "false_merge_groups": 0,
+      "false_merge_pairs": 0,
+      "label_witnesses": [],
+      "median_milliseconds": 1.683354,
+      "milliseconds_samples": [
+        1.672047,
+        1.683465,
+        1.683354,
+        1.652378,
+        1.683665
+      ],
+      "unique": 2100
+    }
+  },
+  "seed": 39,
+  "synthetic": true,
+  "timing_scope": "key generation + set construction on validated in-memory records; median; no parsing/report I/O",
+  "w3lib": "2.3.1"
+}

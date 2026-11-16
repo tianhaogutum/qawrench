@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "requests": [
+    {
+      "id": "ordered-form",
+      "method": "POST",
+      "url": "http://fixture.test/form",
+      "postData": {
+        "mimeType": "application/x-www-form-urlencoded",
+        "text": "tag=a+b&tag=%C3%A9%2B&empty="
+      }
+    }
+  ]
+}

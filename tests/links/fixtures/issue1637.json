@@ -1,0 +1,34 @@
+{
+  "total": 52,
+  "successful": 36,
+  "unknown": 0,
+  "unsupported": 0,
+  "timeouts": 0,
+  "redirects": 0,
+  "excludes": 14,
+  "errors": 2,
+  "cached": 0,
+  "success_map": {},
+  "error_map": {
+    "mysql-compatibility.md": [
+      {
+        "url": "https://broken2.myname.nl/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://broken2.myname.nl/) Maybe a certificate error?"
+        }
+      },
+      {
+        "url": "https://broken1.myname.nl/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://broken1.myname.nl/) Maybe a certificate error?"
+        }
+      }
+    ]
+  },
+  "suggestion_map": {},
+  "excluded_map": {},
+  "duration_secs": 1,
+  "detailed_stats": false
+}

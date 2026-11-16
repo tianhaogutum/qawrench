@@ -1,0 +1,72 @@
+{
+  "basic.md": [
+    {
+      "startLine": 1,
+      "startColumn": 7,
+      "endLine": 1,
+      "endColumn": 25
+    },
+    {
+      "startLine": 1,
+      "startColumn": 38,
+      "endLine": 1,
+      "endColumn": 56
+    }
+  ],
+  "mixed.md": [
+    {
+      "startLine": 3,
+      "startColumn": 14,
+      "endLine": 3,
+      "endColumn": 32
+    },
+    {
+      "startLine": 3,
+      "startColumn": 40,
+      "endLine": 3,
+      "endColumn": 45
+    },
+    {
+      "startLine": 3,
+      "startColumn": 46,
+      "endLine": 3,
+      "endColumn": 56
+    },
+    {
+      "startLine": 3,
+      "startColumn": 57,
+      "endLine": 3,
+      "endColumn": 64
+    },
+    {
+      "startLine": 4,
+      "startColumn": 45,
+      "endLine": 4,
+      "endColumn": 63
+    },
+    {
+      "startLine": 5,
+      "startColumn": 11,
+      "endLine": 5,
+      "endColumn": 16
+    },
+    {
+      "startLine": 5,
+      "startColumn": 23,
+      "endLine": 5,
+      "endColumn": 41
+    },
+    {
+      "startLine": 7,
+      "startColumn": 10,
+      "endLine": 7,
+      "endColumn": 28
+    },
+    {
+      "startLine": 7,
+      "startColumn": 35,
+      "endLine": 7,
+      "endColumn": 40
+    }
+  ]
+}

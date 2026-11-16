@@ -1,0 +1,39 @@
+{
+  "testEngine": {"name": "axe-core", "version": "4.10.3"},
+  "testRunner": {"name": "axe"},
+  "testEnvironment": {"userAgent": "SYNTHETIC demo fixture; no browser was run", "windowWidth": 1280, "windowHeight": 720,
+                      "orientationType": "landscape-primary", "orientationAngle": 0},
+  "timestamp": "2026-11-16T09:01:00.000Z",
+  "url": "https://shop.example.test/",
+  "toolOptions": {"reporter": "v1", "resultTypes": ["violations", "incomplete", "passes", "inapplicable"]},
+  "violations": [
+    {
+      "id": "color-contrast", "impact": "serious", "tags": ["wcag2aa", "wcag143"],
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI",
+      "nodes": [
+        {"target": [".promo-banner > p"], "html": "<p>Free shipping</p>", "impact": "serious",
+         "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.9 (expected 4.5:1)",
+         "any": [], "all": [], "none": []},
+        {"target": ["footer .legal"], "html": "<small class=\"legal\">Terms</small>", "impact": "serious",
+         "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.1 (expected 4.5:1)",
+         "any": [], "all": [], "none": []}
+      ]
+    },
+    {
+      "id": "image-alt", "impact": "critical", "tags": ["wcag2a", "wcag111"],
+      "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+      "help": "Images must have alternative text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/image-alt?application=axeAPI",
+      "nodes": [
+        {"target": ["#hero > img"], "html": "<img src=\"hero.webp\">", "impact": "critical",
+         "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute",
+         "any": [], "all": [], "none": []}
+      ]
+    }
+  ],
+  "passes": [],
+  "inapplicable": [],
+  "incomplete": []
+}

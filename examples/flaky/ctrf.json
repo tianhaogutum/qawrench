@@ -1,0 +1,92 @@
+{
+  "reportFormat": "CTRF",
+  "specVersion": "0.0.0",
+  "reportId": "00000000-0000-4000-8000-000000000032",
+  "timestamp": "2026-01-01T00:00:00.000Z",
+  "generatedBy": "playwright-ctrf-json-reporter",
+  "results": {
+    "tool": {
+      "name": "playwright"
+    },
+    "summary": {
+      "tests": 6,
+      "passed": 2,
+      "failed": 3,
+      "pending": 0,
+      "skipped": 1,
+      "other": 0,
+      "start": 1000,
+      "stop": 1041
+    },
+    "tests": [
+      {
+        "name": "aggregate retries",
+        "status": "passed",
+        "duration": 7,
+        "filePath": "/synthetic/repo/tests/cart.spec.ts",
+        "suite": "chromium > tests/cart.spec.ts > cart",
+        "retries": 2,
+        "flaky": true,
+        "rawStatus": "passed"
+      },
+      {
+        "name": "detailed retries",
+        "status": "passed",
+        "duration": 6,
+        "filePath": "/synthetic/repo/tests/cart.spec.ts",
+        "suite": "chromium > tests/cart.spec.ts > cart",
+        "retries": 1,
+        "flaky": true,
+        "rawStatus": "passed",
+        "retryAttempts": [
+          {
+            "status": "failed",
+            "duration": 11,
+            "message": "Synthetic previous failure"
+          }
+        ]
+      },
+      {
+        "name": "opt out",
+        "status": "skipped",
+        "duration": 0,
+        "filePath": "/synthetic/repo/tests/cart.spec.ts",
+        "suite": "chromium > tests/cart.spec.ts > cart",
+        "retries": 0,
+        "flaky": false,
+        "rawStatus": "skipped"
+      },
+      {
+        "name": "cancelled",
+        "status": "failed",
+        "duration": 3,
+        "filePath": "/synthetic/repo/tests/cart.spec.ts",
+        "suite": "chromium > tests/cart.spec.ts > cart",
+        "retries": 0,
+        "flaky": false,
+        "rawStatus": "interrupted"
+      },
+      {
+        "name": "known issue",
+        "status": "passed",
+        "duration": 4,
+        "filePath": "/synthetic/repo/tests/cart.spec.ts",
+        "suite": "chromium > tests/cart.spec.ts > cart",
+        "retries": 0,
+        "flaky": false,
+        "rawStatus": "failed"
+      },
+      {
+        "name": "terminal",
+        "status": "failed",
+        "duration": 10,
+        "filePath": "/synthetic/repo/tests/cart.spec.ts",
+        "suite": "chromium > tests/cart.spec.ts > cart",
+        "retries": 0,
+        "flaky": false,
+        "rawStatus": "failed"
+      }
+    ]
+  },
+  "_fixture": "SYNTHETIC OFFLINE DATA; aggregate first test deliberately lacks retryAttempts"
+}

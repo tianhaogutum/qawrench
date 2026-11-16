@@ -1,0 +1,6 @@
+{
+  "dropRequestHeaders": [
+    "X-Request-ID",
+    "Authorization"
+  ]
+}

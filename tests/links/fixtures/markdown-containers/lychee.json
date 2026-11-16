@@ -1,0 +1,50 @@
+{
+  "total": 4,
+  "successful": 0,
+  "unknown": 0,
+  "unsupported": 0,
+  "timeouts": 0,
+  "redirects": 0,
+  "excludes": 0,
+  "errors": 4,
+  "cached": 0,
+  "success_map": {},
+  "error_map": {
+    "nested.md": [
+      {
+        "url": "https://x.invalid/",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      },
+      {
+        "url": "https://unmatched.invalid/",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      }
+    ],
+    "references.md": [
+      {
+        "url": "https://x.invalid/",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      },
+      {
+        "url": "https://unmatched.invalid/",
+        "status": {
+          "text": "Network error",
+          "code": 404
+        }
+      }
+    ]
+  },
+  "suggestion_map": {},
+  "excluded_map": {},
+  "duration_secs": 0,
+  "detailed_stats": false
+}

@@ -1,0 +1,19 @@
+{
+  "collisionGroups": 100,
+  "conflictingGroups": 0,
+  "entries": 1000,
+  "exactKeyMismatchesAfter": 0,
+  "exactKeyMismatchesBefore": 1000,
+  "fixture": "synthetic offline; not evidence of real-site improvement",
+  "injectedConflictGroups": 1,
+  "intendedMatchesAfter": 1000,
+  "intendedMatchesBefore": 0,
+  "payloadAndUntouchedFieldPreservation": true,
+  "repeatApplyChangedEntries": 0,
+  "timingMs": {
+    "plan": 82.236,
+    "rewriteIncludingReplan": 129.654,
+    "twoCLIProcesses": 339.225
+  },
+  "timingScope": "single local run, sequential; no replay-speed comparison or promised speedup"
+}

@@ -1,0 +1,6 @@
+[
+  "https://example.test/page-1",
+  {"url":"https://example.test/page-2","method":"POST","payload":"a=1&a=2","userData":{"label":"SYNTHETIC","note":"Crawlee JS RequestOptions subset; no remote requestsFromUrl"}},
+  {"url":"https://example.test/page-2","method":"POST","payload":"a=2&a=1","label":"SYNTHETIC"},
+  {"url":"https://example.test/page-1","userData":{"synthetic":true}}
+]

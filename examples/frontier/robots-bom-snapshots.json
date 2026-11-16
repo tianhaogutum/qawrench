@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "origins": {
+    "https://example.test": {
+      "status": "available",
+      "source": "synthetic:bom-witness",
+      "text": "\ufeffDisallow /private # original first record\r\nUser-agent: AuditBot\r\nAllow: /\r\n"
+    }
+  }
+}

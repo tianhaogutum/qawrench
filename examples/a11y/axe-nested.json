@@ -1,0 +1,68 @@
+{
+  "testEngine": {
+    "name": "axe-core",
+    "version": "4.10.3"
+  },
+  "testRunner": {
+    "name": "axe"
+  },
+  "testEnvironment": {
+    "userAgent": "Synthetic offline fixture, no browser was run",
+    "windowWidth": 1024,
+    "windowHeight": 768,
+    "orientationType": "landscape-primary",
+    "orientationAngle": 0
+  },
+  "timestamp": "2026-11-11T00:00:00.000Z",
+  "toolOptions": {
+    "reporter": "v1",
+    "resultTypes": [
+      "violations",
+      "incomplete",
+      "passes",
+      "inapplicable"
+    ]
+  },
+  "violations": [
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "tags": [
+        "wcag2a",
+        "wcag111"
+      ],
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=axeAPI",
+      "nodes": [
+        {
+          "target": [
+            "iframe#checkout",
+            [
+              "checkout-shell",
+              "button.buy"
+            ]
+          ],
+          "html": "<button class=\"buy\"></button>",
+          "impact": "critical",
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers",
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "impact": "critical",
+              "message": "Element does not have inner text that is visible to screen readers",
+              "data": null,
+              "relatedNodes": []
+            }
+          ],
+          "all": [],
+          "none": []
+        }
+      ]
+    }
+  ],
+  "passes": [],
+  "inapplicable": [],
+  "incomplete": [],
+  "url": "https://fixture.test/checkout#payment"
+}

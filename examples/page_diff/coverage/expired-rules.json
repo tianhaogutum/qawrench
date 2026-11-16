@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "required_region": "main",
+  "ignore_selectors": [
+    {"selector": ".clock", "owner": "catalog-team", "expires": "2000-01-01"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "total": 1,
+  "passes": 0,
+  "errors": 0,
+  "results": {
+    "https://fixture.test/": [
+      {
+        "message": "Synthetic navigation timeout"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "required_region": "main",
+  "sibling_identity": [{"selector": "article.card", "key_attribute": "id"}],
+  "ignore_selectors": [".banner", ".noise", ".inner", ".inner"],
+  "volatile_attributes": [
+    {"selector": "article.card", "attributes": ["data-render"]},
+    {"selector": "article.card", "attributes": ["data-render"]},
+    {"selector": "[data-render]", "attributes": ["data-render"], "min_matches": 0}
+  ]
+}

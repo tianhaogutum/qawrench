@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "required_region": "main",
+  "ignore_selectors": [".noise"],
+  "volatile_attributes": [{"selector": "p", "attributes": ["data-render"]}]
+}
