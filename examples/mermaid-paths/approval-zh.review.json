@@ -1,0 +1,55 @@
+{
+  "schema": "mermaid-paths/review-v1",
+  "sourceSha256": "071134f3949bea1acd525dab520fe8a58c42810f4c7d8a57817f56da56edace9",
+  "instructions": "检查每条连接的起点、终点和说明文字。按需编辑 text，确认后再把该连接的 confirmed 改为 true。源文件发生变化后，请重新生成并确认此文件。",
+  "edges": [
+    {
+      "id": "e1",
+      "from": "草稿",
+      "fromLabel": "撰写草稿",
+      "to": "审核",
+      "toLabel": "审核通过？",
+      "sourceLine": 4,
+      "lineStyle": "solid",
+      "sourceLabel": null,
+      "text": "提交草稿进行审核",
+      "confirmed": true
+    },
+    {
+      "id": "e2",
+      "from": "审核",
+      "fromLabel": "审核通过？",
+      "to": "发布",
+      "toLabel": "发布文稿",
+      "sourceLine": 5,
+      "lineStyle": "solid",
+      "sourceLabel": "通过",
+      "text": "通过",
+      "confirmed": true
+    },
+    {
+      "id": "e3",
+      "from": "审核",
+      "fromLabel": "审核通过？",
+      "to": "修改",
+      "toLabel": "修改文稿",
+      "sourceLine": 6,
+      "lineStyle": "solid",
+      "sourceLabel": "需要修改",
+      "text": "需要修改",
+      "confirmed": true
+    },
+    {
+      "id": "e4",
+      "from": "修改",
+      "fromLabel": "修改文稿",
+      "to": "审核",
+      "toLabel": "审核通过？",
+      "sourceLine": 7,
+      "lineStyle": "solid",
+      "sourceLabel": null,
+      "text": "再次提交审核",
+      "confirmed": true
+    }
+  ]
+}

@@ -1,0 +1,929 @@
+{
+  "oracle": "mermaid@11.12.0 via mermaidAPI.getDiagramFromText(), jsdom@26.1.0; no SVG rendering",
+  "examples": [
+    {
+      "file": "flowchart-000.mmd",
+      "nodes": [
+        {
+          "id": "id",
+          "label": "id"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-001.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-002.mmd",
+      "nodes": [
+        {
+          "id": "id",
+          "label": "This ❤ Unicode"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-003.mmd",
+      "nodes": [
+        {
+          "id": "markdown",
+          "label": "This is Markdown"
+        },
+        {
+          "id": "newLines",
+          "label": "Line1 Line 2 Line 3"
+        }
+      ],
+      "edges": [
+        {
+          "from": "markdown",
+          "to": "newLines",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-004.mmd",
+      "nodes": [
+        {
+          "id": "Start",
+          "label": "Start"
+        },
+        {
+          "id": "Stop",
+          "label": "Stop"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Start",
+          "to": "Stop",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-005.mmd",
+      "nodes": [
+        {
+          "id": "Start",
+          "label": "Start"
+        },
+        {
+          "id": "Stop",
+          "label": "Stop"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Start",
+          "to": "Stop",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-006.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-007.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-008.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-009.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "Database"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-010.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the circle"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-011.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-012.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-013.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-014.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-015.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-016.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "Christmas"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-017.mmd",
+      "nodes": [
+        {
+          "id": "B",
+          "label": "Go shopping"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-018.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the text in the circle"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-067.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-071.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": "text"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-072.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": "text"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-073.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-074.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": "text"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-075.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-076.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": "text"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-078.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": "text"
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": "text2"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-079.mmd",
+      "nodes": [
+        {
+          "id": "a",
+          "label": "a"
+        },
+        {
+          "id": "b",
+          "label": "b"
+        },
+        {
+          "id": "c",
+          "label": "c"
+        },
+        {
+          "id": "d",
+          "label": "d"
+        }
+      ],
+      "edges": [
+        {
+          "from": "a",
+          "to": "b",
+          "label": null
+        },
+        {
+          "from": "a",
+          "to": "c",
+          "label": null
+        },
+        {
+          "from": "b",
+          "to": "d",
+          "label": null
+        },
+        {
+          "from": "c",
+          "to": "d",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-080.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "C",
+          "label": null
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-081.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "C",
+          "label": null
+        },
+        {
+          "from": "A",
+          "to": "D",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-082.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-085.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-089.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "Start"
+        },
+        {
+          "id": "B",
+          "label": "Is it?"
+        },
+        {
+          "id": "C",
+          "label": "OK"
+        },
+        {
+          "id": "D",
+          "label": "Rethink"
+        },
+        {
+          "id": "E",
+          "label": "End"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": "Yes"
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "label": null
+        },
+        {
+          "from": "D",
+          "to": "B",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "E",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-090.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "Start"
+        },
+        {
+          "id": "B",
+          "label": "Is it?"
+        },
+        {
+          "id": "C",
+          "label": "OK"
+        },
+        {
+          "id": "D",
+          "label": "Rethink"
+        },
+        {
+          "id": "E",
+          "label": "End"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": "Yes"
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "label": null
+        },
+        {
+          "from": "D",
+          "to": "B",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "E",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-091.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "This is the (text) in the box"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "file": "flowchart-092.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A double quote:\""
+        },
+        {
+          "id": "B",
+          "label": "A dec char:♥"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-101.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": "text"
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": "text2"
+        }
+      ]
+    },
+    {
+      "file": "flowchart-103.mmd",
+      "nodes": [
+        {
+          "id": "id1",
+          "label": "Start"
+        },
+        {
+          "id": "id2",
+          "label": "Stop"
+        }
+      ],
+      "edges": [
+        {
+          "from": "id1",
+          "to": "id2",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-104.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-105.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "B"
+        },
+        {
+          "id": "C",
+          "label": "C"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "C",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-106.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "A"
+        },
+        {
+          "id": "B",
+          "label": "AAABBB"
+        },
+        {
+          "id": "D",
+          "label": "D"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-107.mmd",
+      "nodes": [
+        {
+          "id": "B",
+          "label": "fa:fa-twitter for peace"
+        },
+        {
+          "id": "C",
+          "label": "fa:fa-ban forbidden"
+        },
+        {
+          "id": "D",
+          "label": "fa:fa-spinner"
+        },
+        {
+          "id": "E",
+          "label": "A fa:fa-camera-retro perhaps?"
+        }
+      ],
+      "edges": [
+        {
+          "from": "B",
+          "to": "C",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "D",
+          "label": null
+        },
+        {
+          "from": "B",
+          "to": "E",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-108.mmd",
+      "nodes": [
+        {
+          "id": "B",
+          "label": "fa:fa-twitter for peace"
+        },
+        {
+          "id": "C",
+          "label": "fab:fa-truck-bold a custom icon"
+        }
+      ],
+      "edges": [
+        {
+          "from": "B",
+          "to": "C",
+          "label": null
+        }
+      ]
+    },
+    {
+      "file": "flowchart-109.mmd",
+      "nodes": [
+        {
+          "id": "A",
+          "label": "Hard edge"
+        },
+        {
+          "id": "B",
+          "label": "Round edge"
+        },
+        {
+          "id": "C",
+          "label": "Decision"
+        },
+        {
+          "id": "D",
+          "label": "Result one"
+        },
+        {
+          "id": "E",
+          "label": "Result two"
+        }
+      ],
+      "edges": [
+        {
+          "from": "A",
+          "to": "B",
+          "label": "Link text"
+        },
+        {
+          "from": "B",
+          "to": "C",
+          "label": null
+        },
+        {
+          "from": "C",
+          "to": "D",
+          "label": "One"
+        },
+        {
+          "from": "C",
+          "to": "E",
+          "label": "Two"
+        }
+      ]
+    }
+  ]
+}

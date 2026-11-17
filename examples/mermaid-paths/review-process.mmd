@@ -1,0 +1,7 @@
+flowchart TD
+  accTitle: Review and publish an article
+  accDescr: Draft an article, review it, revise if necessary, and publish when approved.
+  draft[Draft article] --> review{Approved?}
+  review -->|Yes, approved| publish[Publish article]
+  review -->|No, revise| revise[Revise article]
+  revise --> review

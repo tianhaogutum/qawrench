@@ -1,0 +1,779 @@
+{
+  "sourceUrl": "https://raw.githubusercontent.com/mermaid-js/mermaid/mermaid%4011.12.0/packages/mermaid/src/docs/syntax/flowchart.md",
+  "sourceVersion": "mermaid@11.12.0",
+  "sourceSha256": "56dab17de876de5fd146cf2535a7657c49e31a62959a3b40b18e64f96463067e",
+  "extraction": "Fenced Mermaid and mermaid-example blocks extracted with Marked 18.2.0; each gets one terminal newline.",
+  "license": "MIT; see LICENSE.mermaid",
+  "examples": [
+    {
+      "index": 0,
+      "file": "flowchart-000.mmd",
+      "sha256": "ff9a1774bb7e9a416e6000ff507393b371cfb18e9dc361858312b223c212c5e7",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 1,
+      "file": "flowchart-001.mmd",
+      "sha256": "f4db835df6afe3f2a60fd530d101e862e7adee3fb9a13cbd63bb06fceb16af18",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 2,
+      "file": "flowchart-002.mmd",
+      "sha256": "f70aed641f746c2aebf1f7a38e066d04146a92ffc9d780b97e0de7ba298edd0a",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 3,
+      "file": "flowchart-003.mmd",
+      "sha256": "ccad87ced12f2b19bbb02cdae7bb7aed1f7dfe90872924cca6f05439a29e3386",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 4,
+      "file": "flowchart-004.mmd",
+      "sha256": "6686c2010c31ba664f0e247782e2ae54cae2e4d8e38e963d62c7680ec88d679b",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 5,
+      "file": "flowchart-005.mmd",
+      "sha256": "9221e419f59c0a81f59b17b5c407c5428062220007821d680d51a7e94ed896d2",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 6,
+      "file": "flowchart-006.mmd",
+      "sha256": "c8329226c7005848bc01f044b331651af1816ba5b0eb684077367fce0a6dd865",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 7,
+      "file": "flowchart-007.mmd",
+      "sha256": "848620f02e99e05d2fe361f5eef1e854b13698013e16343fa42b1394084de642",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 8,
+      "file": "flowchart-008.mmd",
+      "sha256": "fe5831e2389554d0432c3aa175192ce8bbbb68d50bc560e5d4680d46c15da29e",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 9,
+      "file": "flowchart-009.mmd",
+      "sha256": "c57732f4dea61398cb6c155278fad30ffdcb7d0352c868e953faccdb8819165f",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 10,
+      "file": "flowchart-010.mmd",
+      "sha256": "6b39e85e8e60c32e26828a88f371aec36e36c785f3707ebf329d9944cf99c6ea",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 11,
+      "file": "flowchart-011.mmd",
+      "sha256": "bb15e35a39985eb4955b6388147487cb703e8ff0f89598c3ab24b0696ae3e013",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 12,
+      "file": "flowchart-012.mmd",
+      "sha256": "306e952eea6e380b7151bb3080c68cf152ddd33e9bbf193f7b2949da5dce4f21",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 13,
+      "file": "flowchart-013.mmd",
+      "sha256": "dcf721a3f4beee6490c5c50061185b5458758c3303934b0c99908ee95294510f",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 14,
+      "file": "flowchart-014.mmd",
+      "sha256": "832a1ec82f995ef815217f1ddf1f6153f4ae399207d72474b0426123dafcbaad",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 15,
+      "file": "flowchart-015.mmd",
+      "sha256": "a51d852be5d3bbed2c1ea3c8d49a9e54a87626a3396792c8152b7a43abdc4fd9",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 16,
+      "file": "flowchart-016.mmd",
+      "sha256": "6b1ad0dda6c60babeafbd86fc402843bb05dcb6b9ae173cdcc65ed14e09131f7",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 17,
+      "file": "flowchart-017.mmd",
+      "sha256": "2f0bf28294a31aec33fb8c3f3e535cfd4f0ada177b5e7b82bfde326c98d0fa84",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 18,
+      "file": "flowchart-018.mmd",
+      "sha256": "2d81e8b9d03f23eda48228bac3d290bc7919b7a7c12a1be958d68dd109770a83",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 19,
+      "file": "flowchart-019.mmd",
+      "sha256": "8f6bee2432ba9b4bf727422dd4e8815ce6d0350801064afc01aecf6fee5080d5",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 20,
+      "file": "flowchart-020.mmd",
+      "sha256": "cfb3b33ba4ec000c24822eb5562131b6e37e3d0946ec3a47b2ce4853ca0db09d",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 21,
+      "file": "flowchart-021.mmd",
+      "sha256": "520a982ac547b0840707c14c20068df2fc719c16ee21a8c930c00667a134ba22",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 22,
+      "file": "flowchart-022.mmd",
+      "sha256": "26d721957df8d7a3b504b4281f53d881ab6bf046921049386059e1dd956825c1",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 23,
+      "file": "flowchart-023.mmd",
+      "sha256": "4a2ae373f0d2498d16c513a177166ec9be260e878cb1eed3fdfdaa6fdc57da42",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 24,
+      "file": "flowchart-024.mmd",
+      "sha256": "c63dbcd17538c2add1d37300ef278ebcfacdbad7f4de23393f0540a5c3337017",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 25,
+      "file": "flowchart-025.mmd",
+      "sha256": "7b261343fbfaf30853f7a41587cb93a8ecdfbd61c785556ad6ba9e5323dd4006",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 26,
+      "file": "flowchart-026.mmd",
+      "sha256": "a4bed0a9c19df28f7c57ad7920f22831ecaff02f241aca2280553f5d3b44bc3b",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 27,
+      "file": "flowchart-027.mmd",
+      "sha256": "753ca710b1ac1dee956daf8346d139c30bd489c20524a639e645e30bc31be0ee",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 28,
+      "file": "flowchart-028.mmd",
+      "sha256": "6f8583b8b0e2f07e5c75e56cd20048ebfb3c606c9ddad7eca118e1382512f986",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 29,
+      "file": "flowchart-029.mmd",
+      "sha256": "b920fc09d3e79f52dc21fbea9c349ccdd5e7d2ee696587ed642270e4f1002907",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 30,
+      "file": "flowchart-030.mmd",
+      "sha256": "89a471241f408285176cf1b90913243070991a8b176a1d27ef261dc124c0567c",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 31,
+      "file": "flowchart-031.mmd",
+      "sha256": "b153dad4f8ca0655819c5aa794e7f324f3d3a3ebd0a36788283047fa8bc76af9",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 32,
+      "file": "flowchart-032.mmd",
+      "sha256": "de84549bf410270ef303779dccd84a295c46c2a0b8898dbad94fcfc4db8a3549",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 33,
+      "file": "flowchart-033.mmd",
+      "sha256": "a60f1b1f561afa1f461cd65b338b998ced96f87ee344d3d0e867e03c9cc5d144",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 34,
+      "file": "flowchart-034.mmd",
+      "sha256": "82e0f657dc5d85d7641127555f25ab5dd67775745e1084c643dd821ab0557f88",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 35,
+      "file": "flowchart-035.mmd",
+      "sha256": "85b0a8dd09d11b3b226ccb8640abd714cf9d2297079df1962bc511c2cd9d5dbc",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 36,
+      "file": "flowchart-036.mmd",
+      "sha256": "50674ff2e8365bec378ab6a1b97f06cfa490f0b2cba07aabf134850cba03a380",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 37,
+      "file": "flowchart-037.mmd",
+      "sha256": "eefd96427a777eb2ed495a91066259cb5e560dee1717af51f138056996ba0ccb",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 38,
+      "file": "flowchart-038.mmd",
+      "sha256": "839363fa35f716c99ff3ed2637fefc251e0810192cfaca557b363c87f51e7c3a",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 39,
+      "file": "flowchart-039.mmd",
+      "sha256": "62c7e909d6f6d2c0c1ef561c0feeecdd22f3f8593ce8ebf7ed8eb018290c2642",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 40,
+      "file": "flowchart-040.mmd",
+      "sha256": "2406ad02ae7265c8dfdda86f7f6b3df27ce6c96fbdbdf7a12285ae75c83336ea",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 41,
+      "file": "flowchart-041.mmd",
+      "sha256": "bf6938b0951c8f3761f267d01c3d3b412e9b278946525ce3ce56361751d76f64",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 42,
+      "file": "flowchart-042.mmd",
+      "sha256": "1f8f0a5158f1bd142addc783725d306758a88caa9fa25245a537b13692e6b97c",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 43,
+      "file": "flowchart-043.mmd",
+      "sha256": "77b6694cfcf57783226957989c9c5a29db4b51768e386b018ee53ff881aa4b8b",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 44,
+      "file": "flowchart-044.mmd",
+      "sha256": "7634b95b0a83f5a7cec825717c7ea57d7954cba2fdf1f53484f4501398efb095",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 45,
+      "file": "flowchart-045.mmd",
+      "sha256": "a2ce1eed42a8021412c3a970341e0bd56fc3a370c4ccd8fc9ce53fbe5a98b0b3",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 46,
+      "file": "flowchart-046.mmd",
+      "sha256": "3a814849f81b02e111839c0ee84a821bb17adc537436dd93c2681eb79d36d9cd",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 47,
+      "file": "flowchart-047.mmd",
+      "sha256": "ca8d8066bf48b5a3624b2d4ddc31e1eae9986b67e613744f936f62c04cac107d",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 48,
+      "file": "flowchart-048.mmd",
+      "sha256": "4638fffcd951ca6185360656c2cfc5042a0fab63520fd599b7542203bff0aaa5",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 49,
+      "file": "flowchart-049.mmd",
+      "sha256": "07f75620ccb9e4d1956663b3df8e3121a391076c2e5f4e8b1b1c78bb5917e942",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 50,
+      "file": "flowchart-050.mmd",
+      "sha256": "06e5dd63714486cd435d11257522c619bebd37ffe5a8f89bae5aa9d20b6c064d",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 51,
+      "file": "flowchart-051.mmd",
+      "sha256": "9fde480c3c89b38861413d920306d4bc2debd487f1841db536f688e22f3c236c",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 52,
+      "file": "flowchart-052.mmd",
+      "sha256": "9256ec4395374c5596139ebe65e752d75f3ffe114823997bcc30bf9bbaed27c1",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 53,
+      "file": "flowchart-053.mmd",
+      "sha256": "f67ac6d593083853a634fb23614a03b12205412a34e5ff53f1b44c06b76b90f6",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 54,
+      "file": "flowchart-054.mmd",
+      "sha256": "59f0daf6279490b4b0645d0b252a06e4712270f109e2e83e1acb05130da6c910",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 55,
+      "file": "flowchart-055.mmd",
+      "sha256": "8106d06596bb16c0d36ffb96646c28d9eacd3639a7e5889e86fdad1f83eaaefe",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 56,
+      "file": "flowchart-056.mmd",
+      "sha256": "df37b14d183fcdc5e8d504de7dd7e7b875db1f03bf64fa2017e9f7f466bc7de6",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 57,
+      "file": "flowchart-057.mmd",
+      "sha256": "b595757319467b198000965024c82d13fa2a3777fc52e024774cc373f0da33c6",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 58,
+      "file": "flowchart-058.mmd",
+      "sha256": "12a1109775b51abe9582708167b4aabcd5e83581a9008530bb39d6037ceeef25",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 59,
+      "file": "flowchart-059.mmd",
+      "sha256": "4a6522e28377d094e67d40e73c0900d799583c4b841a328ed012bc5ffb4730ad",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 60,
+      "file": "flowchart-060.mmd",
+      "sha256": "12232e66b8e521b29b369a84fb28498f48e80b6a34bdb98537d67990656dac3a",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 61,
+      "file": "flowchart-061.mmd",
+      "sha256": "022e2327ceeaa8cf53ebd6a72f1ef3224639e61c3e490f75598525a1ced45dc2",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 62,
+      "file": "flowchart-062.mmd",
+      "sha256": "4dc7b8e96f70cc6cfa00a234b739f8bf0a1d553028f4a03c6aa3eba560e005dd",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 63,
+      "file": "flowchart-063.mmd",
+      "sha256": "d42a5304c164faa64cbc7569708ee209afc885db4e36e2c79c6ad4690cb0e7df",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 64,
+      "file": "flowchart-064.mmd",
+      "sha256": "d6fe1124605992832169620072fcd28f601f1b43a8633aba67a88d9dc9b2c7fa",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 65,
+      "file": "flowchart-065.mmd",
+      "sha256": "302d8d0973b8d245d454a7bb87c4dec4ce1dd784ca2e7675ceaaf432230d07f6",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 66,
+      "file": "flowchart-066.mmd",
+      "sha256": "9a39031c41fcb0e669e341b2100124e9ce9d8d98370e92022f62b0e972f8e4bd",
+      "supported": false,
+      "reason": "Node data block (@{...}), outside basic node subset."
+    },
+    {
+      "index": 67,
+      "file": "flowchart-067.mmd",
+      "sha256": "85a2f8b3229ec602dc46b93885a70c09a6552bdeccb80078f6ca1e453100de57",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 68,
+      "file": "flowchart-068.mmd",
+      "sha256": "9733d593d7c58fd476fc1d9669504583efa270cc4823a54eecca11ffd03d4db3",
+      "supported": false,
+      "reason": "Unheaded connection has no direction."
+    },
+    {
+      "index": 69,
+      "file": "flowchart-069.mmd",
+      "sha256": "39f13d6306c2997c8eb616817de35c8dff00291d710ae1ee102d14ee0ec9215d",
+      "supported": false,
+      "reason": "Unheaded connection has no direction."
+    },
+    {
+      "index": 70,
+      "file": "flowchart-070.mmd",
+      "sha256": "d2f58af55ba28028d53e33fa57ecac2b12a8dad76f3e4835459f7d20d93bbacd",
+      "supported": false,
+      "reason": "Unheaded connection has no direction."
+    },
+    {
+      "index": 71,
+      "file": "flowchart-071.mmd",
+      "sha256": "d5d4d42882dee089aa7bba6a677667b879ee4d5f8402f3a04030b3aaaf61d0b8",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 72,
+      "file": "flowchart-072.mmd",
+      "sha256": "6a86b6e0b7cb8bb5487da17d90f75cb40220b235fed604053caef5173f7e913b",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 73,
+      "file": "flowchart-073.mmd",
+      "sha256": "1bb084024e89e351488468f8e7240fa2cdc8a70a846adbd8725aa7961791f18d",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 74,
+      "file": "flowchart-074.mmd",
+      "sha256": "3dcfb621c76053c48e4e136136a71cbd0d07c11e1a302dd5570328a328f14ab4",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 75,
+      "file": "flowchart-075.mmd",
+      "sha256": "2b838b9975e215d252cbf950b5922529cd1afb4b6ac0ccaf097cf95b566fc134",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 76,
+      "file": "flowchart-076.mmd",
+      "sha256": "235e40b72637d036c0203e80116b028582952b94721b5def25b422c46f782255",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 77,
+      "file": "flowchart-077.mmd",
+      "sha256": "30e40d14fabfa9e924f4ac0cf2fb3ae051149db61be7e4d84c13eed8a8365b88",
+      "supported": false,
+      "reason": "Invisible layout connection."
+    },
+    {
+      "index": 78,
+      "file": "flowchart-078.mmd",
+      "sha256": "9806df4622bb2d0fde6e980fab0f2aa9229dae6569e94faebfddbd2ca376bee4",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 79,
+      "file": "flowchart-079.mmd",
+      "sha256": "583da5e48ac9e2cabd25423290b722cd18d087ea64ac6e0fe4ad7bd9cad875e9",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 80,
+      "file": "flowchart-080.mmd",
+      "sha256": "daedeeb47874c4e5e4258244884bfa489d36f856980fff8320bebcc65406ac8d",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 81,
+      "file": "flowchart-081.mmd",
+      "sha256": "69cadca59319ddac8bfd3c631fb3cb8c9afd6c8c4376222fda27314a62114ba9",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 82,
+      "file": "flowchart-082.mmd",
+      "sha256": "e1068d4490409d3cb685a8a2b77183aeddc6f723423da7a762c505f3d77ce375",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 83,
+      "file": "flowchart-083.mmd",
+      "sha256": "fa96150719680e006a7e696777f9ebf0d06e5f65a1c8d8e5021c8645a0308afc",
+      "supported": false,
+      "reason": "Edge data block (@{...}), outside basic edge subset."
+    },
+    {
+      "index": 84,
+      "file": "flowchart-084.mmd",
+      "sha256": "4d814bb7de2a5933c7e49f7ab5a623140d0528f3406ca0f1e393e5757505bd2d",
+      "supported": false,
+      "reason": "Edge data block (@{...}), outside basic edge subset."
+    },
+    {
+      "index": 85,
+      "file": "flowchart-085.mmd",
+      "sha256": "b03ea11e4f024eb7f3b176d9dc7a5e2a363c11503302f52c63be6fc1666b15de",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 86,
+      "file": "flowchart-086.mmd",
+      "sha256": "fab31634d01ab87ee5540774300b24285058d45388d84fd3f52f05be03c0ea2e",
+      "supported": false,
+      "reason": "Circle/cross/bidirectional marker."
+    },
+    {
+      "index": 87,
+      "file": "flowchart-087.mmd",
+      "sha256": "217131610d97964faef9d969890aee45ccf5427fadc7ae3c4d5f68cea1bfe297",
+      "supported": false,
+      "reason": "Circle/cross/bidirectional marker."
+    },
+    {
+      "index": 88,
+      "file": "flowchart-088.mmd",
+      "sha256": "cf2bb1f7c453d5e4764b95cfcaa413d39b1a8321bd656a2dffea1792d2231bb3",
+      "supported": false,
+      "reason": "Circle/cross/bidirectional marker."
+    },
+    {
+      "index": 89,
+      "file": "flowchart-089.mmd",
+      "sha256": "49d93245842947c38b3169be332e9d9e4cf387b701c14d3f2f0dafc65103c206",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 90,
+      "file": "flowchart-090.mmd",
+      "sha256": "96d66977bb2506fdd1d02f95a7308e33e18c41b9ce1a416fcaae0334e8de7000",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 91,
+      "file": "flowchart-091.mmd",
+      "sha256": "0b5f81881322a47d2a59fe787b363a36e5e0b768f459dc9e564f2a6c0d02ff50",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 92,
+      "file": "flowchart-092.mmd",
+      "sha256": "1991365e32c80782ff060da5399b222d32034c0184a9b5b5f0d1302521c282b8",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 93,
+      "file": "flowchart-093.mmd",
+      "sha256": "b9675066f5fb1cb73c137c788366fc5bcd334cccfbbbee56b2fbb505ab782fd3",
+      "supported": false,
+      "reason": "Subgraph grouping is outside the first-version subset."
+    },
+    {
+      "index": 94,
+      "file": "flowchart-094.mmd",
+      "sha256": "8af2741f77e4425fb870f66ac183f18ad64f9fb89bb8d80f1b8a82d036e555eb",
+      "supported": false,
+      "reason": "Subgraph grouping is outside the first-version subset."
+    },
+    {
+      "index": 95,
+      "file": "flowchart-095.mmd",
+      "sha256": "1c231ae5c6296a881b62b3c2e7f7b786fc66fbc449d2a134b7bc5d54a917dc18",
+      "supported": false,
+      "reason": "Subgraph grouping is outside the first-version subset."
+    },
+    {
+      "index": 96,
+      "file": "flowchart-096.mmd",
+      "sha256": "6897cf10b879aea931c767b87da1d418708bc32d666a506880bd282a738c4497",
+      "supported": false,
+      "reason": "Subgraph grouping is outside the first-version subset."
+    },
+    {
+      "index": 97,
+      "file": "flowchart-097.mmd",
+      "sha256": "4b7f53d8caa034dd5818133bab4c99c38ed717201fc6ab1d30780faf50cd93ef",
+      "supported": false,
+      "reason": "Subgraph grouping is outside the first-version subset."
+    },
+    {
+      "index": 98,
+      "file": "flowchart-098.mmd",
+      "sha256": "4aa607f7b6a0b1c5e7b7100862a1424123c972c04c2594a46cf744802401f213",
+      "supported": false,
+      "reason": "Subgraph grouping is outside the first-version subset."
+    },
+    {
+      "index": 99,
+      "file": "flowchart-099.mmd",
+      "sha256": "91b6b817ef7138b71a6081d1f570fb5874b993e7521bd3550cb305ad7499b23c",
+      "supported": false,
+      "reason": "Click actions are outside nodes-and-directed-edges semantics."
+    },
+    {
+      "index": 100,
+      "file": "flowchart-100.mmd",
+      "sha256": "708f9d59a147723beeb2cb528b4a77f9ce6f12595f60999ab68c2547eb6c4756",
+      "supported": false,
+      "reason": "Click actions are outside nodes-and-directed-edges semantics."
+    },
+    {
+      "index": 101,
+      "file": "flowchart-101.mmd",
+      "sha256": "d4a0fe2fb1e21a59dd6bd7b5c455eaf8847b58393d3efa1538c1e6d664db8457",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 102,
+      "file": "flowchart-102.mmd",
+      "sha256": "9ed74c540b8e118950b32fb431a09def94458dd0d324d5f8ce0d86e16b75d6f1",
+      "supported": false,
+      "reason": "Edge data block (@{...}), outside basic edge subset."
+    },
+    {
+      "index": 103,
+      "file": "flowchart-103.mmd",
+      "sha256": "f4ddc73bd88be46e5f91b2386188d0ffbf9ee0e628168227fcd2e4cbba1da61d",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 104,
+      "file": "flowchart-104.mmd",
+      "sha256": "f76e6573d220a56a3c93de9bf26859ece01fd527d40a305f620fe0a59633759f",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 105,
+      "file": "flowchart-105.mmd",
+      "sha256": "2f558b7a3d584673d4632471882fa110529283acb818c5b971fb8abbcafa7a44",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 106,
+      "file": "flowchart-106.mmd",
+      "sha256": "8664ff2fac9ee67c5e2e2b92631a09803b8dc96e78398386d4e04698bba9661a",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 107,
+      "file": "flowchart-107.mmd",
+      "sha256": "e5ab6951896e8d3c80ccc9b6a4cf54c83f32d43c23173a3c06072aa30a9857f8",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 108,
+      "file": "flowchart-108.mmd",
+      "sha256": "a18dbc06d2617b03ecaeb541d791abcfaf57141bc3a0b6d4b456154973271351",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    },
+    {
+      "index": 109,
+      "file": "flowchart-109.mmd",
+      "sha256": "46c4d04542ff7c8e262334d4a5f5024c3aa8fc4fbe6bcfb36293ef2679402386",
+      "supported": true,
+      "reason": "Basic text nodes and one-way connections."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "mermaid-paths/review-v1",
+  "sourceSha256": "6d85f9da0d39ce31884dc9125ce83de33f5ebd7e211042dfc0b081d4bbc6a834",
+  "instructions": "Check every source/destination and connection description. Edit text as needed, then set confirmed to true for each edge. Recreate this file whenever the source changes.",
+  "edges": [
+    {
+      "id": "e1",
+      "from": "draft",
+      "fromLabel": "Draft article",
+      "to": "review",
+      "toLabel": "Approved?",
+      "sourceLine": 4,
+      "lineStyle": "solid",
+      "sourceLabel": null,
+      "text": "Send the draft for approval",
+      "confirmed": true
+    },
+    {
+      "id": "e2",
+      "from": "review",
+      "fromLabel": "Approved?",
+      "to": "publish",
+      "toLabel": "Publish article",
+      "sourceLine": 5,
+      "lineStyle": "solid",
+      "sourceLabel": "Yes, approved",
+      "text": "Yes, approved",
+      "confirmed": true
+    },
+    {
+      "id": "e3",
+      "from": "review",
+      "fromLabel": "Approved?",
+      "to": "revise",
+      "toLabel": "Revise article",
+      "sourceLine": 6,
+      "lineStyle": "solid",
+      "sourceLabel": "No, revise",
+      "text": "No, revise",
+      "confirmed": true
+    },
+    {
+      "id": "e4",
+      "from": "revise",
+      "fromLabel": "Revise article",
+      "to": "review",
+      "toLabel": "Approved?",
+      "sourceLine": 7,
+      "lineStyle": "solid",
+      "sourceLabel": null,
+      "text": "Submit the revised article for another review",
+      "confirmed": true
+    }
+  ]
+}
