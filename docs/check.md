@@ -3,8 +3,9 @@
 `qawrench check` reads the folder your browser-test CI job uploads and tells you
 **which parts of the run you should not trust**: tests that only passed on
 retry, HAR recordings that replay ambiguously, traces with missing frames,
-accessibility violations, Lighthouse numbers that are mostly noise, and broken
-links with the line they are on.
+pytest tests that leave state behind for the next test, accessibility
+violations, Lighthouse numbers that are mostly noise, and broken links with
+the line they are on.
 
 It is the front door to the other qawrench commands. It does not reimplement
 their analysis: each check calls the read-only Python API of one tool and turns
@@ -53,7 +54,7 @@ Pages & links
 
 Artifacts are recognised by their **content**, not their name, so you can point
 `check` at a whole workspace. Only `*.json`, `*.har`, `*.zip` and `*.xml` files
-and Crawlee dataset folders are opened. Dot-directories (except `.lighthouseci`),
+and Crawlee dataset folders are opened. Dot-directories (except `.lighthouseci` and `.statewatch`),
 `node_modules`, `venv`, `site-packages` and `__pycache__` are skipped, and
 symlinked directories are not followed. JSON files over 64 MiB are not read.
 
@@ -69,6 +70,7 @@ symlinked directories are not followed. JSON files over 64 MiB are not read.
 | a11y baseline | a snapshot written by `qawrench a11y baseline` (`kind: a11y-baseline`) |
 | Lighthouse report | `lighthouseVersion` and `audits` (an LHR, as LHCI writes to `.lighthouseci/lhr-*.json`) |
 | lychee report | `error_map` and `success_map` (`lychee --format json`) |
+| pytest statewatch report | `schema_version` 1 with `tests`, `first_observed_writers` and `events_file`: the `report.json` that `python -m pytest --statewatch POLICY.json` writes (default `.statewatch/`). Reports of confirmation replays (`replays/<run id>/<NNN>/report.json`) are summarised by their parent report and skipped unless named explicitly |
 | Parquet export | `*.parquet.manifest.json` written by `qawrench crawlee-export` |
 | Crawlee dataset | a `datasets/<name>/` folder of numbered `*.json` items |
 
@@ -88,6 +90,7 @@ explicitly are always reported if they cannot be parsed or are not recognised.
 | Tests & flakiness | `flaky` | `qawrench flaky` (report adapters and outcome classification) | `flaky` failed then passed on retry, `failed` failed on every attempt, `unexpected-pass` a `test.fail()` test passed, `interrupted`, `global-errors` outside any test, `summary` |
 | | `har` | `qawrench har` (`build_plan`) | `ambiguous-replay` the same method, URL and body recorded with different responses, `volatile-query-key` a query key whose value changes on every request to a path, `summary` |
 | | `trace-budget` | `qawrench trace-budget` (`inspect_archive`) | `over-budget` (with `--trace-budget`), `missing-resources` screenshot frames or network bodies referenced but not in the archive, `stored-uncompressed`, `size` by category, `invalid` |
+| | `statewatch` | `qawrench statewatch` (report validation) | `state-leak` a test left watched environment, cwd or module state changed, `order-dependent` a failure reproduced after an earlier test but not alone, `between-tests` a change outside any test, `incomplete` state that could not be observed, `interrupted`, `confirmation` other replay results, `not-observed`, `summary` |
 | Accessibility & performance | `a11y` | `qawrench a11y` (`make_baseline`, `compare`) | `new-violation` against a baseline found among the artifacts, otherwise `violations` by impact; `baseline-delta`, `clean` |
 | | `lighthouse` | `qawrench lighthouse` (LHR validation and median/MAD) | `noisy` a metric's spread is over 10% of its median, `stable`, `too-few-runs`, `runtime-error`, `invalid-metric` |
 | Pages & links | `links` | `qawrench links` (`convert`) | `http-failure`, `transport-error`, `timeout`, each on the file that contains the link and, for Markdown, its line; `summary` |
@@ -112,8 +115,9 @@ one with `--only page-diff` and `check` prints the command to run instead.
   violation, a Parquet export that does not match its manifest.
 - **warning**: the result cannot be trusted as-is: a test that only passed on
   retry, a request recorded with two different responses, a trace with missing
-  frames, Lighthouse numbers too noisy to compare, accessibility violations
-  with no baseline, a link that timed out.
+  frames, a test that leaves watched state changed or fails only after another
+  test, Lighthouse numbers too noisy to compare, accessibility violations with
+  no baseline, a link that timed out.
 - **info**: worth knowing, not a defect: summaries, trace sizes, query keys
   that change per request, inputs a check does not read.
 
@@ -137,6 +141,18 @@ one with `--only page-diff` and `check` prints the command to run instead.
 - **trace-budget** validates every member of a version-8 trace (CRCs, event
   envelopes) and reports where the bytes go. Without `--trace-budget SIZE`
   (`25MB`, `500kB` or a byte count; SI units) it only reports sizes.
+- **statewatch** reads the `report.json` (schema version 1) written by the
+  statewatch pytest plugin (`qawrench[statewatch]`); the check itself needs
+  no extra and never runs pytest. A test whose protocol ended with unallowed,
+  unrestored changes to the watched state is a `state-leak`, naming the
+  fields (never their values) and whether the test is their first observed
+  writer: a test boundary, fixtures included, not the line that made the
+  change. A failing test that passed alone and failed after an observed
+  writer in `--statewatch-confirm` replays is `order-dependent`; that is one
+  clean run and one failing pair, not proof that a field caused it. Fields
+  that could not be read make the observation `incomplete`. Replay commands
+  are not copied into the findings; `qawrench statewatch REPORT` prints them.
+  See [statewatch.md](statewatch.md).
 - **a11y** reads complete axe-core 4.10.3 / 4.11.0 results and Pa11y CI 4
   combined JSON. Pa11y CI output carries no version, so `check` reads it as
   4.0.0. Scans with errors or `incomplete` results are not counted as clean.
@@ -199,7 +215,7 @@ rows, so the output stays under GitHub's comment size limit.
   "format": "qawrench.check/v1",
   "tool": {"name": "qawrench", "version": "0.1.0"},
   "paths": ["."],
-  "checks": ["flaky", "har", "trace-budget", "a11y", "lighthouse", "links", "page-diff", "..."],
+  "checks": ["flaky", "har", "trace-budget", "statewatch", "a11y", "lighthouse", "links", "..."],
   "artifacts": [{"path": "test-results/results.json", "kind": "playwright-report",
                  "label": "Playwright JSON report", "copies": 0, "findings": 4}],
   "findings": [{

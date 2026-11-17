@@ -282,6 +282,112 @@ def trace_budget(source: Source, options) -> Iterator[Finding]:
     yield Finding("trace-budget", "size", INFO, message, source.display)
 
 
+# --------------------------------------------------------------------------- statewatch
+
+STATEWATCH_RECORD = "python -m pytest --statewatch POLICY.json"
+STATEWATCH_LEAK_HINT = ("the writer is the first test protocol (its fixtures included) after which the change was seen, "
+                        "not the line that made it; restore the state in the test or a fixture (monkeypatch), "
+                        f"or allow it in the policy; `{STATEWATCH_RECORD} --statewatch-confirm` replays failing victims")
+STATEWATCH_CONFIRMATION = {
+    "no_pair_reproduced": "no observed writer reproduced the failure in a fresh writer-then-victim run",
+    "baseline_not_clean": "the test does not pass on its own either, so no earlier test is blamed",
+    "budget_exhausted": "the replay budget ran out before every observed writer was tried "
+                        "(--statewatch-max-replays)",
+    "duplicate_nodeids": "inconclusive: duplicate test ids cannot be replayed exactly",
+    "interrupted": "the confirmation replays were interrupted",
+}
+STATEWATCH_STATUS = {
+    "interrupted": "pytest ended with exit status {code}, not a completed test run; observations stop at "
+                   "the last completed test",
+    "confirmation_interrupted": "the confirmation replays were interrupted; their results are partial",
+}
+
+
+def _items(value) -> list:
+    return value if isinstance(value, list) else []
+
+
+def _strings(value) -> list[str]:
+    return [str(item) for item in _items(value)]
+
+
+def statewatch(source: Source, options) -> Iterator[Finding]:
+    from qawrench.statewatch.cli import validate_report
+
+    try:
+        report = validate_report(source.data)
+    except ValueError as exc:
+        yield Finding("statewatch", "unsupported-report", INFO, f"report not analysed: {exc}", source.display,
+                      hint=f"statewatch reads the report.json (schema_version 1) that `{STATEWATCH_RECORD}` writes")
+        return
+    first_writers = report["first_observed_writers"]
+    leaks = 0
+    for test in report["tests"]:
+        nodeid = test["nodeid"]
+        fields = _strings(test.get("leaked_fields"))
+        if not fields:
+            continue
+        leaks += 1
+        first = [field for field in fields if first_writers.get(field) == nodeid]
+        note = ("" if not first else " (first observed writer)" if len(first) == len(fields)
+                else f"; first observed writer of {', '.join(first)}")
+        yield Finding("statewatch", "state-leak", WARNING,
+                      f"left watched state changed: {', '.join(fields)}{note}",
+                      source.display, subject=nodeid, hint=STATEWATCH_LEAK_HINT)
+    for change in _items(report.get("unattributed_changes")):
+        if not isinstance(change, dict) or change.get("restored_to_baseline") is not False:
+            continue
+        yield Finding("statewatch", "between-tests", WARNING,
+                      f"{change.get('field')} changed between two tests, outside any test protocol "
+                      "(a hook or plugin), and was not restored",
+                      source.display, subject=str(change.get("before_test")),
+                      hint="no test is blamed for it; look at conftest hooks and plugins that run between tests")
+    errors: dict[str, list[str]] = defaultdict(list)
+    for error in report["observer_errors"]:
+        if isinstance(error, dict):
+            errors[str(error.get("field"))].append(str(error.get("reason")))
+    for field, reasons in errors.items():
+        yield Finding("statewatch", "incomplete", WARNING,
+                      f"{field} could not be observed: {reasons[0]}"
+                      + (f" ({len(reasons)} times)" if len(reasons) > 1 else ""),
+                      source.display,
+                      hint="observation is incomplete, so no change for this field proves nothing; watch "
+                           "JSON-native values (dict, list, str, number, bool, null) and check the module:attribute name")
+    status = report["status"]
+    if status in STATEWATCH_STATUS:
+        yield Finding("statewatch", "interrupted", WARNING,
+                      STATEWATCH_STATUS[status].format(code=report.get("original_exit_code")), source.display)
+    elif status == "not_observed":
+        yield Finding("statewatch", "not-observed", INFO,
+                      "no test ran under observation (collection only, or nothing selected)", source.display)
+    for entry in report["confirmations"]:
+        if not isinstance(entry, dict):
+            continue
+        victim, outcome = str(entry.get("victim")), entry.get("status")
+        if outcome == "pair_reproduced":
+            pairs = [pair for pair in _items(entry.get("pairs"))
+                     if isinstance(pair, dict) and pair.get("status") == "pair_reproduced"]
+            writers = list(dict.fromkeys(str(pair.get("writer")) for pair in pairs))
+            fields = sorted({field for pair in pairs for field in _strings(pair.get("fields"))})
+            yield Finding("statewatch", "order-dependent", WARNING,
+                          f"passes on its own but fails the same way after {', '.join(writers)}"
+                          + (f" (watched state it inherited: {', '.join(fields)})" if fields else ""),
+                          source.display, subject=victim,
+                          hint="one clean run and one failing pair, not proof that a field is the cause; "
+                               "`qawrench statewatch REPORT` prints the replay command")
+        else:
+            yield Finding("statewatch", "confirmation", INFO,
+                          f"confirmation {outcome}: "
+                          + STATEWATCH_CONFIRMATION.get(str(outcome), "see the report for the replay results"),
+                          source.display, subject=victim)
+    omitted = report.get("observer_errors_omitted")
+    yield Finding("statewatch", "summary", INFO,
+                  f"{_plural(len(report['tests']), 'test')} observed: {report['tests_with_net_changes']} with net "
+                  f"changes, {leaks} left watched state changed; status {status} (pytest exit {report['exit_code']})"
+                  + (f"; {omitted} further observer errors not recorded" if type(omitted) is int and omitted else ""),
+                  source.display)
+
+
 # --------------------------------------------------------------------------- a11y
 
 # Pa11y CI's combined JSON carries no version; the a11y tool asks the caller to attest one.

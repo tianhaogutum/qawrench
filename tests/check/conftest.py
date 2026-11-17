@@ -17,6 +17,8 @@ from qawrench.check import cli  # noqa: E402
 HERE = Path(__file__).resolve().parent
 FIXTURES = HERE / "fixtures"
 DEMO = HERE.parents[1] / "examples" / "check"
+# A synthetic report.json in the shape `python -m pytest --statewatch` writes for its demo.
+STATEWATCH_EXAMPLE = HERE.parents[1] / "examples" / "statewatch" / "report.json"
 
 
 @pytest.fixture

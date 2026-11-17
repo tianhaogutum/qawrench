@@ -68,6 +68,12 @@ CHECKS: tuple[Check, ...] = (
           "screenshots or network bodies",
           frozenset({"trace"}), checks.trace_budget,
           rules=("over-budget", "missing-resources", "stored-uncompressed", "size", "invalid", "unsupported")),
+    Check("statewatch", TESTS,
+          "pytest statewatch reports: tests that left watched environment, cwd or module state changed, "
+          "failures reproduced after an earlier test, incomplete observation",
+          frozenset({"statewatch-report"}), checks.statewatch,
+          rules=("state-leak", "between-tests", "order-dependent", "incomplete", "interrupted", "confirmation",
+                 "not-observed", "summary", "unsupported-report")),
     Check("a11y", A11Y_PERF,
           "axe-core / Pa11y CI results: new violations against a baseline found next to them, "
           "otherwise a summary by impact",

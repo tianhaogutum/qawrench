@@ -4,8 +4,10 @@ Only ``*.json``, ``*.har``, ``*.zip`` and ``*.xml`` candidates are opened, plus
 Crawlee dataset directories (``datasets/<name>/000000001.json`` ...). A file
 that is not a known artifact (``package.json``, a tsconfig, an HTML report's
 assets) is skipped silently; a file whose name says it is a report but cannot
-be parsed is reported. Nothing is written, nothing is extracted to disk and no
-symlinked directory is followed.
+be parsed is reported. The reports of statewatch confirmation replays
+(``replays/<run id>/<NNN>/report.json``) are summarised by their parent report
+and skipped unless named explicitly. Nothing is written, nothing is extracted
+to disk and no symlinked directory is followed.
 """
 from __future__ import annotations
 
@@ -23,7 +25,7 @@ from .model import INFO, WARNING, Finding
 # Directories that never hold artifacts worth checking. Dot-directories are
 # skipped as well, except the ones CI tools write their output to.
 IGNORE_DIRS = frozenset({"node_modules", "__pycache__", "venv", "site-packages"})
-KEEP_DOT_DIRS = frozenset({".lighthouseci"})
+KEEP_DOT_DIRS = frozenset({".lighthouseci", ".statewatch"})
 MAX_CANDIDATES = 50_000
 MAX_JSON_BYTES = 64 * 1024 * 1024
 SNIFF_BYTES = 4096
@@ -34,6 +36,9 @@ DATASET_METADATA = "__metadata__.json"
 JUNIT_ROOT = re.compile(r"<testsuites?[\s>/]")
 # Copies of traces inside an HTML report are named by their SHA-1.
 SHA1_NAME = re.compile(r"[0-9a-f]{40}\.zip")
+# A statewatch confirmation child run: <output>/replays/<run id>/<NNN>/report.json.
+STATEWATCH_RUN_ID = re.compile(r"[0-9a-f]{32}")
+STATEWATCH_EXPERIMENT = re.compile(r"[0-9]{3,}")
 
 KINDS = {
     "playwright-report": "Playwright JSON report",
@@ -47,12 +52,13 @@ KINDS = {
     "a11y-baseline": "a11y baseline",
     "lhr": "Lighthouse report",
     "lychee": "lychee report",
+    "statewatch-report": "pytest statewatch report",
     "parquet-export": "Parquet export manifest",
     "crawlee-dataset": "Crawlee dataset",
 }
 # Kinds whose parsed JSON is kept for the checks (the others re-read the file
 # with their tool's own strict loader).
-KEEP_DATA = frozenset({"axe", "pa11y-ci", "a11y-baseline", "lhr", "lychee"})
+KEEP_DATA = frozenset({"axe", "pa11y-ci", "a11y-baseline", "lhr", "lychee", "statewatch-report"})
 
 
 class DiscoveryError(ValueError):
@@ -117,6 +123,9 @@ def classify(data: Any, name: str = "") -> str | None:
         return "lhr"
     if isinstance(data.get("error_map"), dict) and isinstance(data.get("success_map"), dict):
         return "lychee"
+    if (data.get("schema_version") == 1 and isinstance(data.get("tests"), list)
+            and isinstance(data.get("first_observed_writers"), dict) and isinstance(data.get("events_file"), str)):
+        return "statewatch-report"
     if name.lower().endswith(".parquet.manifest.json") and "format_version" in data:
         return "parquet-export"
     return None
@@ -153,6 +162,13 @@ def _trace_signature(path: Path):
                for info in infos):
         return None
     return tuple(sorted((info.filename, info.CRC, info.file_size) for info in infos))
+
+
+def _statewatch_replay(path: Path) -> bool:
+    """True for the report of a statewatch confirmation child run."""
+    parts = path.parts
+    return (len(parts) >= 4 and parts[-4] == "replays" and bool(STATEWATCH_RUN_ID.fullmatch(parts[-3]))
+            and bool(STATEWATCH_EXPERIMENT.fullmatch(parts[-2])))
 
 
 def _junit(path: Path) -> bool:
@@ -226,12 +242,14 @@ def _inspect(path: Path, display: str, how: str, explicit: bool, result: Discove
     kind = classify(data, path.name)
     if how == "har" and kind is None and isinstance(data, dict):
         kind = "har"  # named *.har: let the har check explain what is wrong with it
+    if kind == "statewatch-report" and not explicit and _statewatch_replay(path):
+        return  # a confirmation replay: its parent report already summarises it
     if kind is not None:
         result.sources.append(Source(path, display, kind, data if kind in KEEP_DATA else None))
     elif explicit:
         result.findings.append(Finding(
             "parse", "unrecognised", INFO, "not a recognised test artifact (Playwright/CTRF report, HAR, "
-            "trace, axe, Pa11y, Lighthouse or lychee JSON); skipped", display))
+            "trace, axe, Pa11y, Lighthouse, lychee or statewatch JSON); skipped", display))
 
 
 def _crawlee_dataset(files: list[str], here: Path) -> bool:

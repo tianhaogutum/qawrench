@@ -36,6 +36,11 @@ RULE_TITLES = {
     "trace-budget/over-budget": "Trace archive exceeds the budget",
     "trace-budget/missing-resources": "Trace references missing resources",
     "trace-budget/invalid": "Trace archive does not validate",
+    "statewatch/state-leak": "Test left watched state changed",
+    "statewatch/between-tests": "State changed between tests",
+    "statewatch/order-dependent": "Failure reproduced after an earlier test",
+    "statewatch/incomplete": "State observation incomplete",
+    "statewatch/interrupted": "State observation interrupted",
     "a11y/new-violation": "New accessibility violation",
     "a11y/violations": "Accessibility violations (no baseline)",
     "lighthouse/noisy": "Lighthouse metric too noisy across runs",
@@ -121,7 +126,7 @@ def render_text(run: Run, *, color: bool = False, verbose: bool = False) -> str:
                      + f"; {_plural(run.scanned, 'file')} inspected)", "2")]
     if not run.sources and not run.findings:
         lines += ["", "No test artifacts found (Playwright JSON or CTRF reports, traces, HAR, axe, Pa11y, "
-                      "Lighthouse or lychee JSON).",
+                      "Lighthouse, lychee or pytest statewatch JSON).",
                   style("Point it at the folder CI uploads, e.g. `qawrench check test-results/`.", "2")]
     labels = {source.display: source.label for source in run.sources}
     findings = run.findings

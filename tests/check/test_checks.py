@@ -1,6 +1,7 @@
 """Each check against small synthetic artifacts, through the public discover/run_checks API."""
 import copy
 import json
+import os
 import zipfile
 
 import pytest
@@ -10,8 +11,8 @@ from qawrench.check import checks as check_module
 from qawrench.check import registry
 from qawrench.check.model import Finding
 
-from .conftest import (demo_json, make_lhr, make_trace, playwright_report, playwright_test,
-                       write_json)
+from .conftest import (STATEWATCH_EXAMPLE, demo_json, make_lhr, make_trace, playwright_report,
+                       playwright_test, write_json)
 
 
 def run(paths=("."), only=(), **options):
@@ -145,6 +146,91 @@ def test_trace_of_other_version_is_info(workdir):
     make_trace(workdir.root / "trace.zip", trace_bytes=json.dumps(context).encode() + b"\n", present=())
     findings = run(only=["trace-budget"])
     assert [(f.rule_id, f.severity) for f in findings] == [("trace-budget/unsupported", "info")]
+
+
+# --------------------------------------------------------------------------- statewatch
+
+SERVICE = "examples/statewatch/test_service.py"
+
+
+def statewatch_report():
+    return json.loads(STATEWATCH_EXAMPLE.read_text(encoding="utf-8"))
+
+
+def test_statewatch_example_report_in_default_output_dir(workdir):
+    write_json(workdir.root / ".statewatch" / "report.json", statewatch_report())
+    findings = run(only=["statewatch"])
+    assert {f.file for f in findings} == {os.path.join(".statewatch", "report.json")}
+    assert [(f.rule_id, f.severity, f.subject) for f in findings if f.rule != "summary"] == [
+        ("statewatch/order-dependent", "warning", f"{SERVICE}::test_victim"),
+        ("statewatch/state-leak", "warning", f"{SERVICE}::test_polluter"),
+    ]
+    leak = by_rule(findings, "statewatch/state-leak")[0]
+    assert leak.message == ("left watched state changed: cwd, env:SW_SERVICE_MODE, var:test_service:SETTINGS "
+                            "(first observed writer)")
+    order = by_rule(findings, "statewatch/order-dependent")[0]
+    assert order.message == (f"passes on its own but fails the same way after {SERVICE}::test_polluter "
+                             "(watched state it inherited: cwd, env:SW_SERVICE_MODE, var:test_service:SETTINGS)")
+    assert by_rule(findings, "statewatch/summary")[0].message == (
+        "3 tests observed: 1 with net changes, 1 left watched state changed; status observed (pytest exit 1)")
+    # Replay commands and observed values never reach the findings.
+    text = json.dumps([f.to_dict() for f in findings])
+    for detail in ("--replay=", "/work/project", "example.invalid"):
+        assert detail not in text
+
+
+def test_statewatch_incomplete_interrupted_and_between_tests(workdir):
+    report = statewatch_report()
+    report["tests"][1]["leaked_fields"] = ["env:SW_SERVICE_MODE"]
+    report["status"] = "interrupted"
+    report["observer_errors"] = [
+        {"nodeid": f"{SERVICE}::test_polluter", "phase": phase, "field": "var:test_service:CLIENT",
+         "reason": "unsupported object; use JSON-native values"} for phase in ("after_setup", "after_call")]
+    report["observer_errors_omitted"] = 3
+    report["unattributed_changes"] = [
+        {"before_test": f"{SERVICE}::test_victim", "field": "env:SW_SERVICE_HOOK", "restored_to_baseline": False},
+        {"before_test": f"{SERVICE}::test_victim", "field": "cwd", "restored_to_baseline": True}]
+    report["confirmations"] = [{"victim": f"{SERVICE}::test_victim", "baseline": None, "pairs": [],
+                                "status": "baseline_not_clean"}]
+    write_json(workdir.root / "statewatch" / "report.json", report)
+    findings = run(only=["statewatch"])
+    assert sorted((f.rule_id, f.severity) for f in findings) == [
+        ("statewatch/between-tests", "warning"), ("statewatch/confirmation", "info"),
+        ("statewatch/incomplete", "warning"), ("statewatch/interrupted", "warning"),
+        ("statewatch/state-leak", "warning"), ("statewatch/summary", "info")]
+    assert by_rule(findings, "statewatch/state-leak")[0].message == (
+        "left watched state changed: env:SW_SERVICE_MODE (first observed writer)")
+    assert by_rule(findings, "statewatch/incomplete")[0].message == (
+        "var:test_service:CLIENT could not be observed: unsupported object; use JSON-native values (2 times)")
+    between = by_rule(findings, "statewatch/between-tests")[0]
+    assert between.subject == f"{SERVICE}::test_victim" and between.message.startswith("env:SW_SERVICE_HOOK ")
+    assert "baseline_not_clean" in by_rule(findings, "statewatch/confirmation")[0].message
+    assert by_rule(findings, "statewatch/summary")[0].message.endswith(
+        "status interrupted (pytest exit 1); 3 further observer errors not recorded")
+
+
+def test_statewatch_without_tests_is_not_observed(workdir):
+    report = statewatch_report()
+    report.update(tests=[], tests_with_net_changes=0, first_observed_writers={}, confirmations=[],
+                  status="not_observed", exit_code=0)
+    write_json(workdir.root / "report.json", report)
+    findings = run(only=["statewatch"])
+    assert [(f.rule_id, f.severity) for f in findings] == [("statewatch/not-observed", "info"),
+                                                           ("statewatch/summary", "info")]
+
+
+def test_statewatch_report_missing_fields_is_unsupported(workdir):
+    report = statewatch_report()
+    del report["status"]
+    write_json(workdir.root / "report.json", report)
+    findings = run(only=["statewatch"])
+    assert [(f.rule_id, f.severity) for f in findings] == [("statewatch/unsupported-report", "info")]
+    assert "'status'" in findings[0].message
+
+
+def test_statewatch_check_needs_no_extra():
+    check = registry.BY_NAME["statewatch"]
+    assert check.area == registry.TESTS and check.requires == () and check.extra is None
 
 
 # --------------------------------------------------------------------------- a11y

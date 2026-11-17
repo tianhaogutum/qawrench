@@ -1,11 +1,12 @@
 """``qawrench check``: one read-only pass over a folder of CI test artifacts.
 
 ``check`` finds Playwright JSON and CTRF reports, Playwright traces, HAR
-recordings, axe and Pa11y CI results, Lighthouse JSON reports, lychee JSON and
-Parquet export manifests by their content, then runs the read-only analyses
-of the other qawrench tools on them (flaky, har, trace-budget, a11y,
-lighthouse, links, crawlee-export). It never writes a file, never executes
-anything from the artifacts and never opens a network connection.
+recordings, pytest statewatch reports, axe and Pa11y CI results, Lighthouse
+JSON reports, lychee JSON and Parquet export manifests by their content, then
+runs the read-only analyses of the other qawrench tools on them (flaky, har,
+trace-budget, statewatch, a11y, lighthouse, links, crawlee-export). It never
+writes a file, never executes anything from the artifacts and never opens a
+network connection.
 
 Library use::
 

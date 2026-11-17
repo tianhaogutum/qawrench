@@ -63,9 +63,10 @@ def _directory(value: str) -> Path:
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog=PROG, formatter_class=argparse.RawDescriptionHelpFormatter, epilog=EPILOG,
-        description="Find Playwright reports and traces, HAR files, axe/Pa11y, Lighthouse and lychee JSON "
-                    "under ARTIFACTS_DIR and report flaky tests, ambiguous recordings, oversized traces, "
-                    "new accessibility violations, noisy performance numbers and broken links.")
+        description="Find Playwright reports and traces, HAR files, pytest statewatch reports, axe/Pa11y, "
+                    "Lighthouse and lychee JSON under ARTIFACTS_DIR and report flaky tests, ambiguous recordings, "
+                    "oversized traces, state leaking between tests, new accessibility violations, noisy "
+                    "performance numbers and broken links.")
     p.add_argument("paths", nargs="*", metavar="ARTIFACTS_DIR",
                    help="artifact folders or files to scan (default: .)")
     p.add_argument("--format", choices=("text", "json", "sarif", "markdown"), default="text",

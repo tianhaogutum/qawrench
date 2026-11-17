@@ -6,7 +6,8 @@ import pytest
 
 from qawrench.check.discover import DiscoveryError, classify, discover
 
-from .conftest import DEMO, demo_json, make_trace, playwright_report, playwright_test, write_json
+from .conftest import (DEMO, STATEWATCH_EXAMPLE, demo_json, make_trace, playwright_report, playwright_test,
+                       write_json)
 
 
 def kinds(discovery):
@@ -50,6 +51,31 @@ def test_classify_other_kinds():
     assert classify({"format_version": 1}, "data.json") is None
     for value in ({"name": "pkg", "version": "1.0.0"}, [], [1, 2], "text", None, {"log": {}}):
         assert classify(value) is None
+
+
+def test_classify_statewatch_report():
+    import json
+
+    report = json.loads(STATEWATCH_EXAMPLE.read_text(encoding="utf-8"))
+    assert classify(report, "report.json") == "statewatch-report"
+    # The run manifest next to it, and other schema-version-1 documents, are not reports.
+    assert classify({"schema_version": 1, "run_id": "x", "policy": {}}, "run.json") is None
+    assert classify({"schema_version": 1, "tests": []}, "report.json") is None
+    assert classify({**report, "schema_version": 2}, "report.json") is None
+
+
+def test_statewatch_default_output_and_replay_children(workdir):
+    import json
+
+    report = json.loads(STATEWATCH_EXAMPLE.read_text(encoding="utf-8"))
+    output = workdir.root / ".statewatch"
+    write_json(output / "report.json", report)
+    write_json(output / "run.json", {"schema_version": 1, "run_id": report["run_id"]})
+    child = write_json(output / "replays" / report["run_id"] / "001" / "report.json", report)
+    assert kinds(discover(["."])) == {os.path.join(".statewatch", "report.json"): "statewatch-report"}
+    # A child report named explicitly is still read.
+    explicit = os.path.relpath(child, workdir.root)
+    assert kinds(discover([explicit])) == {explicit: "statewatch-report"}
 
 
 def test_non_artifacts_are_skipped_silently(workdir):
