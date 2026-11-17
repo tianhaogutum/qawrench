@@ -422,7 +422,7 @@ The pytest plugin, the `qawrench statewatch` report reader, the `statewatch` che
 `examples/statewatch/` (`test_service.py`, `policy.json` and the synthetic
 `report.json`) are original work under the qawrench MIT license, except the upstream
 material listed below. The standalone project was released under the MIT License
-(Copyright (c) 2026 pytest-statewatch contributors).
+(Copyright (c) 2026 tianhaogutum).
 
 **Runtime dependencies (extra `statewatch`, installed separately, never vendored).**
 Only the pytest plugin needs them, and it imports them only after
@@ -556,8 +556,7 @@ The command code, the HTML/CSS it generates, the original example diagrams and r
 files in `examples/mermaid-paths/` (`review-process.*`, `approval-zh.*`,
 `workflow-doc.md`) and the tests in `tests/mermaid_paths/` are original work under the
 qawrench MIT license, except the Mermaid fixtures noted below. The standalone project
-was a Node.js package released under the MIT License (Copyright (c) 2026 Mermaid Paths
-contributors) and is ported to Python here under the same license.
+was a Node.js package released under the MIT License (Copyright (c) 2026 tianhaogutum) and is ported to Python here under the same license.
 
 **Runtime and test dependencies.** None beyond the Python standard library (Python is
 covered by the PSF License Agreement, <https://docs.python.org/3/license.html>). The
