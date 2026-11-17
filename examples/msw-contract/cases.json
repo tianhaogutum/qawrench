@@ -1,0 +1,5 @@
+[
+  { "id": "list-pets", "url": "http://petstore.swagger.io/v1/pets?limit=2" },
+  { "id": "stale-id", "url": "http://petstore.swagger.io/v1/pets/1" },
+  { "id": "missing-pet", "url": "http://petstore.swagger.io/v1/pets/missing" }
+]

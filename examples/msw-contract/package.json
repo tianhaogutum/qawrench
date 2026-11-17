@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "description": "Installs msw for the qawrench msw-contract example: npm install --prefix examples/msw-contract --ignore-scripts",
+  "devDependencies": {
+    "msw": "^3.0.5"
+  }
+}

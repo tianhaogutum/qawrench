@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "type": "module",
+  "description": "npm packages for the Node-backed qawrench msw-contract tests: npm install --prefix tests/msw_contract/fixtures --ignore-scripts",
+  "devDependencies": {
+    "@msw/source": "^0.7.0",
+    "msw": "^3.0.5",
+    "msw2": "npm:msw@^2.15.0",
+    "openapi-msw": "^2.1.1",
+    "yaml": "^2.9.1"
+  }
+}

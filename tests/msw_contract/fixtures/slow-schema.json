@@ -1,0 +1,25 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Expensive regular-expression regression", "version": "1" },
+  "paths": {
+    "/pets/{id}": {
+      "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Pet with a potentially expensive name pattern",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["id", "name"],
+                  "properties": { "id": { "type": "integer" }, "name": { "type": "string", "pattern": "^(a+)+$" } }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

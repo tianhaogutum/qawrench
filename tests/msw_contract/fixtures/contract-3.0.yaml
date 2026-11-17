@@ -1,0 +1,53 @@
+openapi: 3.0.3
+info: { title: Regression API, version: '1' }
+paths:
+  /pets/{id}:
+    parameters:
+      - { in: path, name: id, required: true, schema: { type: string } }
+    get:
+      responses:
+        '200':
+          description: A pet
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pet' }
+    post:
+      responses:
+        '200':
+          description: Created pet
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pet' }
+  /problem:
+    get:
+      responses:
+        '4XX':
+          description: Problem
+          content:
+            application/problem+json:
+              schema:
+                type: object
+                required: [title]
+                properties: { title: { type: string } }
+  /text:
+    get:
+      responses:
+        default:
+          description: Text
+          content:
+            text/*:
+              schema: { type: string, enum: [hello] }
+  /empty:
+    get:
+      responses:
+        '204': { description: No content }
+components:
+  schemas:
+    Pet:
+      type: object
+      additionalProperties: false
+      required: [id, name, password]
+      properties:
+        id: { type: integer, minimum: 1, maximum: 1 }
+        name: { type: string, nullable: true }
+        password: { type: string, writeOnly: true }
