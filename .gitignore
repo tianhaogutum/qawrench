@@ -27,6 +27,10 @@ uv.lock
 *.parquet
 *.parquet.manifest.json
 *.sarif
+.statewatch/
+
+# npm packages installed for the msw-contract fixtures and examples
+node_modules/
 
 # Editors / OS
 .idea/

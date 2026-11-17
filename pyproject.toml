@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "qawrench"
 version = "0.1.0"
-description = "Make browser/E2E CI trustworthy: flaky-test history, HAR replay fixes, a11y baselines, Lighthouse noise gates, trace budgets, stable page diffs, link-check SARIF and crawl audits — one offline CLI."
+description = "Make browser/E2E CI trustworthy: flaky-test history, HAR replay fixes, pytest state leaks, MSW mock contracts, a11y baselines, Mermaid path appendices, Lighthouse noise gates, trace budgets, stable page diffs, link-check SARIF and crawl audits — one offline CLI."
 # README.md with repository-relative links rewritten for PyPI (see tool.hatch.metadata.hooks below).
 dynamic = ["readme"]
 requires-python = ">=3.11"
@@ -15,7 +15,8 @@ authors = [{ name = "tianhaogutum" }]
 keywords = [
     "qa", "e2e", "ci", "playwright", "flaky-tests", "har", "accessibility", "axe", "pa11y",
     "lighthouse", "web-performance", "sarif", "link-checker", "lychee", "html-diff",
-    "structured-data", "json-ld", "crawlee", "parquet", "crawler", "robots-txt", "devtools", "cli",
+    "structured-data", "json-ld", "crawlee", "parquet", "crawler", "robots-txt", "pytest", "test-pollution",
+    "msw", "openapi", "contract-testing", "mermaid", "devtools", "cli",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -33,6 +34,7 @@ classifiers = [
     "Topic :: Software Development :: Quality Assurance",
     "Topic :: Software Development :: Testing",
     "Topic :: Utilities",
+    "Framework :: Pytest",
 ]
 # The base install is standard library only; heavier dependencies are per-command extras.
 dependencies = []
@@ -47,7 +49,11 @@ structured = ["extruct>=0.18,<0.19", "lxml>=5.3"]
 html = ["beautifulsoup4>=4.13", "soupsieve>=2.6"]
 # frontier: URL canonicalization for opt-in query sorting
 frontier = ["w3lib>=2.1"]
-all = ["qawrench[parquet,structured,html,frontier]"]
+# msw-contract: OpenAPI YAML loading and JSON Schema validation (handlers themselves run in Node)
+openapi = ["PyYAML>=6.0.1", "jsonschema>=4.18"]
+# statewatch: the opt-in pytest plugin (inactive until `pytest --statewatch POLICY.json`)
+statewatch = ["pytest>=8.2,<10", "deepdiff>=8.6,<9", "pytest-replay>=1.7,<2", "filelock>=3.16,<4"]
+all = ["qawrench[parquet,structured,html,frontier,openapi,statewatch]"]
 # Everything the test suite imports: pytest, every extra, and schema validation for a11y.
 test = [
     "qawrench[all]",
@@ -64,6 +70,11 @@ Documentation = "https://github.com/tianhaogutum/qawrench/tree/main/docs"
 
 [project.scripts]
 qawrench = "qawrench.cli:main"
+
+# The statewatch pytest plugin is registered whenever qawrench is installed, but it only
+# imports pytest at load time and does nothing unless `--statewatch POLICY.json` is passed.
+[project.entry-points.pytest11]
+statewatch = "qawrench.statewatch.plugin"
 
 [tool.hatch.metadata.hooks.fancy-pypi-readme]
 content-type = "text/markdown"

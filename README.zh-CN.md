@@ -42,7 +42,7 @@ uvx qawrench check . --format sarif > qawrench.sarif               # SARIF 2.1.0
 uvx qawrench check . --fail-on warning                             # 有警告也以 1 退出
 ```
 
-不需要账号、浏览器、服务器或配置。`check` 按内容识别产物（Playwright JSON 或 CTRF 报告、`trace.zip`、HAR、axe 或 Pa11y JSON、Lighthouse 报告、lychee JSON），所以可以直接指向整个工作目录。
+不需要账号、浏览器、服务器或配置。`check` 按内容识别产物（Playwright JSON 或 CTRF 报告、`trace.zip`、HAR、axe 或 Pa11y JSON、Lighthouse 报告、lychee JSON、pytest statewatch 报告），所以可以直接指向整个工作目录。
 
 > **尚未发布到 PyPI。** 首个版本发布前，请从 Git 安装：
 > `pipx install git+https://github.com/tianhaogutum/qawrench` 或
@@ -76,12 +76,13 @@ uvx --from ../.. qawrench check
 | 测试与不稳定性 | `flaky` | 重试后才通过、每次都失败、意外通过或被中断的测试（Playwright JSON、CTRF） |
 | | `har` | 同一请求被录了多次且响应不同；每次请求都在变的查询参数 |
 | | `trace-budget` | trace 按类别的体积、超出 `--trace-budget`、引用了却缺失的截图或网络响应体 |
+| | `statewatch` | 改动了被监视的环境变量、cwd 或模块状态却没有还原的 pytest 测试；只有在前一个测试之后才复现的失败（pytest statewatch 的 `report.json`） |
 | 无障碍与性能 | `a11y` | 若报告旁有基线，则报告新增的 axe / Pa11y 问题；否则按影响级别汇总 |
 | | `lighthouse` | 多次运行下 FCP、LCP、TBT、CLS 和 Speed Index 的中位数与离散度；失败的运行 |
 | 页面与链接 | `links` | lychee JSON 中失效的链接，定位到所在文件以及（Markdown 的）行号 |
 | 爬取 | `crawlee-export` | 与清单（manifest）不再一致的 Parquet 导出 |
 
-需要额外输入、`check` 无法猜测的检查（`page-diff`、`structured-data`、`frontier`）会列出但跳过；用 `--only page-diff` 会打印应改用的命令。没有问题时退出码为 0，有发现达到 `--fail-on`（默认 `error`）时为 1，用法错误为 2。某项检查崩溃只会变成一条 `internal` 发现，其他检查照常运行；缺少可选依赖会变成一条附安装命令的 info。
+需要额外输入、`check` 无法猜测的检查（`page-diff`、`structured-data`、`frontier`）会列出但跳过；用 `--only page-diff` 会打印应改用的命令。`msw-contract` 和 `mermaid-paths` 不是检查项（前者要运行你的 MSW handler，后者处理的是作者编写的流程图）。没有问题时退出码为 0，有发现达到 `--fail-on`（默认 `error`）时为 1，用法错误为 2。某项检查崩溃只会变成一条 `internal` 发现，其他检查照常运行；缺少可选依赖会变成一条附安装命令的 info。
 
 ### 在 CI 中使用
 
@@ -101,15 +102,18 @@ uvx --from ../.. qawrench check
 
 ## 然后修复：检查背后的命令
 
-`check` 告诉你哪里有问题，下面这些命令负责解决。它们在同一个安装包里，全部离线。
+`check` 告诉你哪里有问题，下面这些命令负责解决。它们在同一个安装包里，全部离线。每个命令在 [docs/](docs/README.md) 里都有说明页。
 
 | 分组 | 命令 | 作用 | 扩展 |
 | --- | --- | --- | --- |
 | 测试与不稳定性 | `flaky` | 把 Playwright JSON 和 CTRF 报告存进本地 SQLite 重试历史，找出反复不稳定的测试 | |
 | | `har` | 挑选 HAR 夹具、预检请求匹配、规划无冲突的回放改写 | |
 | | `trace-budget` | 按体积预算盘点 trace ZIP，前后对比，无损重新打包 | |
+| | `statewatch` | 需显式启用的 pytest 插件：在测试之间监视选定的环境变量/cwd/模块状态，指出最先改动它的测试，并回放失败的测试对；附报告查看器 | `[statewatch]` |
+| | `msw-contract` | 用显式请求运行你真实的 MSW handler（在 Node 中），按 OpenAPI 检查状态码、Content-Type 和响应体 | `[openapi]` |
 | 无障碍与性能 | `a11y` | 为 axe 和 Pa11y 结果建立基线，CI 只在新增问题时失败（SARIF） | |
 | | `lighthouse` | 基于多次运行和明确的噪声策略，对 Lighthouse 数值审计设门槛 | |
+| | `mermaid-paths` | 把 Mermaid 流程图变成经作者审阅、可用键盘逐条跟随的 HTML 附录 | |
 | 页面与链接 | `page-diff` | 用明确、可审计的降噪规则比较两份保存的 HTML 快照 | `[html]` |
 | | `structured-data` | 比较两份 HTML 抓取中的 JSON-LD 和 OpenGraph | `[structured]` |
 | | `links` | 把 lychee JSON 转成 SARIF，位置经源码核实，支持基线 | |
@@ -122,18 +126,18 @@ qawrench a11y baseline --format axe a11y/axe-home.json --out a11y-baseline.json
 qawrench lighthouse baseline/ current/ --config gate.json
 ```
 
-核心安装没有第三方依赖。较重的依赖放在扩展里：`pipx install 'qawrench[parquet]'`（pyarrow）、`[structured]`（extruct、lxml）、`[html]`（beautifulsoup4）、`[frontier]`（w3lib），或 `[all]`。`qawrench <命令> --help` 列出所有选项。
+核心安装没有第三方依赖。较重的依赖放在扩展里：`pipx install 'qawrench[parquet]'`（pyarrow）、`[structured]`（extruct、lxml）、`[html]`（beautifulsoup4）、`[frontier]`（w3lib）、`[openapi]`（PyYAML、jsonschema）、`[statewatch]`（pytest 插件：DeepDiff、pytest-replay、filelock），或 `[all]`。`msw-contract` 另外需要 Node.js 24+ 和项目自己安装的 `msw`。`qawrench <命令> --help` 列出所有选项。
 
 ## 可信度与局限
 
 - **离线，无遥测。** qawrench 不发起任何网络连接，从不访问报告、HAR 或链接检查里的 URL。
 - **默认只读。** `check` 和各分析子命令从不修改输入。会写文件的命令必须显式给出输出路径，大多数支持 `--dry-run`。
-- **不执行任何东西。** 不启动浏览器，不跑测试，不执行 trace 或 HAR 里的脚本。
+- **`check` 和各产物命令不执行任何东西。** 不启动浏览器，不跑测试，不执行 trace 或 HAR 里的脚本。只有两个命令会运行代码，因为这正是它们的用途，而且只在你调用时：`msw-contract` 在受限的 Node 进程中运行你的 MSW handler；`statewatch` pytest 插件运行在你自己的 pytest 会话里（使用 `--statewatch-confirm` 时会回放测试）。
 - **报告里没有机密。** HAR 相关的发现只打印去掉查询串的 URL；从不引用请求体、cookie 或请求头。
 - **输入严格。** 每个工具只读取有文档说明的格式（例如 Playwright 1.56.1 的 JSON reporter、Lighthouse 12.8.2、lychee 0.18），无法完整解释的输入会被拒绝，并用一条 info 说明原因，不靠猜。
 - **看的是产物，不是测试套件。** 这里的“不稳定”指“本次运行中先失败后通过”；跨运行的历史请用 `qawrench flaky`。Lighthouse 的 10% 离散度阈值是固定的经验规则，不是统计检验。
 
-qawrench 是独立项目，与 Microsoft Playwright、Google Lighthouse、Deque axe、Pa11y、lychee 和 Apify Crawlee 均无关联。
+qawrench 是独立项目，与 Microsoft Playwright、Google Lighthouse、Deque axe、Pa11y、lychee、Apify Crawlee、pytest、MSW 和 Mermaid 均无关联。
 
 ---
 

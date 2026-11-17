@@ -46,11 +46,20 @@ COMMANDS: tuple[Command, ...] = (
     Command("trace-budget", "qawrench.trace_budget.cli",
             "Inventory Playwright trace ZIPs against size budgets, compare them, repack losslessly",
             "Tests & flakiness"),
+    Command("statewatch", "qawrench.statewatch.cli",
+            "Trace env, cwd and module state that leaks between pytest tests; replay victim/writer pairs",
+            "Tests & flakiness"),
+    Command("msw-contract", "qawrench.msw_contract.cli",
+            "Run real MSW handlers on explicit requests and check their responses against OpenAPI",
+            "Tests & flakiness", requires=("yaml", "jsonschema", "referencing"), extra="openapi"),
     Command("a11y", "qawrench.a11y.cli",
             "Baseline axe and Pa11y results so CI fails only on new accessibility findings (SARIF)",
             "Accessibility & performance"),
     Command("lighthouse", "qawrench.lighthouse.cli",
             "Gate Lighthouse numeric audits on repeated runs with an explicit noise policy",
+            "Accessibility & performance"),
+    Command("mermaid-paths", "qawrench.mermaid_paths.cli",
+            "Turn Mermaid flowcharts into author-reviewed, keyboard-followable static HTML path appendices",
             "Accessibility & performance"),
     Command("page-diff", "qawrench.page_diff.cli",
             "Compare two saved HTML snapshots with explicit, auditable noise rules", "Pages & links",
@@ -77,6 +86,7 @@ LEGACY = {
     "trace-size-budget": "trace-budget", "lighthouse-noise-gate": "lighthouse",
     "stable-page-diff": "page-diff", "crawl-frontier-audit": "frontier",
     "verify-robots-witnesses": "frontier verify-witnesses", "lychee-sarif-map": "links",
+    "pytest-statewatch": "statewatch", "msw-contract-check": "msw-contract",
 }
 
 
@@ -125,7 +135,8 @@ def overview() -> str:
         "  -V, --version  show the version and exit",
         "",
         f"Optional extras: {PROG}[parquet] (crawlee-export), {PROG}[structured] (structured-data),",
-        f"{PROG}[html] (page-diff), {PROG}[frontier] (frontier), or {PROG}[all].",
+        f"{PROG}[html] (page-diff), {PROG}[frontier] (frontier), {PROG}[openapi] (msw-contract),",
+        f"{PROG}[statewatch] (statewatch pytest plugin), or {PROG}[all].",
         "",
         f"Docs and issues: {REPO_URL}",
     ]

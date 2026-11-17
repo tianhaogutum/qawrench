@@ -11,8 +11,8 @@ from qawrench import cli
 ROOT = Path(__file__).resolve().parents[1]
 
 # Commands whose Python subpackage ships in this repository (`check` is the hero command).
-TOOLS = ["check", "flaky", "har", "trace-budget", "a11y", "lighthouse", "page-diff",
-         "structured-data", "links", "frontier", "crawlee-export"]
+TOOLS = ["check", "flaky", "har", "trace-budget", "statewatch", "msw-contract", "a11y", "lighthouse",
+         "mermaid-paths", "page-diff", "structured-data", "links", "frontier", "crawlee-export"]
 # Every merged tool is built on argparse: `--help` prints a "usage: qawrench <tool>" line.
 ARGPARSE_TOOLS = [tool for tool in TOOLS if tool != "check"]
 # `check` keeps its own flags; every merged tool prints the bare package version.
@@ -24,6 +24,7 @@ SUBCOMMANDS = {
               "verify-run", "list-archives", "list-runs", "compare-runs", "test-history"],
     "a11y": ["draft-exception", "baseline", "diff", "migration"],
     "trace-budget": ["inspect", "repack", "compare"],
+    "mermaid-paths": ["review", "inspect", "build", "styles"],
     # Single-parser tools with one hand-routed secondary mode.
     "lighthouse": ["save-baseline"],
     "frontier": ["verify-witnesses"],
@@ -33,6 +34,8 @@ PACKAGES = {
     "a11y": "qawrench.a11y", "lighthouse": "qawrench.lighthouse", "page-diff": "qawrench.page_diff",
     "structured-data": "qawrench.structured_data", "links": "qawrench.links",
     "frontier": "qawrench.frontier", "crawlee-export": "qawrench.crawlee_export",
+    "statewatch": "qawrench.statewatch", "msw-contract": "qawrench.msw_contract",
+    "mermaid-paths": "qawrench.mermaid_paths",
 }
 LEGACY_NAMES = [
     ("har-replay-doctor", "har"), ("retry-history-ledger", "flaky"), ("a11y-baseline-bridge", "a11y"),
@@ -40,6 +43,7 @@ LEGACY_NAMES = [
     ("trace-size-budget", "trace-budget"), ("lighthouse-noise-gate", "lighthouse"),
     ("stable-page-diff", "page-diff"), ("crawl-frontier-audit", "frontier"),
     ("verify-robots-witnesses", "frontier verify-witnesses"), ("lychee-sarif-map", "links"),
+    ("pytest-statewatch", "statewatch"), ("msw-contract-check", "msw-contract"),
 ]
 
 
@@ -71,8 +75,8 @@ def test_command_table_shape():
     groups = {group: [c.name for c in cli.COMMANDS if c.group == group] for group in cli.GROUPS}
     assert groups == {
         "Check": ["check"],
-        "Tests & flakiness": ["flaky", "har", "trace-budget"],
-        "Accessibility & performance": ["a11y", "lighthouse"],
+        "Tests & flakiness": ["flaky", "har", "trace-budget", "statewatch", "msw-contract"],
+        "Accessibility & performance": ["a11y", "lighthouse", "mermaid-paths"],
         "Pages & links": ["page-diff", "structured-data", "links"],
         "Crawling": ["frontier", "crawlee-export"],
     }
@@ -84,14 +88,14 @@ def test_command_table_shape():
     assert set(cli.BY_NAME) == {c.name for c in cli.COMMANDS}
     assert {c.name: c.extra for c in cli.COMMANDS if c.extra} == {
         "page-diff": "html", "structured-data": "structured", "frontier": "frontier",
-        "crawlee-export": "parquet",
+        "crawlee-export": "parquet", "msw-contract": "openapi",
     }
     assert all(bool(c.requires) == bool(c.extra) for c in cli.COMMANDS)
 
 
 def test_extras_are_declared_in_pyproject():
     text = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-    for extra in {c.extra for c in cli.COMMANDS if c.extra} | {"all", "test"}:
+    for extra in {c.extra for c in cli.COMMANDS if c.extra} | {"all", "test", "statewatch"}:
         assert f"\n{extra} = [" in text, extra
 
 
@@ -152,7 +156,7 @@ def test_frontier_help_mentions_verify_witnesses(capsys):
     assert code == 0 and "qawrench frontier verify-witnesses" in out
 
 
-@pytest.mark.parametrize("tool", ["har", "flaky", "a11y", "trace-budget"])
+@pytest.mark.parametrize("tool", ["har", "flaky", "a11y", "trace-budget", "mermaid-paths"])
 def test_tool_exit_codes_pass_through(tool):
     bad = run(tool, "no-such-subcommand")
     assert bad.returncode == 2 and f"usage: qawrench {tool}" in bad.stderr
@@ -238,6 +242,8 @@ _WITHOUT = ("import sys\nfor name in {blocked!r}: sys.modules[name] = None\n"
      "qawrench structured-data needs extruct: pipx install 'qawrench[structured]'"),
     (["w3lib"], ["frontier", "requests.jsonl"],
      "qawrench frontier needs w3lib: pipx install 'qawrench[frontier]'"),
+    (["yaml"], ["msw-contract", "--handlers", "handlers.mjs", "--schema", "openapi.yaml", "--cases", "cases.json"],
+     "qawrench msw-contract needs yaml: pipx install 'qawrench[openapi]'"),
 ])
 def test_missing_extra_exits_2_with_one_line_hint(blocked, argv, hint, tmp_path):
     result = subprocess.run([sys.executable, "-c", _WITHOUT.format(blocked=blocked, argv=argv)],
@@ -266,3 +272,8 @@ def test_shipped_command_is_listed_without_coming_soon(name, capsys):
     assert cli.main([]) == 0
     line = next(line for line in capsys.readouterr().out.splitlines() if line.startswith(f"  {name} "))
     assert "(coming soon)" not in line
+
+
+def test_statewatch_plugin_entry_point_is_declared():
+    text = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    assert '[project.entry-points.pytest11]\nstatewatch = "qawrench.statewatch.plugin"' in text

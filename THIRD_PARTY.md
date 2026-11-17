@@ -9,8 +9,9 @@ production captures, customer data, credentials or real-site recordings.
 qawrench is an independent interoperability project. It is not affiliated with or
 endorsed by Microsoft (Playwright), Google (Lighthouse, Chrome), Deque Systems (axe),
 the Pa11y project, Apify (Crawlee), the Apache Software Foundation (Arrow, Parquet),
-the lycheeverse maintainers (Lychee), OASIS (SARIF), Scrapinghub/Zyte (extruct, w3lib)
-or any other project named below. Product names only identify interoperable file
+the lycheeverse maintainers (Lychee), OASIS (SARIF), Scrapinghub/Zyte (extruct, w3lib),
+the pytest, Mock Service Worker (MSW), OpenAPI Initiative or Mermaid projects, or any other
+project named below. Product names only identify interoperable file
 formats. This file is attribution; it does not relicense any dependency or upstream
 material.
 
@@ -33,8 +34,12 @@ keep their own notices in their distributions. The qawrench wheel contains only 
 | [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/) | MIT | `page-diff` | extra `html` |
 | [soupsieve](https://github.com/facelessuser/soupsieve) | MIT | `page-diff` | extra `html` |
 | [w3lib](https://github.com/scrapy/w3lib) | BSD-3-Clause | `frontier` | extra `frontier` |
-| [pytest](https://github.com/pytest-dev/pytest) | MIT | test runner | test |
-| [jsonschema](https://github.com/python-jsonschema/jsonschema) | MIT | `a11y` SARIF schema tests | test |
+| [PyYAML](https://github.com/yaml/pyyaml) | MIT | `msw-contract` | extra `openapi` |
+| [jsonschema](https://github.com/python-jsonschema/jsonschema) (with referencing, attrs, jsonschema-specifications, rpds-py) | MIT | `msw-contract` response validation; `a11y` SARIF schema tests | extra `openapi`; test |
+| [DeepDiff](https://github.com/seperman/deepdiff) | MIT (requires orderly-set, MIT) | `statewatch` pytest plugin | extra `statewatch` |
+| [pytest-replay](https://github.com/ESSS/pytest-replay) | MIT | `statewatch` confirmation replays | extra `statewatch` |
+| [filelock](https://github.com/tox-dev/filelock) | Unlicense | `statewatch` output lock | extra `statewatch` |
+| [pytest](https://github.com/pytest-dev/pytest) | MIT | test runner; `statewatch` plugin host | test; extra `statewatch` |
 | [rfc3986-validator](https://github.com/naimetti/rfc3986-validator) | MIT | `uri` format checks in `a11y` tests | test |
 | [Hatchling](https://github.com/pypa/hatch) | MIT | build backend | build |
 | [hatch-fancy-pypi-readme](https://github.com/hynek/hatch-fancy-pypi-readme) | MIT | PyPI README link rewriting | build |
@@ -45,11 +50,18 @@ provided by the user's Python installation under the
 SQLite is [public domain](https://www.sqlite.org/copyright.html). No SQLite or zlib
 source is vendored.
 
+`msw-contract` also needs [Node.js](https://nodejs.org/) 24 or newer (MIT, with bundled
+third-party notices) on the user's `PATH` and the [MSW](https://github.com/mswjs/msw)
+package (MIT) installed in the user's own project. qawrench ships neither; it only
+ships the small Node runner script that calls the user's MSW install (see the
+`msw-contract` section).
+
 ### License texts in `licenses/`
 
 [`licenses/`](licenses) keeps the license and notice files the standalone projects
 recorded for the dependency versions they were tested with (copied unchanged from the
-installed distributions). They document those dependencies; the files are not shipped
+installed distributions), and the licenses of upstream files carried as test fixtures
+or examples. They document those dependencies; the files are not shipped
 inside the wheel, and none of these packages is vendored.
 
 | Directory | Contents |
@@ -58,6 +70,9 @@ inside the wheel, and none of these packages is vendored.
 | [`licenses/frontier/`](licenses/frontier) | w3lib 2.3.1 |
 | [`licenses/page-diff/`](licenses/page-diff) | beautifulsoup4 4.14.3, soupsieve 2.8.1, typing_extensions 4.15.0 |
 | [`licenses/structured-data/`](licenses/structured-data) | extruct 0.18.0, lxml 6.1.3 and the rest of extruct's tested dependency closure |
+| [`licenses/statewatch/`](licenses/statewatch) | pytest-leak-finder LICENSE (MIT), for the demo copied into `tests/statewatch/fixtures/` |
+| [`licenses/msw-contract/`](licenses/msw-contract) | Apache-2.0 licenses of the OpenAPI Initiative and openapi-generator repositories, for the Petstore documents in `tests/msw_contract/fixtures/upstream/` and `examples/msw-contract/`, with their `SOURCES.md` |
+| [`licenses/mermaid-paths/`](licenses/mermaid-paths) | Mermaid LICENSE (MIT), for the flowchart examples in `tests/mermaid_paths/fixtures/upstream/` |
 
 ## flaky (formerly retry-history-ledger)
 
@@ -400,3 +415,191 @@ Crawlee and Apify are trademarks of their respective owners; Apache Arrow and Ap
 Parquet are trademarks of the Apache Software Foundation. This project is not
 affiliated with or endorsed by Apify, the Crawlee project or the ASF.
 
+## statewatch (formerly pytest-statewatch)
+
+The pytest plugin, the `qawrench statewatch` report reader, the `statewatch` check of
+`qawrench check`, the tests in `tests/statewatch/` and the authored demo in
+`examples/statewatch/` (`test_service.py`, `policy.json` and the synthetic
+`report.json`) are original work under the qawrench MIT license, except the upstream
+material listed below. The standalone project was released under the MIT License
+(Copyright (c) 2026 pytest-statewatch contributors).
+
+**Runtime dependencies (extra `statewatch`, installed separately, never vendored).**
+Only the pytest plugin needs them, and it imports them only after
+`--statewatch POLICY.json` is given; the report reader and the `check` integration use
+the Python standard library only.
+
+| Package | Range | Role | License |
+| --- | --- | --- | --- |
+| [pytest](https://github.com/pytest-dev/pytest) | `>=8.2,<10` | Plugin host: collection, fixtures, test phases and outcomes | MIT |
+| [DeepDiff](https://github.com/seperman/deepdiff) | `>=8.6,<9` | Structured before/after diffs (`zip_ordered_iterables=True`); pulls in orderly-set (MIT) | MIT |
+| [pytest-replay](https://github.com/ESSS/pytest-replay) | `>=1.7,<2` | Replay input format (`ReplayTestInfo`) and ordered execution of confirmation runs | MIT |
+| [filelock](https://github.com/tox-dev/filelock) | `>=3.16,<4` | Exclusive lock on the output directory | Unlicense |
+
+The original project's tested minimums were Python 3.11 with pytest 8.2.0,
+pytest-replay 1.7.0, DeepDiff 8.6.0 and filelock 3.16.0; newer combinations used
+pytest 8.4.2 and 9.1.1 with pytest-replay 1.8.0, DeepDiff 8.6.1 and filelock 3.20.0, and
+its final wheel check used pytest 9.2, DeepDiff 8.6.2 and filelock 3.32.7. Python
+itself is covered by the PSF License Agreement (<https://docs.python.org/3/license.html>).
+
+**Optional test composition (not dependencies).** Some tests run only when these
+plugins happen to be installed and are skipped otherwise:
+[pytest-rerunfailures](https://github.com/pytest-dev/pytest-rerunfailures) (MPL-2.0),
+[pytest-randomly](https://github.com/pytest-dev/pytest-randomly) (MIT) and
+[pytest-xdist](https://github.com/pytest-dev/pytest-xdist) (MIT). None is installed by
+qawrench.
+
+**Copied upstream material.**
+
+- `tests/statewatch/fixtures/leak_finder_demo.py` is the unmodified
+  [`demo/test_demo.py`](https://raw.githubusercontent.com/mgaitan/pytest-leak-finder/master/demo/test_demo.py)
+  of [pytest-leak-finder](https://github.com/mgaitan/pytest-leak-finder) (downloaded
+  2026-11-11; only the file name changed). MIT License, Copyright (c) 2022 Martín
+  Gaitán; the license text is kept in
+  [`licenses/statewatch/pytest-leak-finder-LICENSE.txt`](licenses/statewatch/pytest-leak-finder-LICENSE.txt).
+  It is not part of the wheel.
+- `tests/statewatch/fixtures/lanes-upstream-report.json` is unmodified JSON output of
+  [pytest-threadlanes](https://github.com/Heknon/pytest-threadlanes) 0.1.0, and
+  `doctor-order-report.json` and `doctor-upstream-report.json` are unmodified JSON
+  output of [pytest-flakedoctor](https://github.com/Therealdk8890/pytest-flakedoctor)
+  0.1.2, each produced by running that tool on the pytest-leak-finder demo above. They
+  are kept as factual format evidence for the `--from-lanes` and `--from-doctor`
+  adapters; no code of either tool is copied, installed or executed by qawrench.
+
+**Formats and prior art referenced (no code copied).** The pytest-threadlanes 0.1.0
+shared-state report and the flakedoctor v1 report (`format: flakedoctor-report`) are
+read as input formats only. [detect-test-pollution](https://github.com/asottile/detect-test-pollution),
+[pytest-find-dependencies](https://github.com/mrbean-bremen/pytest-find-dependencies),
+pytest-envvars and pytest-isolate were surveyed as prior art; they are not used.
+The `run.json`, `events.jsonl` and `report.json` formats (`schema_version` 1) are
+defined by this project.
+
+The names of these projects belong to their maintainers. qawrench is not affiliated
+with or endorsed by any of them.
+
+## msw-contract (formerly msw-contract-check)
+
+The command, its bundled Node runner (`src/qawrench/msw_contract/node/runner.mjs`), the
+example handler and cases in `examples/msw-contract/`, and the authored regression fixtures
+in `tests/msw_contract/fixtures/` (handler modules, `contract-3.0.yaml`, `slow-schema.json`)
+are original work under the qawrench MIT license. The standalone project was an
+MIT-licensed Node.js package that composed the npm libraries listed below; in qawrench the OpenAPI loading,
+routing, schema validation, reporting and CLI were rewritten in Python, and only the
+execution of the user's MSW handlers still happens in Node.js.
+
+**Executed, never bundled.**
+
+| Component | License | Role |
+| --- | --- | --- |
+| [MSW](https://github.com/mswjs/msw) (`msw`; tested 3.0.5, MSW 2.15 handlers also run) | MIT | Still executed for real: the bundled runner imports the `msw` package **installed in the user's project** and calls its `getResponse` with the user's handlers. qawrench does not ship or vendor MSW. |
+| [Node.js](https://nodejs.org/) 24 or newer | MIT (with bundled third-party notices) | Runs `runner.mjs`, per-case worker processes and Node's permission model; found on the user's `PATH`, not shipped. |
+
+**Python dependencies (extra `openapi`, installed separately).**
+
+| Distribution | License | Use |
+| --- | --- | --- |
+| [PyYAML](https://github.com/yaml/pyyaml) (`>=6.0.1`) | MIT | YAML/JSON parsing of OpenAPI documents and case files, restricted to the YAML 1.2 core schema |
+| [jsonschema](https://github.com/python-jsonschema/jsonschema) (`>=4.18`) | MIT | Draft-04 and 2020-12 response-body validation |
+| [referencing](https://github.com/python-jsonschema/referencing) (installed with jsonschema) | MIT | Schema registry and `$ref` resolution inside the prepared document |
+
+jsonschema also brings attrs, jsonschema-specifications and rpds-py (all MIT).
+
+**npm libraries whose behaviour is reimplemented in Python.** The standalone tool depended
+on these packages at runtime; none of them is installed, bundled or executed by qawrench.
+Their observable behaviour, as relied on by the original checks and tests, is re-expressed
+in `qawrench.msw_contract`:
+
+| Library (version used by the standalone tool) | License | Behaviour reimplemented |
+| --- | --- | --- |
+| [@redocly/openapi-core](https://github.com/Redocly/redocly-cli) 2.77.0 | MIT | Local multi-file `bundle` with a bounded local-only resolver (128 files / 32 MiB, 10 MiB per file), remote references refused, literal example data (`doNotResolveExamples`), external schemas hoisted into `components/schemas`, static `$anchor` references (`openapi.py`) |
+| [@apidevtools/swagger-parser](https://github.com/APIDevTools/swagger-parser) 13.1.0 (with json-schema-ref-parser) | MIT | Dereferencing of OpenAPI objects with `circular: "ignore"` and the original excluded-path matcher that keeps schema references and examples intact; a reduced structural check replaces full OpenAPI meta-schema validation (`openapi.py`) |
+| [openapi-backend](https://github.com/openapistack/openapi-backend) 5.23.0 (`OpenAPIRouter`) | MIT | Operation routing: apiRoot stripping, exact path before path templates, longest literal template first, lowercase method match (`openapi.py`) |
+| [@openapi-contrib/openapi-schema-to-json-schema](https://github.com/openapi-contrib/openapi-schema-to-json-schema) 4.0.0 | MIT | OpenAPI 3.0 schema to JSON Schema draft-04: `nullable`, `removeWriteOnly`, required cleanup, strict type check, removal of OpenAPI-only keywords (`openapi.py`) |
+| [Ajv](https://github.com/ajv-validator/ajv) 8.20.0 and [ajv-draft-04](https://github.com/ajv-validator/ajv-draft-04) 1.0.0 | MIT | Error shape (`instancePath`, `keyword`, `schemaPath`, params such as `missingProperty`/`additionalProperty`/`unevaluatedProperty`), English error messages, `allErrors` ordering of `anyOf`/`oneOf` branches, `$ref` siblings applied in every draft, `1.0` accepted as integer, unknown-format warnings with `strict: false` (`schema.py`) |
+| [ajv-formats](https://github.com/ajv-validator/ajv-formats) 3.0.1 | MIT | "full" format definitions (date, time, date-time, iso-time, iso-date-time, duration, uri, uri-reference, uri-template, url, email, hostname, ipv4, ipv6, regex, uuid, json-pointer, json-pointer-uri-fragment, relative-json-pointer) plus the OpenAPI `int32`/`int64`/`byte`/`float`/`double`/`binary`/`password` registrations of the original tool. The regular expressions in `schema.py` are derived from ajv-formats (Copyright (c) 2020 Evgeny Poberezkin, MIT); its `url` pattern credits Diego Perini's URL regex gist (MIT) and its `uri` pattern credits the jmrware.com RFC 3986 URI regular expressions. |
+| [json-schema-traverse](https://github.com/epoberezkin/json-schema-traverse) 1.0.0 | MIT | Pre-order subschema walk with the 2020-12 keyword extensions the original added (`openapi.py`) |
+| [jsonpointer](https://github.com/janl/node-jsonpointer) 5.0.1 | MIT | RFC 6901 lookups for `writeOnly` detection through `#/` references (`openapi.py`) |
+| [yaml](https://github.com/eemeli/yaml) 2.9.1 | ISC | YAML 1.2 core-schema scalars, unique map keys, stringified non-string keys and the `maxAliasCount: 100` resource limit (approximated) (`inputs.py`) |
+| Node.js built-ins `util.MIMEType`, WHATWG `URL`, Fetch `Headers`, `TextDecoder` labels | MIT (Node.js); WHATWG standards CC BY 4.0 | Media-type parsing, HTTP(S) URL normalization, header normalization and charset-label comparison subsets (`contract.py`, `inputs.py`) |
+
+**Test-only npm packages** (declared in `tests/msw_contract/fixtures/package.json`, installed
+by developers with `npm install --prefix tests/msw_contract/fixtures --ignore-scripts`, never
+shipped): `msw` (MIT), `msw2` (an alias of `msw@2`, MIT), [@msw/source](https://github.com/mswjs/source)
+0.7.0 (MIT; generates handlers from the upstream Petstore document during a test),
+[openapi-msw](https://github.com/christoph-fricke/openapi-msw) 2.1.1 (MIT) and `yaml` (ISC).
+`examples/msw-contract/package.json` likewise only declares `msw` for running the example.
+
+**Copied upstream material.** Two unmodified OpenAPI documents, downloaded 2026-11-11, are
+carried as fixtures; their repository licenses are kept next to them and in
+[`licenses/msw-contract/`](licenses/msw-contract) together with a `SOURCES.md`:
+
+| File | Upstream | License |
+| --- | --- | --- |
+| `tests/msw_contract/fixtures/upstream/petstore-3.0.yaml`, `examples/msw-contract/petstore-3.0.yaml` | [OpenAPI Initiative OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification), archived passing 3.0 Petstore example (`_archive_/schemas/v3.0/pass/petstore.yaml`) | Apache-2.0 (`LICENSE-oai.txt`); the document's own `info.license` (MIT) describes the sample API |
+| `tests/msw_contract/fixtures/upstream/petstore-3.1.yaml` | [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator), `modules/openapi-generator/src/test/resources/3_1/java/petstore.yaml` | Apache-2.0 (`LICENSE-openapi-generator.txt`) |
+
+SHA-256: `598136cb904e17e8eeead51ae33dd8d401fdff455d2d74f3869c4aa5f2742266` (3.0) and
+`99fb0bf90c8ccd29551f09cf0a4e569f5f2325b141720539b8a6f34fb3a9fd08` (3.1).
+
+**Prior art referenced, not used.** jest-openapi, @pactflow/pact-msw-adapter and Orval were
+compared in the original survey (documentation inspected); none is installed, copied or
+executed.
+
+**Trademarks.** MSW (Mock Service Worker) is a project of its maintainers; OpenAPI is a
+trademark of the Linux Foundation; Node.js is a trademark of the OpenJS Foundation; Redocly,
+Swagger and SmartBear/PactFlow names belong to their owners. qawrench is not affiliated with
+or endorsed by any of them; the names are used only to describe compatibility.
+
+## mermaid-paths (formerly the standalone mermaid-paths)
+
+The command code, the HTML/CSS it generates, the original example diagrams and review
+files in `examples/mermaid-paths/` (`review-process.*`, `approval-zh.*`,
+`workflow-doc.md`) and the tests in `tests/mermaid_paths/` are original work under the
+qawrench MIT license, except the Mermaid fixtures noted below. The standalone project
+was a Node.js package released under the MIT License (Copyright (c) 2026 Mermaid Paths
+contributors) and is ported to Python here under the same license.
+
+**Runtime and test dependencies.** None beyond the Python standard library (Python is
+covered by the PSF License Agreement, <https://docs.python.org/3/license.html>). The
+tests use pytest. No Node.js runtime, npm package, browser or Mermaid installation is
+needed, bundled or executed.
+
+**Behaviour reimplemented from npm libraries.** The standalone tool was a Node.js
+program built on the libraries below. qawrench contains independent Python
+reimplementations of the behaviour the tool relied on; no JavaScript source is
+vendored, linked or executed. The parts that follow published specifications or data
+closely are noted.
+
+| Library (version the original pinned) | License | What was reimplemented |
+| --- | --- | --- |
+| [@mmd-toolkit/parser](https://github.com/mmd-toolkit/mmd-toolkit/tree/main/packages/parser) 0.3.1 and [@mmd-toolkit/ast](https://github.com/mmd-toolkit/mmd-toolkit) 0.3.1 | MIT | Mermaid source rules (frontmatter, `%%` comment lines, `%%{…}%%` directives, entities, HTML attribute quotes, the `style`/`classDef` semicolon rule), diagram-type detection, and the flowchart lexer contexts and grammar, written from the package's documented rules (`src/qawrench/mermaid_paths/mermaid.py`). The table of Unicode code points read as flowchart "letters" (`_letters.py`) is transcribed from it; that table originates in Mermaid's flowchart grammar. Shape names, arrow marker names and error wording follow its AST and messages. |
+| [@dagrejs/graphlib](https://github.com/dagrejs/graphlib) 4.0.7 | MIT | Strongly connected components (Tarjan) and unit-weight Dijkstra shortest paths, including graphlib's binary-heap priority queue and its tie-breaking, so loop return routes are identical (`diagram.py`). |
+| [marked](https://github.com/markedjs/marked) 18.2.0 | MIT | GFM block tokenizer rules and algorithms (fences, indented code, headings, thematic breaks, block quotes, lists, HTML blocks, definitions, tables, paragraphs) used to find Mermaid code fences and render Markdown labels; inline rendering is a simplified equivalent (`_marked.py`). Several block-level regular expressions are adapted from Marked's sources. |
+| [parse5](https://github.com/inikulin/parse5) 8.1.1 | MIT | Reading text out of label HTML: an HTML5-style tokenizer with WHATWG character-reference decoding (using the standard library's `html.entities` table) and the tool's own label walk (`htmltext.py`). Only the effects of tree construction that change readable text are approximated. |
+| [html-validate](https://gitlab.com/html-validate/html-validate) 11.21.0 (dev dependency) | MIT | Not reimplemented. The original HTML conformance tests are replaced by a smaller standard-library structural checker in `tests/mermaid_paths/support.py`. |
+
+Language tags are validated and canonicalized in Python following the Unicode BCP 47
+locale-identifier syntax (UTS #35), with a small built-in subset of CLDR alias data
+instead of the JavaScript runtime's `Intl.Locale`.
+
+**Copied upstream material.** `tests/mermaid_paths/fixtures/upstream/flowchart-*.mmd`
+are 110 examples extracted unchanged from the Mermaid 11.12.0 flowchart documentation
+([`packages/mermaid/src/docs/syntax/flowchart.md`](https://github.com/mermaid-js/mermaid/blob/mermaid%4011.12.0/packages/mermaid/src/docs/syntax/flowchart.md)),
+Copyright (c) 2014 - 2022 Knut Sveidqvist, MIT License. The license text is kept next to
+the fixtures (`tests/mermaid_paths/fixtures/upstream/LICENSE.mermaid`) and in
+[`licenses/mermaid-paths/LICENSE.mermaid`](licenses/mermaid-paths/LICENSE.mermaid). The
+accompanying `manifest.json` (provenance, digests, scope decisions) and
+`expected.json` (node labels and edges recorded once from the official Mermaid 11.12.0
+parser, run under jsdom 26.1.0 (MIT) without rendering) are factual test data
+produced by the original project. Mermaid and jsdom are not distributed.
+
+**Formats and specifications referenced:** Mermaid flowchart syntax (11.12.0, with
+the supported fixtures also checked against 12.3.0); CommonMark/GitHub Flavored
+Markdown as implemented by Marked; the WHATWG HTML tokenizer and named character
+references; BCP 47 / UTS #35 language tags; the WAI-ARIA Authoring Practices link and
+landmark guidance. The `mermaid-paths/graph-v1` and `mermaid-paths/review-v1` JSON
+formats are defined by this project and kept unchanged.
+
+**Trademarks.** Mermaid is a project of its maintainers. qawrench is not affiliated with
+or endorsed by the Mermaid, mmd-toolkit, Marked, parse5, graphlib, html-validate or
+mermaid-a11y projects; the names only identify the syntax and behaviour reimplemented.
