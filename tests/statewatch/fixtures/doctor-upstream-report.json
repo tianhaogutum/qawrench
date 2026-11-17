@@ -1,0 +1,43 @@
+{
+  "format": "flakedoctor-report",
+  "version": 1,
+  "tool": {
+    "name": "pytest-flakedoctor",
+    "version": "0.1.2"
+  },
+  "env": {
+    "python": "3.12.14",
+    "platform": "darwin",
+    "hashseed_inherited": null
+  },
+  "nodeid": "test_demo.py::test5",
+  "verdict": "incomplete",
+  "claim": "none",
+  "headline": "diagnosis incomplete (budget exhausted)",
+  "explanation": "The run budget ran out before the diagnosis could finish. What was collected is shown below; raise --doctor-budget to complete it.",
+  "evidence": [
+    {
+      "label": "baseline (isolated, no perturbation)",
+      "runs": 2,
+      "failed": 0,
+      "note": ""
+    }
+  ],
+  "repro": null,
+  "warnings": [
+    "budget exhausted after 2 runs \u2014 later phases were skipped or truncated; raise --doctor-budget for a full pass"
+  ],
+  "stats": {
+    "baseline": {
+      "runs": 2,
+      "attempted": 2,
+      "excluded": 0,
+      "failed": 0,
+      "failure_rate": 0.0,
+      "distinct_fingerprints": 0,
+      "dominant_fingerprint": null
+    }
+  },
+  "elapsed_seconds": 0.26,
+  "total_runs": 2
+}

@@ -1,0 +1,28 @@
+{
+  "tests": 6,
+  "paths": 94,
+  "truncated": false,
+  "findings": [
+    {
+      "kind": "set-once",
+      "severity": "ok",
+      "path": "module:test_demo.leak_state",
+      "tests": 1,
+      "examples": [
+        "test_demo.py::test3"
+      ],
+      "note": "set once, then stable: fine if it is a cache that is safe to share between threads.",
+      "nodeids": [
+        "test_demo.py::test3"
+      ]
+    }
+  ],
+  "unsafe_tests": [],
+  "unsafe_fixtures": [],
+  "notes": {
+    "per-test": "changes while tests run, so concurrent tests see each other's value. Make it per lane (a contextvar), or mark the tests lanes_exclusive.",
+    "patched": "patched while a test runs; under lanes the patch is visible to every test in the process. Mark the test lanes_exclusive, or patch something lane-local.",
+    "grows": "grows with every test: check that it is thread-safe and that nothing reads its last entry as 'the current test'.",
+    "set-once": "set once, then stable: fine if it is a cache that is safe to share between threads."
+  }
+}

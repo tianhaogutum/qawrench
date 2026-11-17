@@ -1,0 +1,78 @@
+{
+  "format": "flakedoctor-report",
+  "version": 1,
+  "tool": {
+    "name": "pytest-flakedoctor",
+    "version": "0.1.2"
+  },
+  "env": {
+    "python": "3.12.14",
+    "platform": "darwin",
+    "hashseed_inherited": null
+  },
+  "nodeid": "test_demo.py::test5",
+  "verdict": "flaky-order",
+  "claim": "observed",
+  "headline": "test-order dependent",
+  "explanation": "The test passes 3/3 times on its own, but fails when run after test_demo.py::test3 \u2014 fails every run in this order. This is a test-order dependency: test_demo.py::test3 leaves behind state (a global, a cached import, a file, a patched attribute, a database row) that the victim depends on being absent. Fix whichever test does not clean up after itself, or make the victim independent of that state.",
+  "evidence": [
+    {
+      "label": "baseline (isolated, no perturbation)",
+      "runs": 3,
+      "failed": 0,
+      "note": ""
+    },
+    {
+      "label": "after full suite prefix (4 tests)",
+      "runs": 3,
+      "failed": 3,
+      "note": ""
+    },
+    {
+      "label": "VERIFY: after test_demo.py::test3",
+      "runs": 10,
+      "failed": 10,
+      "note": "\u2713 deterministic"
+    },
+    {
+      "label": "counterfactual: victim alone",
+      "runs": 5,
+      "failed": 0,
+      "note": "\u2713 passes"
+    }
+  ],
+  "repro": {
+    "axis": "order",
+    "value": "test_demo.py::test3",
+    "polluters": [
+      "test_demo.py::test3"
+    ],
+    "note": "fails every run in this order",
+    "blob": "fd1:eNpljMEKwjAQRP9lzyFkE0LM_oqIVLORgu2WtIil9N_dnD3OzJt3wPDlFeg4DTxlrmObgK7oDLqbgVkKA8GQMBSfYubqwYC0wk0p2Hjd7oUnsctO1FPQ-b-NoK5lV1Ow2A3r-NLgL5hzzA-fSu0_kbe2zqLtzAcIzx9D5y6m",
+    "hashseed": null,
+    "tz": null,
+    "command": "pytest test_demo.py::test3 test_demo.py::test5 --doctor-repro=fd1:eNpljMEKwjAQRP9lzyFkE0LM_oqIVLORgu2WtIil9N_dnD3OzJt3wPDlFeg4DTxlrmObgK7oDLqbgVkKA8GQMBSfYubqwYC0wk0p2Hjd7oUnsctO1FPQ-b-NoK5lV1Ow2A3r-NLgL5hzzA-fSu0_kbe2zqLtzAcIzx9D5y6m"
+  },
+  "warnings": [],
+  "stats": {
+    "baseline": {
+      "runs": 3,
+      "attempted": 3,
+      "excluded": 0,
+      "failed": 0,
+      "failure_rate": 0.0,
+      "distinct_fingerprints": 0,
+      "dominant_fingerprint": null
+    },
+    "order": {
+      "prefix_len": 4,
+      "polluters": [
+        "test_demo.py::test3"
+      ],
+      "minimal": true,
+      "verified": true
+    }
+  },
+  "elapsed_seconds": 3.8,
+  "total_runs": 28
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "run_id": "3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a",
+  "events_file": "/work/project/.statewatch/demo/events.jsonl",
+  "manifest_file": "/work/project/.statewatch/demo/run.json",
+  "status": "observed",
+  "original_exit_code": 1,
+  "exit_code": 1,
+  "duration_seconds": 2.418653,
+  "baseline": {
+    "cwd": {
+      "status": "value",
+      "value": "/work/project"
+    },
+    "var:test_service:SETTINGS": {
+      "status": "value",
+      "value": {
+        "endpoint": "https://example.invalid",
+        "headers": []
+      }
+    }
+  },
+  "tests": [
+    {
+      "nodeid": "examples/statewatch/test_service.py::test_monkeypatch_is_clean",
+      "index": 0,
+      "reports": [
+        {
+          "when": "setup",
+          "outcome": "passed"
+        },
+        {
+          "when": "call",
+          "outcome": "passed"
+        },
+        {
+          "when": "teardown",
+          "outcome": "passed"
+        }
+      ],
+      "changed_fields": [],
+      "leaked_fields": [],
+      "inherited": []
+    },
+    {
+      "nodeid": "examples/statewatch/test_service.py::test_polluter",
+      "index": 1,
+      "reports": [
+        {
+          "when": "setup",
+          "outcome": "passed"
+        },
+        {
+          "when": "call",
+          "outcome": "passed"
+        },
+        {
+          "when": "teardown",
+          "outcome": "passed"
+        }
+      ],
+      "changed_fields": [
+        "cwd",
+        "env:SW_SERVICE_MODE",
+        "var:test_service:SETTINGS"
+      ],
+      "leaked_fields": [
+        "cwd",
+        "env:SW_SERVICE_MODE",
+        "var:test_service:SETTINGS"
+      ],
+      "inherited": []
+    },
+    {
+      "nodeid": "examples/statewatch/test_service.py::test_victim",
+      "index": 2,
+      "reports": [
+        {
+          "when": "setup",
+          "outcome": "passed"
+        },
+        {
+          "when": "call",
+          "outcome": "failed",
+          "failure_signature": {
+            "when": "call",
+            "exception_type": "builtins.AssertionError",
+            "file": "/work/project/examples/statewatch/test_service.py",
+            "line": 21
+          }
+        },
+        {
+          "when": "teardown",
+          "outcome": "passed"
+        }
+      ],
+      "changed_fields": [],
+      "leaked_fields": [],
+      "inherited": [
+        {
+          "field": "cwd",
+          "first_writer": "examples/statewatch/test_service.py::test_polluter",
+          "last_writer": "examples/statewatch/test_service.py::test_polluter"
+        },
+        {
+          "field": "env:SW_SERVICE_MODE",
+          "first_writer": "examples/statewatch/test_service.py::test_polluter",
+          "last_writer": "examples/statewatch/test_service.py::test_polluter"
+        },
+        {
+          "field": "var:test_service:SETTINGS",
+          "first_writer": "examples/statewatch/test_service.py::test_polluter",
+          "last_writer": "examples/statewatch/test_service.py::test_polluter"
+        }
+      ]
+    }
+  ],
+  "tests_with_net_changes": 1,
+  "tests_with_leaks": 1,
+  "first_observed_writers": {
+    "cwd": "examples/statewatch/test_service.py::test_polluter",
+    "env:SW_SERVICE_MODE": "examples/statewatch/test_service.py::test_polluter",
+    "var:test_service:SETTINGS": "examples/statewatch/test_service.py::test_polluter"
+  },
+  "duplicate_nodeids": [],
+  "unattributed_changes": [],
+  "observer_errors": [],
+  "observer_errors_omitted": 0,
+  "confirmations": [
+    {
+      "victim": "examples/statewatch/test_service.py::test_victim",
+      "baseline": {
+        "nodeids": [
+          "examples/statewatch/test_service.py::test_victim"
+        ],
+        "replay_file": "/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/000.jsonl",
+        "argv": [
+          "/work/project/.venv/bin/python",
+          "-m",
+          "pytest",
+          "-p",
+          "replay",
+          "-p",
+          "statewatch",
+          "--replay=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/000.jsonl",
+          "--statewatch=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/policy.json",
+          "--statewatch-output=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/000",
+          "--statewatch-replay-child",
+          "examples/statewatch/test_service.py"
+        ],
+        "command": "cd /work/project && /work/project/.venv/bin/python -m pytest -p replay -p statewatch --replay=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/000.jsonl --statewatch=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/policy.json --statewatch-output=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/000 --statewatch-replay-child examples/statewatch/test_service.py",
+        "status": "finished",
+        "exit_code": 0,
+        "log": "/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/000.log",
+        "victim_outcome": "passed",
+        "observations_complete": true,
+        "actual_nodeids": [
+          "examples/statewatch/test_service.py::test_victim"
+        ],
+        "order_matches": true,
+        "failure_signatures": []
+      },
+      "pairs": [
+        {
+          "nodeids": [
+            "examples/statewatch/test_service.py::test_polluter",
+            "examples/statewatch/test_service.py::test_victim"
+          ],
+          "replay_file": "/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/001.jsonl",
+          "argv": [
+            "/work/project/.venv/bin/python",
+            "-m",
+            "pytest",
+            "-p",
+            "replay",
+            "-p",
+            "statewatch",
+            "--replay=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/001.jsonl",
+            "--statewatch=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/policy.json",
+            "--statewatch-output=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/001",
+            "--statewatch-replay-child",
+            "examples/statewatch/test_service.py"
+          ],
+          "command": "cd /work/project && /work/project/.venv/bin/python -m pytest -p replay -p statewatch --replay=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/001.jsonl --statewatch=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/policy.json --statewatch-output=/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/001 --statewatch-replay-child examples/statewatch/test_service.py",
+          "status": "pair_reproduced",
+          "exit_code": 1,
+          "log": "/work/project/.statewatch/demo/replays/3f6b2d7c9e1a405f0c2a7e9d4b4c1e8a/001.log",
+          "victim_outcome": "failed",
+          "observations_complete": true,
+          "actual_nodeids": [
+            "examples/statewatch/test_service.py::test_polluter",
+            "examples/statewatch/test_service.py::test_victim"
+          ],
+          "order_matches": true,
+          "failure_signatures": [
+            {
+              "when": "call",
+              "exception_type": "builtins.AssertionError",
+              "file": "/work/project/examples/statewatch/test_service.py",
+              "line": 21
+            }
+          ],
+          "writer": "examples/statewatch/test_service.py::test_polluter",
+          "fields": [
+            "cwd",
+            "env:SW_SERVICE_MODE",
+            "var:test_service:SETTINGS"
+          ],
+          "execution_status": "finished",
+          "failure_matches": true
+        }
+      ],
+      "status": "pair_reproduced"
+    }
+  ],
+  "confirmation_interrupted": false,
+  "attribution": "test protocol boundary; fixture setup/cleanup can be responsible",
+  "causality": "pair_reproduced means one clean pass then one failing ordered pair; it does not prove a particular field caused the failure"
+}

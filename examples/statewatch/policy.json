@@ -1,0 +1,7 @@
+{
+  "env": ["SW_SERVICE_*"],
+  "cwd": true,
+  "variables": ["test_service:SETTINGS"],
+  "allow": [],
+  "redact": []
+}
